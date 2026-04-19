@@ -7,47 +7,21 @@ using DG.Tweening;
 
 public class Sounds : MonoBehaviour
 {
-    public static Sounds chooseSound { get; private set; }
+    public static Sounds ChooseSound { get; private set; }
     [SerializeField] private AudioMixerGroup mixer;
-    public AudioSource simpleGameBack;
-    public AudioSource startMenu;
-    public AudioSource finishTrack;
-    public AudioSource takeCard;
-    public AudioSource getCard;
-    public AudioSource putCard;
-    public AudioSource closeCard;
-    public AudioSource toBleed;
-    public AudioSource butonClick;
-    public AudioSource buy;
-    public AudioSource potion;    
-    public AudioSource openInfo;
-    public AudioSource combo;
-    public AudioSource comboComplete;
-    public AudioSource enemyFinish;
-    public AudioSource finish;
-    public AudioSource useDemon;
-    public AudioSource damage;
-    public AudioSource hero;
-    public AudioSource changePage;
-    public AudioSource selectCard;
-    public AudioSource takeReward;
-    public AudioSource setReward;
-    public AudioSource damageUp;
-    public AudioSource relicUse;
-    public AudioSource debufUse;
-    public AudioSource bossCard;
-    public AudioSource showFinishPanel;
-    public AudioSource[] mapBackGround;
+
+    [field: SerializeField] public AudioSource ButonClick { get; private set; }
+    [field:SerializeField] public AudioSource[] BackGround { get; private set; }
 
     private AudioSource _curBackground;
     [Inject]
     private void Init()
     {
-        if (chooseSound == null)
+        if (ChooseSound == null)
         {
-            chooseSound = this;
+            ChooseSound = this;
         }
-        else if(chooseSound == this)
+        else if(ChooseSound == this)
         {
             Destroy(gameObject);
         }           
@@ -90,12 +64,8 @@ public class Sounds : MonoBehaviour
     {
         switch(typeNumber)
         {
-            case 0: butonClick.Play();
+            case 0: ButonClick.Play();
                break;
-            //case 2: buyAtCoins.Play();
-            //    break;
-            //default: otherButtons.Play();
-            //    break;
         }
     }
     public void ChangeBackground(AudioSource source)
@@ -126,7 +96,6 @@ public class Sounds : MonoBehaviour
         {
             _curBackground.Stop();
             _curBackground = source;
-        });
-        
+        });        
     }
 }

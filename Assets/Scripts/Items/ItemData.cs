@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemData", menuName = "ItemData")]
 public class ItemData : ScriptableObject
 {
+    [field: SerializeField] public int Index; 
     [field: SerializeField] public string Name; 
     [field: SerializeField, TextArea] public string Description; 
     [field: SerializeField, ShowAssetPreview] public Sprite Icon; 

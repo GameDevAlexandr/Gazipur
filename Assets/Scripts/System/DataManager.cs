@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DataManager
+{
+    public int Money { get; private set; }
+    public HeroInfo Hero { get; private set; }
+    public ItemInfo[] Inventory { get; private set; }
+    public List<ItemInfo> HomeBox { get; private set; }
+    
+    [System.Serializable]
+    public class HeroInfo
+    {
+        public int health;
+        public int thirst;
+        public int intoxication;
+    }
+
+    [System.Serializable]
+    public class ItemInfo
+    {
+        public int index =-1;
+        public int count = 0;
+    }
+    public void UpdateInventoryCell(int cellIndex, int itemIndex ,int count)
+    {
+        Inventory[cellIndex].count = count;
+        Inventory[cellIndex].index = itemIndex;
+    }
+    public void UpdateInventory(InventoryCell[] cells)
+    {
+        Inventory = new ItemInfo[cells.Length];
+        for (int i = 0; i < Inventory.Length; i++)
+        {            
+            if (cells[i].Item != null)
+            {
+                Inventory[i] = new ItemInfo() { count = cells[i].Count, index = cells[i].Item.Index };
+                continue;
+            }
+            Inventory[i] = new ItemInfo();
+        }
+    }
+}
