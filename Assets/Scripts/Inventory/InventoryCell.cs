@@ -11,6 +11,7 @@ public class InventoryCell : MonoBehaviour, IDragHandler, IDropHandler
     [SerializeField] private Image _itemIcon;
     [SerializeField] private Text _countText;
     [Inject] private ItemsManager _itemsManager;
+    [Inject] private DataManager _data;
     public void SetReady(bool ready) => IsReady = ready;
     public int AddItem(ItemData item, int count)
     {

@@ -11,9 +11,9 @@ public class DataManager
     [System.Serializable]
     public class HeroInfo
     {
-        public int health;
-        public int thirst;
-        public int intoxication;
+        public float health;
+        public float thirst;
+        public float hunger;
     }
 
     [System.Serializable]
