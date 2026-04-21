@@ -5,12 +5,15 @@ using Zenject;
 
 public class PlayerState : MonoBehaviour
 {
+    public float CurCapacity { get; private set; }
+    public float MaxCapacity { get; private set; }
     [SerializeField] private float _hungerPerSecond;
     [SerializeField] private float _thirstPerSecond;
     [SerializeField] private float _hungerForHealing;
     [SerializeField] private float _thristForHealing;
     [SerializeField] private float _damagePerSecond;
     [SerializeField] private float _healingPerSecond;
+    
     [SerializeField] private ProgressBar _healthBar;
     [SerializeField] private ProgressBar _hungerBar;
     [SerializeField] private ProgressBar _thirstBar;

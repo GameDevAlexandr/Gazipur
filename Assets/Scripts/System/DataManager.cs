@@ -3,6 +3,7 @@ using UnityEngine;
 using static EnumData;
 public class DataManager
 {
+    public System.Action onChangeMoney;
     public int Money { get; private set; }
     public GameMode gameMode;
     public HeroInfo Hero { get; private set; }
@@ -40,5 +41,10 @@ public class DataManager
             }
             Inventory[i] = new ItemInfo();
         }
+    }
+    public void ChangeMoney(int count)
+    {
+        Money += count;
+        onChangeMoney?.Invoke();
     }
 }

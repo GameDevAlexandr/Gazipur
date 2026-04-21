@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
-public class InventoryCell : MonoBehaviour, IDragHandler, IDropHandler
+public class InventoryCell : MonoBehaviour, IDragHandler, IDropHandler, IPointerClickHandler
 {
     public bool IsReady { get; private set; }
     public ItemData Item { get; private set; }
@@ -64,5 +64,14 @@ public class InventoryCell : MonoBehaviour, IDragHandler, IDropHandler
             }
         }
         _itemIcon.transform.position = transform.position;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+       if(_data.gameMode== EnumData.GameMode.market && 
+            eventData.button == PointerEventData.InputButton.Left)
+        {
+
+        }
     }
 }
