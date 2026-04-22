@@ -22,6 +22,7 @@ public class PlayerState : MonoBehaviour
     private DataManager.HeroInfo _info;
     private void Start()
     {
+        _data.SetDeffoultHeroState();
         _info = _data.Hero;
         StartCoroutine(Tic());
         SetState();
@@ -30,9 +31,10 @@ public class PlayerState : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(1);
             _info.hunger -= _hungerPerSecond;
             _info.thirst -= _thirstPerSecond;
-            if(_info.hunger == 0 || _info.thirst == 0)
+            if(_info.hunger <= 0 || _info.thirst <= 0)
             {
                 _info.health -= _damagePerSecond;
             }
