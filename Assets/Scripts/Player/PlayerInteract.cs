@@ -12,12 +12,14 @@ public class PlayerInteract : MonoBehaviour
     }
     private void SelectObject(InteractObject obj)
     {
-        if (Mathf.Abs(Vector3.Distance(transform.position, obj.transform.position)) <= _interactableDistance)
-        {
-            if (_selectObject != null)
-                _selectObject.Select(false);
+        if (_selectObject != null)
+            _selectObject.Select(false);
 
-            _selectObject = obj;
+        _selectObject = obj;
+
+        if (obj && Mathf.Abs(Vector3.Distance(transform.position, obj.transform.position)) <= _interactableDistance)
+        {
+           
 
             if (_selectObject != null)
                 _selectObject.Select(true);

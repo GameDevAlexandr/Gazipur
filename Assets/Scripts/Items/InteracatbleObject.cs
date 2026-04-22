@@ -4,11 +4,11 @@ using UnityEngine;
 public abstract class InteractObject : MonoBehaviour
 {
     private Outline _outline; 
-    private void Start()
+    public void Select(bool isSelect)
     {
-        _outline.GetComponent<Outline>();
+        _outline ??= GetComponent<Outline>();
+        _outline.enabled = isSelect;
     }
-    public void Select(bool isSelect) => _outline.enabled = isSelect;
     public abstract void Intearct();
 }
 

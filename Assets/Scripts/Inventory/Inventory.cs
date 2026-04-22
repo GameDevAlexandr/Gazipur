@@ -3,11 +3,17 @@ using Zenject;
 
 public class Inventory : MonoBehaviour
 {
+    [field: SerializeField] public float Capacity { get; private set; }
     [SerializeField] private InventoryCell[] _cells;
     [Inject] DataManager _data;
     public int AddItem(ItemData item, int count)
     {
-        int res;
+        float weight = GetWeight();
+        float cap = Capacity - weight;
+        if (item.Weight * count > cap)
+        {
+            count -= (int)(cap / item.Weight);
+        }
         foreach (var c in _cells)
         {            
             if (!c.IsReady) continue;
@@ -30,5 +36,17 @@ public class Inventory : MonoBehaviour
             }
         }
         return count;
+    }
+    public float GetWeight()
+    {
+        float res = 0;
+        foreach (var c in _cells)
+        {
+            if (c.Item)
+            {
+                res += c.Item.Weight * c.Count;
+            }
+        }
+        return res;
     }
 }
