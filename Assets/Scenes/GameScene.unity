@@ -3901,6 +3901,94 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.6169405, y: 3.4279442, z: 7.396737}
   m_Center: {x: 1.5782375, y: 1.0011868, z: -1.1764838}
+--- !u!1 &816007019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816007020}
+  - component: {fileID: 816007022}
+  - component: {fileID: 816007021}
+  - component: {fileID: 816007023}
+  m_Layer: 5
+  m_Name: HoldProgressBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &816007020
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816007019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963426039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &816007021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816007019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cb24d10202abb5f4a9053d3301648580, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &816007022
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816007019}
+  m_CullTransparentMesh: 1
+--- !u!114 &816007023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816007019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87242c812c0c6c4ab8f291362bd8857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,6 +4361,11 @@ Transform:
   - {fileID: 2056685660}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &963426039 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1543082016836076945, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
+  m_PrefabInstance: {fileID: 1125471432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996506096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1925956292502984419, guid: a59265b0b8220ae47ad181783f356e23, type: 3}
@@ -4443,6 +4536,14 @@ PrefabInstance:
       propertyPath: '_cells.Array.data[14]'
       value: 
       objectReference: {fileID: 1125471433}
+    - target: {fileID: 9030879383889773401, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: holdProgressBar
+      value: 
+      objectReference: {fileID: 816007023}
+    - target: {fileID: 9030879383889773401, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: holdProgressBarObject
+      value: 
+      objectReference: {fileID: 816007019}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4882,7 +4983,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1543082016836076945, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 816007020}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
 --- !u!114 &1125471433 stripped
