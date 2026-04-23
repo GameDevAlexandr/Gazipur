@@ -4371,6 +4371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7833129832468042108, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _market
+      value: 
+      objectReference: {fileID: 2135768495}
     - target: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
       propertyPath: _inventoryPanel
       value: 
@@ -9796,6 +9800,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129821202}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2135768495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5047724525042763040, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+  m_PrefabInstance: {fileID: 1014146281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5e5ca966d42474387941a381cca17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarketManager
 --- !u!1 &2146159461
 GameObject:
   m_ObjectHideFlags: 0
