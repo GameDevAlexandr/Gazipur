@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InfoPanel
   _cGroup: {fileID: 4962090251748424717}
   _showDuration: 0.3
-  _alpha: 0
+  _alpha: 0.6
   _image: {fileID: 0}
   _descriptions:
   - {fileID: 9045015437687704107}
