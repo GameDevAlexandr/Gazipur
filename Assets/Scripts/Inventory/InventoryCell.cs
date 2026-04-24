@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
-public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IEndDragHandler, IPointerClickHandler
+public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public bool IsReady { get; private set; }
     public ItemData Item { get; private set; }
@@ -13,6 +13,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     [Inject] private ItemsManager _itemsManager;
     [Inject] private DataManager _data;
     [Inject] private MarketManager _market;
+    [Inject] private Inventory _inventory;
     public void SetReady(bool ready) => IsReady = ready;
     public int AddItem(ItemData item, int count)
     {
@@ -22,6 +23,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
         int remains = Mathf.Max((Count + count) - item.MaxInInventoryCell, 0);
         Count = Mathf.Min(Item.MaxInInventoryCell, Count + count);
         _countText.text = Count.ToString();
+        _inventory.ChangeCellState(this);
         return remains;
     }
     public void RemoveItem()
@@ -30,6 +32,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
         _itemIcon.enabled = false;
         Count = 0;
         _countText.text = "";
+        _inventory.ChangeCellState(this);
     }
     public void RemoveItem(int count)
     {
@@ -40,6 +43,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
         }
         Count -= count;
         _countText.text = Count.ToString();
+        _inventory.ChangeCellState(this);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -66,15 +70,27 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
             if (target = eventData.pointerDrag.GetComponent<InventoryCell>())
             {
                 int cnt = target.Count;
-                int rem = AddItem(target.Item, target.Count);
-                target.RemoveItem(cnt - rem);
+                var itm = target.Item;
+                int rem;
+                if (Item == itm || !Item)
+                {
+                    rem = AddItem(target.Item, target.Count);
+                    target.RemoveItem(cnt - rem);
+                }
+                else
+                {
+                    target.RemoveItem();
+                    target.AddItem(Item, Count);
+                    RemoveItem();
+                    AddItem(itm, cnt);
+                }
             }
         }        
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-       if(_data.gameMode== EnumData.GameMode.market && 
+       if(_data.gameMode== EnumData.GameMode.sell && 
             eventData.button == PointerEventData.InputButton.Left)
         {
             _market.TradePanel.SetItem(this);
@@ -85,5 +101,16 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     {
         _itemIcon.transform.parent = transform;
         _itemIcon.transform.position = transform.position;        
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(Item)
+            _inventory.ShowInfoPanel(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _inventory.ShowInfoPanel(null);
     }
 }

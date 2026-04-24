@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -42,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isGrounded;
     public bool IsGrounded => _isGrounded;
-
+    private bool _isUIMode;
+    [Inject] GameModeManager _gameMode;
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        _gameMode.onChangeMode += SetMode;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; // Скрываем курсор
 
@@ -96,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (_isUIMode) return;
         HandleCrouch();
         ApplyGravity();
         HandleMovement();
@@ -263,5 +267,19 @@ public class PlayerMovement : MonoBehaviour
         _velocity.y -= _gravity * Time.deltaTime;
         Vector3 verticalMove = new Vector3(0, _velocity.y, 0) * Time.deltaTime;
         _controller.Move(verticalMove);
+    }
+    private void SetMode(EnumData.GameMode mode)
+    {
+        _isUIMode = mode != EnumData.GameMode.home;
+        if (mode != EnumData.GameMode.home)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

@@ -7,6 +7,7 @@ public class GameModeManager : MonoBehaviour
 {
     public UnityEvent homeModeEvent = new UnityEvent();
     public UnityEvent marketMode = new UnityEvent();
+    public System.Action<GameMode> onChangeMode;
     [Inject] DataManager _data;
     public void ChangeMode(GameMode mode)
     {
@@ -14,17 +15,17 @@ public class GameModeManager : MonoBehaviour
         {
             case GameMode.home:
                 {
-                    _data.gameMode = GameMode.home;
                     homeModeEvent?.Invoke();
                     break;
                 }
 
-            case GameMode.market:
+            case GameMode.sell:
                 {
-                    _data.gameMode = GameMode.market;
                     marketMode?.Invoke();
                     break;
                 }
         }
+        _data.gameMode = mode;
+        onChangeMode?.Invoke(mode);
     }
 }

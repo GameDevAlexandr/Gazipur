@@ -10,7 +10,7 @@ public class Control : MonoBehaviour
     public static Action OnInteractObject;        // Короткое нажатие E (Tap)
     public static Action OnAlternativeInteract;   // Длинное нажатие E (Hold)
     public static Action OnOpenInventory;
-    public static Action<int> OnInventorySlotSelected;
+    public static Action<int> OnFastSlotUse;
 
     [Header("Компоненты")]
     [SerializeField] private GameObject holdProgressBarObject;
@@ -144,7 +144,7 @@ public class Control : MonoBehaviour
     // Короткое нажатие игнорируется, если игрок в процессе удержания
     private void OnInteractPerformed(InputAction.CallbackContext context)
     {
-        if (isHoldInProgress) return;
+       // if (isHoldInProgress) return;
 
         Debug.Log("Control: Вызвано короткое нажатие Е");
         OnInteractObject?.Invoke();
@@ -184,30 +184,30 @@ public class Control : MonoBehaviour
     private void OnSlot1Performed(InputAction.CallbackContext context)
     {
         Debug.Log("Control: Выбран слот инвентаря 1");
-        OnInventorySlotSelected?.Invoke(1);
+        OnFastSlotUse?.Invoke(1);
     }
 
     private void OnSlot2Performed(InputAction.CallbackContext context)
     {
         Debug.Log("Control: Выбран слот инвентаря 2");
-        OnInventorySlotSelected?.Invoke(2);
+        OnFastSlotUse?.Invoke(2);
     }
 
     private void OnSlot3Performed(InputAction.CallbackContext context)
     {
         Debug.Log("Control: Выбран слот инвентаря 3");
-        OnInventorySlotSelected?.Invoke(3);
+        OnFastSlotUse?.Invoke(3);
     }
 
     private void OnSlot4Performed(InputAction.CallbackContext context)
     {
         Debug.Log("Control: Выбран слот инвентаря 4");
-        OnInventorySlotSelected?.Invoke(4);
+        OnFastSlotUse?.Invoke(4);
     }
 
     private void OnSlot5Performed(InputAction.CallbackContext context)
     {
         Debug.Log("Control: Выбран слот инвентаря 5");
-        OnInventorySlotSelected?.Invoke(5);
+        OnFastSlotUse?.Invoke(5);
     }
 }

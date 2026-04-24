@@ -5,6 +5,8 @@ public static class EnumData
     public enum GameMode
     {
         home,
-        market
+        sell, 
+        buy,
+        inventory
     }
 }

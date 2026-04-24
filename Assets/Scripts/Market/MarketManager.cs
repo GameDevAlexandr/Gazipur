@@ -11,13 +11,13 @@ public class MarketManager : MonoBehaviour
     public void StartSellTrade()
     {
         TradePanel.Show();
-        _modeManager.ChangeMode(EnumData.GameMode.market);
+        _modeManager.ChangeMode(EnumData.GameMode.sell);
         _inventory.ShowPanel(true);
     }
     public void Exit()
     {
         TradePanel.gameObject.SetActive(false);
-        _modeManager.ChangeMode(EnumData.GameMode.market);
+        _modeManager.ChangeMode(EnumData.GameMode.sell);
         _inventory.ShowPanel(false);
     }
 }

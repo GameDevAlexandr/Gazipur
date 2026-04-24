@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   <Capacity>k__BackingField: 10
   _inventoryPanel: {fileID: 0}
+  _itemInfoPanel: {fileID: 0}
   _cells:
   - {fileID: 0}
   - {fileID: 0}
@@ -57,6 +58,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _fastCells:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -159,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0224331a6822d2b45bb506fe5fc119e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Control
+  holdProgressBarObject: {fileID: 0}
 --- !u!1 &4050437997748800565
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +366,7 @@ MonoBehaviour:
   _gameModeManager: {fileID: 2145915056775688092}
   _craftManager: {fileID: 5358036674629796589}
   _itemsManager: {fileID: 3310562886988007508}
+  _market: {fileID: 5047724525042763040}
 --- !u!1 &7581080193264035644
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a7e6af1cae9014aa9cac5c378afd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemsManager
-  _itemPrefab: {fileID: 0}
 --- !u!1 &8633647874610762907
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5e5ca966d42474387941a381cca17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarketManager
+  TraderPriceMultiplicator: 3
+  TradePanel: {fileID: 0}
 --- !u!1 &9079963262266491372
 GameObject:
   m_ObjectHideFlags: 0

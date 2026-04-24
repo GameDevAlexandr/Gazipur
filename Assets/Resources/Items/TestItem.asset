@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: TestItem
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <Index>k__BackingField: 0
-  <Name>k__BackingField: 
-  <Description>k__BackingField: 
+  <Name>k__BackingField: n_wire
   <Icon>k__BackingField: {fileID: -1834301013, guid: 4b981a695afc33e4ea9a28c6cd9f4539, type: 3}
   <Price>k__BackingField: 10
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 1
-  <Mesh>k__BackingField: {fileID: 2300000, guid: 00999be0898609343b1b75422f0c8bfe, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: 0}
