@@ -47,6 +47,7 @@ MonoBehaviour:
   <Capacity>k__BackingField: 10
   _inventoryPanel: {fileID: 0}
   _itemInfoPanel: {fileID: 0}
+  _weightText: {fileID: 0}
   _cells:
   - {fileID: 0}
   - {fileID: 0}
@@ -285,6 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242473395473882805}
   - component: {fileID: 5927550575528345702}
+  - component: {fileID: 6919372883688673357}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -329,6 +331,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddc6e74ebc35f44c873b1b6b85cb1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LocalisationHandler
+--- !u!114 &6919372883688673357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866731703769001172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd5f16039274c94d98e8f42aac9245c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &7169188209235855558
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +394,8 @@ MonoBehaviour:
   _craftManager: {fileID: 5358036674629796589}
   _itemsManager: {fileID: 3310562886988007508}
   _market: {fileID: 5047724525042763040}
+  _playerState: {fileID: 271548721352557289}
+  _manager: {fileID: 6919372883688673357}
 --- !u!1 &7581080193264035644
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +535,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarketManager
   TraderPriceMultiplicator: 3
+  _buyItemPrefab: {fileID: 3357118547038453230, guid: f51578f4e7000704593580a542b3b94b, type: 3}
+  _buyItemsPanel: {fileID: 0}
+  _items:
+  - {fileID: 11400000, guid: db5a73d4ac5325e49b20329004f11fe5, type: 2}
+  - {fileID: 11400000, guid: d920a53c5e2638e43aeffffb1ea48147, type: 2}
+  - {fileID: 11400000, guid: e177735a2f0ea3b4ebc77b4d9bea36c3, type: 2}
   TradePanel: {fileID: 0}
 --- !u!1 &9079963262266491372
 GameObject:
@@ -564,4 +586,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41371f571cef0d42b203460e9ef96eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataManager
+  _moneyCount: {fileID: 0}
   gameMode: 0

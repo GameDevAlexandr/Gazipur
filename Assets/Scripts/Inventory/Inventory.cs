@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class Inventory : MonoBehaviour
@@ -6,6 +7,7 @@ public class Inventory : MonoBehaviour
     [field: SerializeField] public float Capacity { get; private set; }
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private InfoPanel _itemInfoPanel;
+    [SerializeField] private Text _weightText;         
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
 
@@ -72,7 +74,7 @@ public class Inventory : MonoBehaviour
             {
                 res += c.Item.Weight * c.Count;
             }
-        }
+        }        
         return res;
     }
     public void ShowPanel(bool isShow)
@@ -90,6 +92,7 @@ public class Inventory : MonoBehaviour
         {
             _fastCells[num].SetItem(cell.Item, cell.Count);
         }
+        _weightText.text = GetWeight() + "/" + Capacity;
     }
     private void UseFastSlot(int number)
     {

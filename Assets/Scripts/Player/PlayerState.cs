@@ -54,4 +54,19 @@ public class PlayerState : MonoBehaviour
         _hungerBar.SetAmountAndValue(_info.hunger, 100);
         _thirstBar.SetAmountAndValue(_info.thirst, 100);
     }
+    public void Heal(int count)
+    {
+        _info.health += count;
+        SetState();
+    }
+    public void Eat(int count)
+    {
+        _info.hunger += count;
+        SetState();
+    }
+    public void Drink(int count)
+    {
+        _info.thirst += count;
+        SetState();
+    }
 }

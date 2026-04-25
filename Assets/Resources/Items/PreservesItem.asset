@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d806d6e82e98cb409219b576fed1aec, type: 3}
-  m_Name: TestItem
+  m_Name: PreservesItem
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  <Index>k__BackingField: 0
-  <Name>k__BackingField: n_wire
-  <Icon>k__BackingField: {fileID: -1834301013, guid: 4b981a695afc33e4ea9a28c6cd9f4539, type: 3}
+  <Index>k__BackingField: 1
+  <Name>k__BackingField: n_preserves
+  <Icon>k__BackingField: {fileID: -424833359, guid: 4b981a695afc33e4ea9a28c6cd9f4539, type: 3}
   <Price>k__BackingField: 10
   <MaxInInventoryCell>k__BackingField: 100
-  <Weight>k__BackingField: 1
-  <ItemPrefab>k__BackingField: {fileID: 284852473571008229, guid: 837885bee9460c843b6f9c4521b45216, type: 3}
+  <Weight>k__BackingField: 0.5
+  <ItemPrefab>k__BackingField: {fileID: 5593514717490060262, guid: 8ec5dc7d22906ff449b34e3ac7cfdfe5, type: 3}

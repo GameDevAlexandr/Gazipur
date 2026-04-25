@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static EnumData;
 public class DataManager: MonoBehaviour
 {
+    [SerializeField] private Text _moneyCount;
     public System.Action onChangeMoney;
     public int Money { get; private set; }
     public GameMode gameMode;
@@ -46,6 +48,7 @@ public class DataManager: MonoBehaviour
     {
         Money += count;
         onChangeMoney?.Invoke();
+        _moneyCount.text = Money.ToString();
     }
     public void SetDeffoultHeroState()
     {

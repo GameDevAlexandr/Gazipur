@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class FastCell : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class FastCell : MonoBehaviour
     [SerializeField] private Image _noUsebleImage;
 
     private IUsebleItem _item;
-
+    [Inject] GameManager _manager;
     public void SetItem(ItemData item, int count)
     {
         if (!item)
@@ -25,6 +26,6 @@ public class FastCell : MonoBehaviour
     public void UseItem()
     {
         if(_item!=null)
-            _item.Use();
+            _item.Use(_manager);
     }
 }

@@ -18,6 +18,7 @@ public class BuyItemObject : MonoBehaviour
         _itemIcon.sprite = item.Icon;
         _priceText.text = _price.ToString();
         _buyButton.onClick.AddListener(Buy);
+        _buyButton.interactable = _data.Money >= _price;
         _data.onChangeMoney += () => _buyButton.interactable = _data.Money >= _price;
     }
     private void Buy()
