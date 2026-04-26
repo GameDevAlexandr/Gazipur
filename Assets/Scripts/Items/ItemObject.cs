@@ -19,8 +19,10 @@ public class ItemObject : InteractObject
         Count = count;
         Item = item;
     }
-    public override void Intearct()
+    public override void Intearct(bool isDown)
     {
+        if (!isDown) return;
+
         int cnt = _inventory.AddItem(Item, Count);
         if (cnt == 0)
         {

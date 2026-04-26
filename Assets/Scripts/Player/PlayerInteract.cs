@@ -8,10 +8,12 @@ public class PlayerInteract : MonoBehaviour
     private void Start()
     {
         Control.OnSelectObject += SelectObject;
-        Control.OnInteractObject += InteractObject;
+        Control.OnHoldInteract += InteractObject;
     }
     private void SelectObject(InteractObject obj)
     {
+        if (_selectObject != null && _selectObject == obj) return;
+
         if (_selectObject != null)
             _selectObject.Select(false);
 
@@ -25,11 +27,11 @@ public class PlayerInteract : MonoBehaviour
                 _selectObject.Select(true);
         }
     }
-    private void InteractObject()
+    private void InteractObject(bool isDown)
     {
         if (_selectObject != null)
         {
-            _selectObject.Intearct();
+            _selectObject.Intearct(isDown);
         }
     }
 }

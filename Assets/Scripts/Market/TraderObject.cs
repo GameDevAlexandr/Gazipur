@@ -4,8 +4,9 @@ using Zenject;
 public class TraderObject : InteractObject
 {
     [Inject] MarketManager _market;
-    public override void Intearct()
+    public override void Intearct(bool isDown)
     {
-        _market.StartSellTrade();
+        if(isDown)
+            _market.StartSellTrade();
     }
 }

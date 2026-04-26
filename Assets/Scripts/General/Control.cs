@@ -8,40 +8,36 @@ public class Control : MonoBehaviour
     public static Action<Vector2> OnMouseDownInObject;
     public static Action<InteractObject> OnSelectObject;
     public static Action OnInteractObject;        // Короткое нажатие E (Tap)
-    public static Action OnAlternativeInteract;   // Длинное нажатие E (Hold)
+    public static Action<bool> OnHoldInteract;   // Длинное нажатие E (Hold)
     public static Action OnOpenInventory;
     public static Action<int> OnFastSlotUse;
 
-    [Header("Компоненты")]
-    [SerializeField] private GameObject holdProgressBarObject;
-
     private PlayerInputActions inputActions;
-    private HoldProgressBar holdProgressBar;
     private bool isHoldInProgress = false;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
 
-        if (holdProgressBarObject != null)
-        {
-            holdProgressBar = holdProgressBarObject.GetComponent<HoldProgressBar>();
-            if (holdProgressBar != null)
-            {
-                holdProgressBar.OnHoldComplete += OnHoldComplete;
-                holdProgressBar.OnHoldCancel += OnHoldCancel;
-            }
-            else
-            {
-                Debug.LogWarning("Control: На объекте HoldProgressBarObject нет компонента HoldProgressBar!");
-            }
+        //if (holdProgressBarObject != null)
+        //{
+        //    holdProgressBar = holdProgressBarObject.GetComponent<HoldProgressBar>();
+        //    if (holdProgressBar != null)
+        //    {
+        //        holdProgressBar.OnHoldComplete += OnHoldComplete;
+        //        holdProgressBar.OnHoldCancel += OnHoldCancel;
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning("Control: На объекте HoldProgressBarObject нет компонента HoldProgressBar!");
+        //    }
 
-            holdProgressBarObject.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning("Control: HoldProgressBarObject не назначен в инспекторе!");
-        }
+        //    holdProgressBarObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("Control: HoldProgressBarObject не назначен в инспекторе!");
+        //}
     }
 
     private void OnEnable()
@@ -49,8 +45,8 @@ public class Control : MonoBehaviour
         inputActions.Enable();
 
         inputActions.Player.Interact.performed += OnInteractPerformed;
-        inputActions.Player.HoldInteract.started += OnHoldInteractStarted;
-        inputActions.Player.HoldInteract.canceled += OnHoldInteractCanceled;
+        inputActions.Player.HoldInteract.started +=cnt => OnHoldInteract(true); 
+        inputActions.Player.HoldInteract.canceled += cnt => OnHoldInteract(false);
         inputActions.Player.HoldInteract.performed += OnHoldInteractPerformed;
 
         inputActions.Player.Inventory.performed += OnInventoryButtonPressed;
@@ -107,15 +103,7 @@ public class Control : MonoBehaviour
 
     private void OnHoldInteractStarted(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Начало удержания Е");
         isHoldInProgress = true;
-
-        if (holdProgressBarObject != null)
-        {
-            holdProgressBarObject.SetActive(true);
-            if (holdProgressBar != null)
-                holdProgressBar.StartHold();
-        }
     }
 
     // Кнопка отпущена до завершения холда
@@ -123,14 +111,14 @@ public class Control : MonoBehaviour
     {
         if (isHoldInProgress)
         {
-            Debug.Log("Control: Удержание Е отменено (кнопка отпущена)");
-            isHoldInProgress = false;
+            //Debug.Log("Control: Удержание Е отменено (кнопка отпущена)");
+            //isHoldInProgress = false;
 
-            if (holdProgressBar != null)
-                holdProgressBar.CancelHold();
+            //if (holdProgressBar != null)
+            //    holdProgressBar.CancelHold();
 
-            if (holdProgressBarObject != null)
-                holdProgressBarObject.SetActive(false);
+            //if (holdProgressBarObject != null)
+            //    holdProgressBarObject.SetActive(false);
         }
     }
 
@@ -152,22 +140,22 @@ public class Control : MonoBehaviour
 
     private void OnHoldComplete()
     {
-        Debug.Log("Control: Вызвано длинное нажатие Е (завершено)");
-        isHoldInProgress = false;
+        //Debug.Log("Control: Вызвано длинное нажатие Е (завершено)");
+        //isHoldInProgress = false;
 
-        if (holdProgressBarObject != null)
-            holdProgressBarObject.SetActive(false);
+        //if (holdProgressBarObject != null)
+        //    holdProgressBarObject.SetActive(false);
 
-        OnAlternativeInteract?.Invoke();
+        //OnHoldInteract?.Invoke();
     }
 
     private void OnHoldCancel()
     {
-        Debug.Log("Control: Удержание Е отменено (через прогресс-бар)");
-        isHoldInProgress = false;
+        //Debug.Log("Control: Удержание Е отменено (через прогресс-бар)");
+        //isHoldInProgress = false;
 
-        if (holdProgressBarObject != null)
-            holdProgressBarObject.SetActive(false);
+        //if (holdProgressBarObject != null)
+        //    holdProgressBarObject.SetActive(false);
     }
 
     private void OnInventoryButtonPressed(InputAction.CallbackContext context)
