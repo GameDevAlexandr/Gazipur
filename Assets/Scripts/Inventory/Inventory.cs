@@ -10,8 +10,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Text _weightText;         
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
+    [SerializeField] private PickedItemUI[] _picedItems;
 
     private bool _isOpen;
+    private int _picCounter;
     [Inject] DataManager _data;
     [Inject] GameModeManager _gameMode;
     private void Start()
@@ -34,6 +36,8 @@ public class Inventory : MonoBehaviour
     }
     public int AddItem(ItemData item, int count)
     {
+        _picedItems[_picCounter % _picedItems.Length].Show(item, count);
+        _picCounter++;
         float weight = GetWeight();
         float cap = Capacity - weight;
         int res = 0;

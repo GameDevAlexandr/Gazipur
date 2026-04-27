@@ -70,6 +70,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _picedItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2024172780414080074
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0224331a6822d2b45bb506fe5fc119e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Control
-  holdProgressBarObject: {fileID: 0}
 --- !u!1 &4050437997748800565
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +400,7 @@ MonoBehaviour:
   _market: {fileID: 5047724525042763040}
   _playerState: {fileID: 271548721352557289}
   _manager: {fileID: 6919372883688673357}
+  _holdProgress: {fileID: 0}
 --- !u!1 &7581080193264035644
 GameObject:
   m_ObjectHideFlags: 0
