@@ -15,11 +15,19 @@ MonoBehaviour:
   PositionNoise: []
   OrientationNoise:
   - X:
+<<<<<<< Updated upstream
       Frequency: 0.2
       Amplitude: 2
       Constant: 0
     Y:
       Frequency: 0.2
+=======
+      Frequency: 0.25
+      Amplitude: 2
+      Constant: 0
+    Y:
+      Frequency: 0.25
+>>>>>>> Stashed changes
       Amplitude: 2
       Constant: 0
     Z:
