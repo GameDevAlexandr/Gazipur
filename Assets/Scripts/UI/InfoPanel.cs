@@ -32,6 +32,11 @@ public class InfoPanel : MonoBehaviour
         transform.position = new Vector3(position.x, position.y, transform.position.z);
         Show();
     }
+    public void Show(string[] text)
+    {
+        SetData(text);
+        Show();
+    }
     public void Show()
     {        
         gameObject.SetActive(true);

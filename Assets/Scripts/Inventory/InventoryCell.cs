@@ -15,6 +15,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     [Inject] private MarketManager _market;
     [Inject] private Inventory _inventory;
     public void SetReady(bool ready) => IsReady = ready;
+    public bool _isDragged;
     public int AddItem(ItemData item, int count)
     {
         Item = item;

@@ -1,7 +1,15 @@
 key,Russian,English
-n_wire,Медный провод,
-d_wire,Небольшой кусок медного провода,
-n_waterBottle,Бутылка воды 0.5 л.,
-d_waterBottle,"Вряд ли этим напьешся, но жажду уталить хватит",
-n_preserves,Банка паштета,
-d_preserves,"На вкус отвратительно, но лучше, чем ничего",
+n_wire,Медный провод,Copper wire
+d_wire,Небольшой кусок медного провода,A small piece of copper wire
+n_waterBottle,Бутылка воды 0.5 л.,Bottle of water 0.5 l.
+d_waterBottle,"Вряд ли этим напьешся, но жажду уталить хватит","It's unlikely you'll get drunk on this, but it'll be enough to quench your thirst."
+n_preserves,Банка паштета,A jar of pate
+d_preserves,"На вкус отвратительно, но лучше, чем ничего","It tastes disgusting, but it's better than nothing."
+n_petBottle,ПЭТ бутылка,PET bottle
+d_petBottle,"На бутылке много не заработаешь, зато их тут так много, что хватит купить весь мир","You won't make much money on a bottle, but there are so many of them here that it would be enough to buy the whole world."
+n_alCan,Алюминиевая банка,Aluminum can
+d_alCan,"Вот бы попробовать, то что в ней было ",I wish I could try what was in it.
+n_papers,Мукулатура,Waste paper
+d_papers,"Газеты, журналы и картонные карбоки","Newspapers, magazines and cardboard boxes"
+n_em30,Электродвигатель 30ВТ,Electric motor 30W
+d_em30,Из этого можно придумать что-то интересное,You can come up with something interesting from this.

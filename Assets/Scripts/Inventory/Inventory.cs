@@ -29,8 +29,7 @@ public class Inventory : MonoBehaviour
             {
                 ShowPanel(!_isOpen);
                 _gameMode.ChangeMode(EnumData.GameMode.home);
-            } 
-                
+            }                 
         };
         Control.OnFastSlotUse += UseFastSlot;
     }
@@ -114,6 +113,12 @@ public class Inventory : MonoBehaviour
         if (cell == null)
             _itemInfoPanel.Hide();
         else
-            _itemInfoPanel.Show(new string[] { cell.Item.Name, cell.Item.Description }, cell.transform.position);
+            _itemInfoPanel.Show(new string[] 
+            { 
+                cell.Item.Name, 
+                cell.Item.Description, 
+                cell.Item.Price.ToString(), 
+                cell.Item.Weight.ToString() 
+            });
     }
 }
