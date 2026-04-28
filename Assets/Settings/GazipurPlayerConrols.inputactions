@@ -442,6 +442,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ae7ddc15-2bbe-45c0-b62e-1d2dcd6651f1",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e518aea0-fccb-46d8-aaf8-d992142ecc77",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
