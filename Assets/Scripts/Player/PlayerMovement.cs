@@ -270,8 +270,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void SetMode(EnumData.GameMode mode)
     {
-        _isUIMode = mode != EnumData.GameMode.home;
-        if (mode != EnumData.GameMode.home)
+        _isUIMode = mode != EnumData.GameMode.outdors;
+        if (mode != EnumData.GameMode.outdors)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

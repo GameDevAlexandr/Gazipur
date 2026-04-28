@@ -91,7 +91,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
 
     public void OnPointerClick(PointerEventData eventData)
     {
-       if(_data.gameMode== EnumData.GameMode.sell && 
+       if(_data.gameMode== EnumData.GameMode.trade && 
             eventData.button == PointerEventData.InputButton.Left)
         {
             _market.TradePanel.SetItem(this);

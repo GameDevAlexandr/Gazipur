@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-
+using static EnumData;
 public class Inventory : MonoBehaviour
 {
     [field: SerializeField] public float Capacity { get; private set; }
@@ -20,15 +20,13 @@ public class Inventory : MonoBehaviour
     {
         Control.OnOpenInventory += () =>
         {
-            if(_data.gameMode == EnumData.GameMode.home && !_isOpen)
+            if(_data.gameMode == GameMode.outdors && !_isOpen)
             {
-                ShowPanel(!_isOpen);
-                _gameMode.ChangeMode(EnumData.GameMode.inventory);
+                _gameMode.ChangeMode(GameMode.inventory);
             }
-            else if(_data.gameMode == EnumData.GameMode.inventory && _isOpen)
+            else if(_data.gameMode == GameMode.inventory && _isOpen)
             {
-                ShowPanel(!_isOpen);
-                _gameMode.ChangeMode(EnumData.GameMode.home);
+                _gameMode.ChangeMode(GameMode.outdors);
             }                 
         };
         Control.OnFastSlotUse += UseFastSlot;

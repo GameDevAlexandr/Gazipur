@@ -18,12 +18,12 @@ public class TradePanel : MonoBehaviour
     private int _sellCount;
     private InventoryCell _cell;
     [Inject] private DataManager _data;
-    [Inject] private MarketManager _market;
+    [Inject] private GameModeManager _gameMode;
     private void Start()
     {
         _slider.onValueChanged.AddListener(ChangeCount);
         _tradeButton.onClick.AddListener(Trade);
-        _exitButton.onClick.AddListener(_market.Exit);
+        _exitButton.onClick.AddListener(()=>_gameMode.ChangeMode(EnumData.GameMode.outdors));
     }
     public void SetItem(InventoryCell cell)
     {
@@ -64,7 +64,6 @@ public class TradePanel : MonoBehaviour
     public void Show()
     {
         _tradeCap.SetActive(true);
-        gameObject.SetActive(true);
     }
 }
 

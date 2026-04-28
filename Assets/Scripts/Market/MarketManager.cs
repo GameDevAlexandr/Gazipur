@@ -20,16 +20,12 @@ public class MarketManager : MonoBehaviour
             obj.SetItem(_items[i]);
         }
     }
-    public void StartSellTrade()
+    public void StartTrade(bool isStart)
     {
-        TradePanel.Show();
-        _modeManager.ChangeMode(EnumData.GameMode.sell);
-        _inventory.ShowPanel(true);
-    }
-    public void Exit()
-    {
-        TradePanel.gameObject.SetActive(false);
-        _modeManager.ChangeMode(EnumData.GameMode.home);
-        _inventory.ShowPanel(false);
+        if(isStart)
+            TradePanel.Show();
+
+        TradePanel.gameObject.SetActive(isStart);
+        _inventory.ShowPanel(isStart);
     }
 }

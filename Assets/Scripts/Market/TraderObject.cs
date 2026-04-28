@@ -3,10 +3,10 @@ using Zenject;
 
 public class TraderObject : InteractObject
 {
-    [Inject] MarketManager _market;
+    [Inject] GameModeManager _modeManager;
     public override void Intearct(bool isDown)
     {
         if(isDown)
-            _market.StartSellTrade();
+            _modeManager.ChangeMode(EnumData.GameMode.trade);
     }
 }

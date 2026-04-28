@@ -4,9 +4,11 @@ public static class EnumData
 {
     public enum GameMode
     {
-        home,
-        sell, 
-        buy,
-        inventory
+        outdors,
+        trade,
+        inventory,
+        dialog,
+        craft,
+        storage
     }
 }

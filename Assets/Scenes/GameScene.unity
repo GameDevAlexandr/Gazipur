@@ -876,6 +876,17 @@ MonoBehaviour:
   blendDistance: 1
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 97e594b33c26a7c4f9c22920065bac1f, type: 2}
+--- !u!114 &669782226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5047724525042763040, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+  m_PrefabInstance: {fileID: 1014146281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5e5ca966d42474387941a381cca17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarketManager
 --- !u!1 &785579675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1208,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 669782226}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1014146282}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MarketManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnTrade.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145915056775688092, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: OnInventory.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5047724525042763040, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
       propertyPath: TradePanel
       value: 
@@ -1334,6 +1401,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+--- !u!114 &1014146282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+  m_PrefabInstance: {fileID: 1014146281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddea5ba4ddad0740b17d207fe99aa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
 --- !u!1 &1095696938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8051153186367540912, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
@@ -1362,6 +1440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 55682143810793792, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 606939607905647341, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1376,6 +1458,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 606939607905647341, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 964632556702322921, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1292164121560504100, guid: fdfb45c76bba6e24487e03ecb8292cae, type: 3}
