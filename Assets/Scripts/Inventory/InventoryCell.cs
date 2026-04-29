@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
-public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IEndDragHandler, IPointerClickHandler
 {
     public bool IsReady { get; private set; }
     public ItemData Item { get; private set; }
@@ -91,27 +91,12 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
 
     public void OnPointerClick(PointerEventData eventData)
     {
-       if(_data.gameMode== EnumData.GameMode.trade && 
-            eventData.button == PointerEventData.InputButton.Left)
-        {
-            _market.TradePanel.SetItem(this);
-        }
+        _inventory.ShowInfoPanel(this);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         _itemIcon.transform.parent = transform;
         _itemIcon.transform.position = transform.position;        
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if(Item)
-            _inventory.ShowInfoPanel(this);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _inventory.ShowInfoPanel(null);
     }
 }

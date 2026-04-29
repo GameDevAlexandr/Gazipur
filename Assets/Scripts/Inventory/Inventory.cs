@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
     [field: SerializeField] public float Capacity { get; private set; }
     [SerializeField] private GameObject _inventoryPanel;
-    [SerializeField] private InfoPanel _itemInfoPanel;
+    [SerializeField] private ItemInfoPanel _itemInfoPanel;
     [SerializeField] private Text _weightText;         
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour
     private int _picCounter;
     [Inject] DataManager _data;
     [Inject] GameModeManager _gameMode;
+    [Inject] GameManager _manager;
     private void Start()
     {
         Control.OnOpenInventory += () =>
@@ -83,8 +84,15 @@ public class Inventory : MonoBehaviour
         _isOpen = isShow;
         _inventoryPanel.SetActive(isShow);
         Cursor.lockState = isShow ? CursorLockMode.None : CursorLockMode.Locked;
-        if (!isShow)
-            _itemInfoPanel.Hide();
+        for (int i = 0; i < _cells.Length; i++)
+        {
+            if (_cells[i].Item)
+            {
+                ShowInfoPanel(_cells[i]);
+            }
+            return;
+        }
+        ShowInfoPanel(_cells[0]);
     }
     public void ChangeCellState(InventoryCell cell)
     {
@@ -95,28 +103,19 @@ public class Inventory : MonoBehaviour
         }
         _weightText.text = GetWeight() + "/" + Capacity;
     }
-    private void UseFastSlot(int number)
+    private void UseFastSlot(int number) => UseItem(_cells[number - 1]);
+
+    public void UseItem(InventoryCell cell)
     {
-        if (number <= _fastCells.Length)
+        IUsebleItem item = cell.Item.ItemPrefab as IUsebleItem;
+        if (item != null)
         {
-            _fastCells[number - 1].UseItem();
-            if (_cells[number - 1].Item)
-            {
-                _cells[number - 1].RemoveItem(1);
-            }
+            item.Use(_manager);
+            cell.RemoveItem(1);
         }
     }
     public void ShowInfoPanel(InventoryCell cell)
     {
-        if (cell == null)
-            _itemInfoPanel.Hide();
-        else
-            _itemInfoPanel.Show(new string[] 
-            { 
-                cell.Item.Name, 
-                cell.Item.Description, 
-                cell.Item.Price.ToString(), 
-                cell.Item.Weight.ToString() 
-            });
+        _itemInfoPanel.SetItem(cell, _data.gameMode == GameMode.trade);
     }
 }

@@ -17,6 +17,7 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private ProgressBar _healthBar;
     [SerializeField] private ProgressBar _hungerBar;
     [SerializeField] private ProgressBar _thirstBar;
+    [SerializeField] private GameObject _diePanel;
 
     [Inject] private DataManager _data;
     private DataManager.HeroInfo _info;
@@ -47,6 +48,8 @@ public class PlayerState : MonoBehaviour
     }
     public void SetState()
     {
+        if (_info.health <= 0) _diePanel.SetActive(true);
+
         _info.health = Mathf.Clamp(_info.health, 0, 100);
         _info.hunger = Mathf.Clamp(_info.hunger, 0, 100);
         _info.thirst = Mathf.Clamp(_info.thirst, 0, 100);

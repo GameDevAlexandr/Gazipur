@@ -22,9 +22,6 @@ public class MarketManager : MonoBehaviour
     }
     public void StartTrade(bool isStart)
     {
-        if(isStart)
-            TradePanel.Show();
-
         TradePanel.gameObject.SetActive(isStart);
         _inventory.ShowPanel(isStart);
     }

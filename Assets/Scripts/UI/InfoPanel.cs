@@ -11,6 +11,7 @@ public class InfoPanel : MonoBehaviour
     [SerializeField, Range(0,1)] float _alpha;
     [SerializeField] private Image _image;
     [SerializeField] private LocalizedText[] _descriptions;
+      
     private Tween _tween;
     private void Start()
     {
@@ -36,6 +37,11 @@ public class InfoPanel : MonoBehaviour
     {
         SetData(text);
         Show();
+    }
+    public void Show(string[] text, Sprite icon)
+    {
+        Show(text);
+        _image.sprite = icon;
     }
     public void Show()
     {        

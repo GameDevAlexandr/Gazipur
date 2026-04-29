@@ -4,14 +4,11 @@ using Zenject;
 
 public class TradePanel : MonoBehaviour
 {
-    [SerializeField] private Image _itemIcon;
-    [SerializeField] private Button _tradeButton;
     [SerializeField] private Button _exitButton;
     [SerializeField] private Text _curCountText;
     [SerializeField] private Text _sellCountText;
     [SerializeField] private Text _priceText;
     [SerializeField] private Slider _slider;
-    [SerializeField] private GameObject _tradeCap;
 
     private int _price => _cell.Item.Price;
     private int _count;
@@ -22,22 +19,21 @@ public class TradePanel : MonoBehaviour
     private void Start()
     {
         _slider.onValueChanged.AddListener(ChangeCount);
-        _tradeButton.onClick.AddListener(Trade);
         _exitButton.onClick.AddListener(()=>_gameMode.ChangeMode(EnumData.GameMode.outdors));
     }
     public void SetItem(InventoryCell cell)
     {
+        gameObject.SetActive(true);
         if (!cell.Item) 
         {
-            _tradeCap.SetActive(true);
+            _slider.gameObject.SetActive(false);
             return;
         }
-        _tradeCap.SetActive(false);
-        _itemIcon.sprite = cell.Item.Icon;
+        _slider.gameObject.SetActive(cell.Count>1);
         _cell = cell;
         _count = cell.Count;
         _sellCount = _count;
-        _slider.minValue = 0;
+        _slider.minValue = 1;
         _slider.maxValue = _count;
         SetUI();
     }
@@ -47,7 +43,7 @@ public class TradePanel : MonoBehaviour
         SetUI();
     }
 
-    private void Trade()
+    public void Trade()
     {
         _data.ChangeMoney(_sellCount * _price);
         _cell.RemoveItem(_sellCount);
@@ -55,15 +51,10 @@ public class TradePanel : MonoBehaviour
     }
     private void SetUI()
     {
-        _tradeButton.interactable = _sellCount > 0;
         _slider.value = _sellCount;
         _priceText.text = (_sellCount * _price).ToString();
         _sellCountText.text = _sellCount.ToString();
         _curCountText.text = (_count - _sellCount).ToString();
-    }
-    public void Show()
-    {
-        _tradeCap.SetActive(true);
     }
 }
 

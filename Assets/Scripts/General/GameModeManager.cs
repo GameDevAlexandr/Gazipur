@@ -35,6 +35,7 @@ public class GameModeManager : MonoBehaviour
     {
         _mods[_data.gameMode]?.Invoke(false);
         _data.gameMode = mode;
+        onChangeMode?.Invoke(mode);
         _mods[mode]?.Invoke(true);
     }
 }
