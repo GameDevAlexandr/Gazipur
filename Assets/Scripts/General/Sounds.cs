@@ -7,24 +7,16 @@ using DG.Tweening;
 
 public class Sounds : MonoBehaviour
 {
-    public static Sounds ChooseSound { get; private set; }
     [SerializeField] private AudioMixerGroup mixer;
 
     [field: SerializeField] public AudioSource ButonClick { get; private set; }
+    [field: SerializeField] public AudioSource PicItem { get; private set; }
     [field:SerializeField] public AudioSource[] BackGround { get; private set; }
 
     private AudioSource _curBackground;
     [Inject]
     private void Init()
-    {
-        if (ChooseSound == null)
-        {
-            ChooseSound = this;
-        }
-        else if(ChooseSound == this)
-        {
-            Destroy(gameObject);
-        }           
+    {       
 
         DontDestroyOnLoad(gameObject);        
     }

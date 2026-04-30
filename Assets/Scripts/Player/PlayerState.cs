@@ -72,4 +72,9 @@ public class PlayerState : MonoBehaviour
         _info.thirst += count;
         SetState();
     }
+    public void TakeDamage(int damage)
+    {
+        _info.health -= damage;
+        SetState();
+    }
 }

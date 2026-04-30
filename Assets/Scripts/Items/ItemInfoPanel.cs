@@ -76,6 +76,7 @@ public class ItemInfoPanel : MonoBehaviour
     private void Sell()
     {
         _tradePanel.Trade();
+        SetItem(_currentCell, true);
     }
 
 }
