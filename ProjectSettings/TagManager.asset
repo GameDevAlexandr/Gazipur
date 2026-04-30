@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Indoor
+  - AreaVillage
+  - AreaRich
+  - AreaDanger
   layers:
   - Default
   - TransparentFX
