@@ -15,6 +15,7 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private GameManager _manager;
     [SerializeField] private HoldProgressBar _holdProgress;
     [SerializeField] private PlayerMovement _player;
+    [SerializeField] private Sounds _sounds;
     public override void InstallBindings()
     {
         Container.Bind<Control>().FromInstance(_controll).AsSingle();
@@ -28,5 +29,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<PlayerState>().FromInstance(_playerState).AsSingle();
         Container.Bind<HoldProgressBar>().FromInstance(_holdProgress).AsSingle();
         Container.Bind<PlayerMovement>().FromInstance(_player).AsSingle();
+        Container.Bind<Sounds>().FromInstance(_sounds).AsSingle();
+
     }
 }
