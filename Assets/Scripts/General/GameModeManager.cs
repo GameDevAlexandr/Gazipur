@@ -12,6 +12,7 @@ public class GameModeManager : MonoBehaviour
     public UnityEvent<bool> OnCraft = new UnityEvent<bool>();
     public UnityEvent<bool> OnStorage = new UnityEvent<bool>();
     public UnityEvent<bool> OnDialog = new UnityEvent<bool>();
+    public UnityEvent<bool> OnMenu = new UnityEvent<bool>();
     public System.Action<GameMode> onChangeMode;
 
     private Dictionary<GameMode, UnityEvent<bool>> _mods;

@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using static EnumData;
 public class Inventory : MonoBehaviour
 {
+    public HashSet<ToolsType> HaveTools { get; private set; }
     [field: SerializeField] public float Capacity { get; private set; }
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private ItemInfoPanel _itemInfoPanel;
@@ -12,6 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
     [SerializeField] private PickedItemUI[] _picedItems;
+    [SerializeField] private Image[] _toolsImages;
 
     private bool _isOpen;
     private int _picCounter;
@@ -37,6 +40,7 @@ public class Inventory : MonoBehaviour
     {
         _picedItems[_picCounter % _picedItems.Length].Show(item, count);
         _picCounter++;
+        if (CheckTool(item)) return 0;
         float weight = GetWeight();
         float cap = Capacity - weight;
         int res = 0;
@@ -119,5 +123,18 @@ public class Inventory : MonoBehaviour
     public void ShowInfoPanel(InventoryCell cell)
     {
         _itemInfoPanel.SetItem(cell, _data.gameMode == GameMode.trade);
+    }
+    public bool CheckTool(ItemData item)
+    {
+        HaveTools ??= new HashSet<ToolsType>();
+        ToolItem ti = item.ItemPrefab as ToolItem;
+        if (ti)
+        {
+            HaveTools.Add(ti.ToolType);
+            _toolsImages[(int)ti.ToolType].sprite = item.Icon;
+            return true;
+        }
+        return false;
+        
     }
 }

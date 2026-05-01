@@ -9,6 +9,15 @@ public static class EnumData
         inventory,
         dialog,
         craft,
-        storage
+        storage,
+        menu
+    }
+    public enum ToolsType
+    {
+        bag,
+        wrench,
+        hacksaw,
+        mask,
+        crowbar
     }
 }
