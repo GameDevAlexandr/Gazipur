@@ -9,6 +9,10 @@ public abstract class InteractObject : MonoBehaviour
         _outline ??= GetComponent<Outline>();
         _outline.enabled = isSelect;
     }
+    private void OnEnable()
+    {
+        Select(false);
+    }
     public abstract void Intearct(bool isDowwn);
 }
 

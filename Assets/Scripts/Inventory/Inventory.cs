@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private ItemInfoPanel _itemInfoPanel;
     [SerializeField] private Text _weightText;         
+    [SerializeField] private Text _inventoryWeightText;         
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
     [SerializeField] private PickedItemUI[] _picedItems;
@@ -102,6 +103,7 @@ public class Inventory : MonoBehaviour
             _fastCells[num].SetItem(cell.Item, cell.Count);
         }
         _weightText.text = GetWeight() + "/" + Capacity;
+        _inventoryWeightText.text = _weightText.text;
     }
     private void UseFastSlot(int number) => UseItem(_cells[number - 1]);
 

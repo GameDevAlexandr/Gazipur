@@ -15,6 +15,7 @@ public class ItemInfoPanel : MonoBehaviour
     [SerializeField] private Button _dropButton;
     [SerializeField] private Button _sellButton;
     [SerializeField] private TradePanel _tradePanel;
+    [SerializeField] private DropItemPanel _dropPanel;
 
     private InventoryCell _currentCell;
     [Inject] private Inventory _inventory;
@@ -71,7 +72,7 @@ public class ItemInfoPanel : MonoBehaviour
     }
     private void Drop()
     {
-
+        _dropPanel.SetItem(_currentCell);
     }
     private void Sell()
     {

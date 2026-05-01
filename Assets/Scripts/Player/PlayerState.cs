@@ -17,6 +17,9 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private ProgressBar _healthBar;
     [SerializeField] private ProgressBar _hungerBar;
     [SerializeField] private ProgressBar _thirstBar;
+    [SerializeField] private Text _healtToInventoryText;
+    [SerializeField] private Text _hungryToInventoryText;
+    [SerializeField] private Text _thirstToInventoryText;
     [SerializeField] private GameObject _diePanel;
 
     [Inject] private DataManager _data;
@@ -56,6 +59,9 @@ public class PlayerState : MonoBehaviour
         _healthBar.SetAmountAndValue(_info.health, 100);
         _hungerBar.SetAmountAndValue(_info.hunger, 100);
         _thirstBar.SetAmountAndValue(_info.thirst, 100);
+        _healtToInventoryText.text = (int)_info.health + "/" + 100;
+        _hungryToInventoryText.text = (int)_info.hunger + "/" + 100;
+        _thirstToInventoryText.text = (int)_info.thirst + "/" + 100;
     }
     public void Heal(int count)
     {

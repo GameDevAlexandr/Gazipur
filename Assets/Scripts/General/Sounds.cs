@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
-using Zenject;
 using DG.Tweening;
+using Zenject;
 
 public class Sounds : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class Sounds : MonoBehaviour
     [field: SerializeField] public AudioSource PicItem { get; private set; }
     [field:SerializeField] public AudioSource[] BackGround { get; private set; }
 
+    [Inject] Sounds _sounds;
     private AudioSource _curBackground;
     [Inject]
     private void Init()

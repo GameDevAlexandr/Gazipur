@@ -5,6 +5,8 @@ using static EnumData;
 public class DataManager: MonoBehaviour
 {
     [SerializeField] private Text _moneyCount;
+    [SerializeField] private Text _moneyToInventoryText;
+
     public System.Action onChangeMoney;
     public int Money { get; private set; }
     public GameMode gameMode;
@@ -49,6 +51,7 @@ public class DataManager: MonoBehaviour
         Money += count;
         onChangeMoney?.Invoke();
         _moneyCount.text = Money.ToString();
+        _moneyToInventoryText.text = Money.ToString();
     }
     public void SetDeffoultHeroState()
     {
