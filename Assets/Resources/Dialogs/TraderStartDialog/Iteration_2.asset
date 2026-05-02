@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da1f6577857893f46a6486f2c31495fc, type: 3}
-  m_Name: Iteration_3
+  m_Name: Iteration_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogStructure
   <Question>k__BackingField: "\u0421\u044B\u0440\u044C\u0435 \u0443\u0436\u0430\u0441\u043D\u043E
     \u0434\u043E\u0440\u043E\u0436\u0430\u0435\u0442, \u0432\u0430\u043B\u044E\u0442\u043D\u044B\u0439
@@ -20,5 +20,5 @@ MonoBehaviour:
       \u0432\u043E \u0434\u0435\u043B\u0430... \u0422\u044B \u0436 \u0441\u044D\u043C
       \u0441\u0432\u043E\u0439 \u0433\u043E\u043D\u0438\u0448\u044C \u0438\u0437
       \u043A\u0440\u044B\u0441\u0438\u043D\u043D\u043E\u0433\u043E \u0433\u043E\u0432\u043D\u0430!"
-    newChain: {fileID: 11400000, guid: f3d776a95f4997246b83f557dd271a62, type: 2}
+    newChain: {fileID: 11400000, guid: 6de950a15d070b14d96b062e812a1cca, type: 2}
     action: {fileID: 0}

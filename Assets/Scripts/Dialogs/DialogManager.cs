@@ -41,15 +41,16 @@ public class DialogManager : MonoBehaviour
         StartDialog(DialogType.matherStart);
     }
 
-    public void StartDialog(DialogType dType)
+    public bool StartDialog(DialogType dType)
     {        
         var dialog = _dialogs.Where(i => i.dialogType == dType).ToArray()[0];
 
-        if (dialog.isUsed) return;
+        if (dialog.isUsed) return false;
 
         dialog.isUsed = dialog.isOneTime;
         SetIteration(dialog.iteration);
         _modManager.ChangeMode(GameMode.dialog);
+        return true;
     }
     private void SetIteration(DialogStructure iteraton)
     {

@@ -26,6 +26,7 @@ public static class EnumData
     {
         start,
         startTrader,
-        matherStart
+        matherStart,
+        traderEveryTime
     }
 }

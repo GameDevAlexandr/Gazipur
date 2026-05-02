@@ -54,7 +54,7 @@ public class GarbageObject : InteractObject
             _holdBar.OnHoldComplete -= PicItem;
         }
     }
-    private void PicItem()
+    protected virtual void PicItem()
     {        
         int rnd = Random.Range(0, _items.Count);
         if (_inventory.AddItem(_items[rnd], 1) > 0)
