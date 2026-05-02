@@ -66,9 +66,9 @@ public class DialogManager : MonoBehaviour
             _ansverButtons[i].GetComponentInChildren<Text>().text = iteraton.Answer[i].answer;
             _ansverButtons[i].onClick.RemoveAllListeners();
 
+            int idx = i;
             if (iteraton.Answer[i].newChain!=null)
-            {
-                int idx = i;
+            {                
                 _ansverButtons[i].onClick.AddListener(() => SetIteration(iteraton.Answer[idx].newChain));
             }
             else
@@ -78,7 +78,7 @@ public class DialogManager : MonoBehaviour
 
             if (iteraton.Answer[i].action)
             {
-                iteraton.Answer[i].action.Action(_manager);
+                _ansverButtons[i].onClick.AddListener(() => iteraton.Answer[idx].action.Action(_manager));
             }
             
         }

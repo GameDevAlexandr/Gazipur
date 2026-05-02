@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1f6577857893f46a6486f2c31495fc, type: 3}
+  m_Name: Iteration_0
+  m_EditorClassIdentifier: Assembly-CSharp::DialogStructure
+  <Question>k__BackingField: "\u0417\u0434\u0430\u0440\u043E\u0432\u0430 \u0418\u0448\u0430,
+    \u043A\u0430\u043A \u043C\u0430\u0442\u0440\u0435\u043D\u0430? \u0412\u043A\u0430\u0442\u0438\u043B
+    \u043C\u043E\u0439 \u0441\u0430\u043C\u043E\u0433\u043E\u043D \u044F\u0434\u0440\u0435\u043D\u044B\u0439?"
+  <Answer>k__BackingField:
+  - answer: "\u0421 \u043F\u043E\u0445\u043C\u0435\u043B\u044C\u044F \u0437\u043B\u0430\u044F,
+      \u0447\u0442\u043E \u043D\u0435 \u0436\u0438\u0442\u044C, \u043C\u0430\u043C\u0443\u043B\u044E
+      \u043D\u0430\u0434\u043E \u043F\u043E\u0434\u043B\u0435\u0447\u0438\u0442\u044C"
+    newChain: {fileID: 11400000, guid: 28ade9750d806fe49a82b734a972ad93, type: 2}
+    action: {fileID: 0}
