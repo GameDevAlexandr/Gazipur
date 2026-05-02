@@ -36,6 +36,7 @@ public class HoldProgressBar : MonoBehaviour
 
     public void CancelHold()
     {
+        if (!_progressImage) return;
         _isCanceled = true;
         _tween?.Kill();
         _progressImage.fillAmount = 0;

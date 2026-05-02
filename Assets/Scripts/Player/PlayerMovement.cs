@@ -45,17 +45,15 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded => _isGrounded;
     private bool _isUIMode;
     [Inject] GameModeManager _gameMode;
-    void Awake()
+    [Inject]
+    void Init()
     {
         _controller = GetComponent<CharacterController>();
         _inputActions = new PlayerInputActions();
 
         _standingHeight = _controller.height;
         _currentCameraHeight = _cameraHeightNormal;
-    }
 
-    void Start()
-    {
         _gameMode.onChangeMode += SetMode;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; // Скрываем курсор

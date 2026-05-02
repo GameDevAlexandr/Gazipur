@@ -10,7 +10,8 @@ public static class EnumData
         dialog,
         craft,
         storage,
-        menu
+        menu, 
+        die
     }
     public enum ToolsType
     {
@@ -18,6 +19,13 @@ public static class EnumData
         wrench,
         hacksaw,
         mask,
-        crowbar
+        crowbar,
+        glowes
+    }
+    public enum DialogType
+    {
+        start,
+        startTrader,
+        matherStart
     }
 }

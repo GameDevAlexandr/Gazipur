@@ -13,6 +13,7 @@ public class GameModeManager : MonoBehaviour
     public UnityEvent<bool> OnStorage = new UnityEvent<bool>();
     public UnityEvent<bool> OnDialog = new UnityEvent<bool>();
     public UnityEvent<bool> OnMenu = new UnityEvent<bool>();
+    public UnityEvent<bool> OnDie = new UnityEvent<bool>();
     public System.Action<GameMode> onChangeMode;
 
     private Dictionary<GameMode, UnityEvent<bool>> _mods;
@@ -28,9 +29,14 @@ public class GameModeManager : MonoBehaviour
             [GameMode.inventory] = OnInventory,
             [GameMode.craft] = OnCraft,
             [GameMode.storage] = OnStorage,
-            [GameMode.dialog] = OnDialog
+            [GameMode.dialog] = OnDialog,
+            [GameMode.menu] = OnMenu,
+            [GameMode.die] = OnDie
         };
-        Control.OnEsc += () => ChangeMode(GameMode.outdors);
+        Control.OnEsc += () =>
+        {
+            if (_data.gameMode != GameMode.die) ChangeMode(GameMode.outdors);
+        };
     }
     public void ChangeMode(GameMode mode)
     {

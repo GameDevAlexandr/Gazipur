@@ -20,9 +20,9 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private Text _healtToInventoryText;
     [SerializeField] private Text _hungryToInventoryText;
     [SerializeField] private Text _thirstToInventoryText;
-    [SerializeField] private GameObject _diePanel;
 
     [Inject] private DataManager _data;
+    [Inject] private GameModeManager _modeManager;
     private DataManager.HeroInfo _info;
     private void Start()
     {
@@ -51,7 +51,7 @@ public class PlayerState : MonoBehaviour
     }
     public void SetState()
     {
-        if (_info.health <= 0) _diePanel.SetActive(true);
+        if (_info.health <= 0) _modeManager.ChangeMode(EnumData.GameMode.die);
 
         _info.health = Mathf.Clamp(_info.health, 0, 100);
         _info.hunger = Mathf.Clamp(_info.hunger, 0, 100);
