@@ -11,9 +11,11 @@ public class BuyItemObject : MonoBehaviour
     [Inject] private Inventory _inventory;
     [Inject] private DataManager _data;
     private ItemData _item;
+    private bool _isSingle;
     private int _price => (int)(_market.TraderPriceMultiplicator * _item.Price);
-    public void SetItem(ItemData item)
+    public void SetItem(ItemData item, bool isSingle)
     {
+        _isSingle = isSingle;
         _item = item;
         _itemIcon.sprite = item.Icon;
         _priceText.text = _price.ToString();
@@ -27,6 +29,7 @@ public class BuyItemObject : MonoBehaviour
         {
             return;
         }
+        if (_isSingle) gameObject.SetActive(false);
         _data.ChangeMoney(-_price);
     }
 }
