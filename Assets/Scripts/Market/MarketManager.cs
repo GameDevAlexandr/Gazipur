@@ -12,7 +12,8 @@ public class MarketManager : MonoBehaviour
     [Inject] private Inventory _inventory;
     [Inject] private DiContainer _container;
     [field: SerializeField] public TradePanel TradePanel;
-    
+   
+    [System.Serializable]
     public struct Item
     {
         public ItemData item;

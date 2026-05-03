@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3906187546665367158}
   - component: {fileID: 8278534907520034208}
-  - component: {fileID: 2111914706638154341}
   - component: {fileID: 1513631960721128730}
+  - component: {fileID: -1281816179678150449}
   m_Layer: 0
-  m_Name: LootGarbage
+  m_Name: LootGarbageMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.539, y: 0.1, z: -0.69}
-  m_LocalScale: {x: 0.3, y: 3, z: 0.3}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8350134682480834698}
@@ -53,31 +53,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &2111914706638154341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795363078498138454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04eaf020038c2c441819580b90cbcc47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GarbageObject
-  _holdTaime: 4
-  _ItemsCount: {x: 12, y: 20}
-  _dropChances:
-  - item: {fileID: 11400000, guid: 26267e47a1a63724fb3307d1bef6eb05, type: 2}
-    chance: 50
-  - item: {fileID: 11400000, guid: b25fb9918e8f7114f90043decec8e4f1, type: 2}
-    chance: 100
-  - item: {fileID: 11400000, guid: 5f879d5c3b381504f96a5cd98ef0cd11, type: 2}
-    chance: 30
-  - item: {fileID: 11400000, guid: b12342f6a5affb64b9323420e7093a76, type: 2}
-    chance: 2
-  - item: {fileID: 11400000, guid: d920a53c5e2638e43aeffffb1ea48147, type: 2}
-    chance: 15
 --- !u!65 &1513631960721128730
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99,6 +74,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.26745245, z: 1}
   m_Center: {x: 0, y: 0.033560477, z: 0}
+--- !u!114 &-1281816179678150449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795363078498138454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1711cfff8268caa4184cba6bd3f41b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DangerGarbageObject
+  _holdTaime: 4
+  _ItemsCount: {x: 6, y: 6}
+  _dropChances:
+  - item: {fileID: 11400000, guid: d920a53c5e2638e43aeffffb1ea48147, type: 2}
+    chance: 100
+  _needadTool: 1
+  _damageChance: 100
+  _damage: 10
 --- !u!1001 &8388827583580282721
 PrefabInstance:
   m_ObjectHideFlags: 0
