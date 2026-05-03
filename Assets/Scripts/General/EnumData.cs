@@ -29,4 +29,10 @@ public static class EnumData
         matherStart,
         traderEveryTime
     }
+    public enum RemarksType
+    {
+        noWrench,
+        noGrowes,
+        noHacksaw
+    }
 }

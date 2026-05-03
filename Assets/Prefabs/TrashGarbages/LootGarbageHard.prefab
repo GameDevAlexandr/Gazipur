@@ -91,7 +91,7 @@ MonoBehaviour:
   _dropChances:
   - item: {fileID: 11400000, guid: b12342f6a5affb64b9323420e7093a76, type: 2}
     chance: 100
-  _needadTool: 4
+  _needadTool: 2
   _damageChance: 100
   _damage: 10
 --- !u!1001 &8388827583580282721

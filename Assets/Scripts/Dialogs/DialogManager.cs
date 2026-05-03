@@ -18,7 +18,7 @@ public class DialogManager : MonoBehaviour
         [ReadOnly, AllowNesting] public DialogType dialogType;
         public DialogStructure iteration;
         public bool isOneTime;
-        [ReadOnly, AllowNesting] public bool isUsed;
+        [HideInInspector] public bool isUsed;
     }
     [Inject] GameManager _manager;
     [Inject] GameModeManager _modManager;
