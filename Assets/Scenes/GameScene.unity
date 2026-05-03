@@ -21390,6 +21390,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1334263742}
     - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _dialogs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
       propertyPath: '_ansverButtons.Array.data[0]'
       value: 
       objectReference: {fileID: 1964428630}
@@ -21405,6 +21409,26 @@ PrefabInstance:
       propertyPath: '_ansverButtons.Array.data[3]'
       value: 
       objectReference: {fileID: 181766203}
+    - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _dialogs.Array.data[1].isOneTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _dialogs.Array.data[1].iteration
+      value: 
+      objectReference: {fileID: 11400000, guid: dbc8ccb72d54839449b1f2d77f397125, type: 2}
+    - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _dialogs.Array.data[3].isOneTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _dialogs.Array.data[3].iteration
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d2e85298d402154e99af7d6e59ef040, type: 2}
+    - target: {fileID: 3113736860886655708, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _dialogs.Array.data[3].dialogType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5047724525042763040, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
       propertyPath: TradePanel
       value: 

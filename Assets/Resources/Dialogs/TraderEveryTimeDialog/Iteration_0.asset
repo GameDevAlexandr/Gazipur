@@ -21,5 +21,5 @@ MonoBehaviour:
       \u043D\u0435 \u043F\u0440\u043E\u0434\u0430\u0448\u044C \u043C\u043D\u0435
       \u0448\u0430\u0443\u0440\u043C\u0443\u0445\u0438, \u044F \u0441\u043E\u0436\u0440\u0443
       \u0442\u0432\u043E\u0438 \u043D\u043E\u0441\u043A\u0438!"
-    newChain: {fileID: 11400000, guid: 28ade9750d806fe49a82b734a972ad93, type: 2}
+    newChain: {fileID: 11400000, guid: 0a1cdbf7cb1930f40a651f57da173e12, type: 2}
     action: {fileID: 0}

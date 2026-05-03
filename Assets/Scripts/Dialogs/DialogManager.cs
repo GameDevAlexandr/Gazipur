@@ -13,12 +13,12 @@ public class DialogManager : MonoBehaviour
     [SerializeField, OnValueChanged("SetTypes")] private DialogData[] _dialogs;
 
     [System.Serializable]
-    public struct DialogData
+    public class DialogData
     {
         [ReadOnly, AllowNesting] public DialogType dialogType;
         public DialogStructure iteration;
         public bool isOneTime;
-        [HideInInspector] public bool isUsed;
+        [ReadOnly, AllowNesting] public bool isUsed;
     }
     [Inject] GameManager _manager;
     [Inject] GameModeManager _modManager;
@@ -48,6 +48,7 @@ public class DialogManager : MonoBehaviour
         if (dialog.isUsed) return false;
 
         dialog.isUsed = dialog.isOneTime;
+        Debug.Log("dialog = " + dialog.isUsed);
         SetIteration(dialog.iteration);
         _modManager.ChangeMode(GameMode.dialog);
         return true;
