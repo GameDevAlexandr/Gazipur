@@ -1,35 +1,12 @@
-//using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
+using Zenject;
 
 public class LocationChanger : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    [Inject] private Sounds _sounds;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("AreaVillage"))
-        {
-
-        }
-        
-        if (other.gameObject.CompareTag("AreaRich"))
-        {
-
-        }
-
-        if (other.gameObject.CompareTag("AreaDanger"))
-        {
-
-        }
+        _sounds.ChangeBackground(other.GetComponent<AudioSource>());
     }
 }

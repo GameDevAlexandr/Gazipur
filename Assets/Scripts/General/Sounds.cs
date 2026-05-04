@@ -11,7 +11,7 @@ public class Sounds : MonoBehaviour
 
     [field: SerializeField] public AudioSource ButonClick { get; private set; }
     [field: SerializeField] public AudioSource PicItem { get; private set; }
-    [field:SerializeField] public AudioSource[] BackGround { get; private set; }
+    [field:SerializeField] public AudioSource[] Background { get; private set; }
 
     [Inject] Sounds _sounds;
     private AudioSource _curBackground;
@@ -34,6 +34,17 @@ public class Sounds : MonoBehaviour
             pitchedAudio.Play();
         }
     }
+
+    private void Start()
+    {
+        foreach (var bg  in Background)
+        {
+            bg.Stop();
+        }
+
+        Background[0].Play();
+    }
+
     public void SetMusicVolume(float volume)
     {
         mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume)*20);

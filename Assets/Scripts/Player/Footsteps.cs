@@ -3,17 +3,28 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(AudioSource))]
+
 public class Footsteps : MonoBehaviour
 {
-    [Header("Звук в помещении")]
-    public AudioClip footstepsIndoor;
-    public float stepDurationIndoor = 0.4f;
-    public int totalStepsIndoor = 20;
+    [Header("Звук по мусору")]
+    public AudioClip footstepsLitter;
+    public float stepDurationLitter = 0.4f;
+    public int totalStepsLitter = 20;
 
-    [Header("Звук на улице")]
-    public AudioClip footstepsGround;
-    public float stepDurationGround = 0.4f;
-    public int totalStepsGround = 20;
+    [Header("Звук по земле")]
+    public AudioClip footstepsDirt;
+    public float stepDurationDirt = 0.4f;
+    public int totalStepsDirt = 20;
+
+    [Header("Звук по воде")]
+    public AudioClip footstepsWater;
+    public float stepDurationWater = 0.4f;
+    public int totalStepsWater = 20;
+
+    [Header("Изначальные настройки ")]
+    public AudioClip footstepsOld;
+    public float stepDurationOld = 0.4f;
+    public int totalStepsOld = 20;
 
     [Header("Настройки скорости")]
     public float minStepInterval = 0.3f;
@@ -160,21 +171,21 @@ public class Footsteps : MonoBehaviour
         switch (currentSurface)
         {
             case SurfaceType.Indoor:
-                currentClip = footstepsIndoor;
-                currentStepDuration = stepDurationIndoor;
-                currentTotalSteps = totalStepsIndoor;
+                currentClip = footstepsLitter;
+                currentStepDuration = stepDurationLitter;
+                currentTotalSteps = totalStepsLitter;
                 break;
 
             case SurfaceType.Ground:
-                currentClip = footstepsGround;
-                currentStepDuration = stepDurationGround;
-                currentTotalSteps = totalStepsGround;
+                currentClip = footstepsDirt;
+                currentStepDuration = stepDurationDirt;
+                currentTotalSteps = totalStepsDirt;
                 break;
 
             default:
-                currentClip = footstepsIndoor;
-                currentStepDuration = stepDurationIndoor;
-                currentTotalSteps = totalStepsIndoor;
+                currentClip = footstepsLitter;
+                currentStepDuration = stepDurationLitter;
+                currentTotalSteps = totalStepsLitter;
                 break;
         }
 
