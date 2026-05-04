@@ -900,7 +900,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8126434127262689061}
   m_Father: {fileID: 1242473395473882805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3113736860886655708
@@ -915,6 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee34843f499ad94cbaeef3ebbfe046d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogManager
+  <Remarks>k__BackingField: {fileID: 5941980546906322942}
   _questionText: {fileID: 0}
   _ansverButtons:
   - {fileID: 0}
@@ -927,12 +929,16 @@ MonoBehaviour:
     isOneTime: 0
     isUsed: 0
   - dialogType: 1
-    iteration: {fileID: 0}
-    isOneTime: 0
+    iteration: {fileID: 11400000, guid: dbc8ccb72d54839449b1f2d77f397125, type: 2}
+    isOneTime: 1
     isUsed: 0
   - dialogType: 2
     iteration: {fileID: 11400000, guid: 8809295ccfc96f14593bf58eb342295f, type: 2}
     isOneTime: 1
+    isUsed: 0
+  - dialogType: 3
+    iteration: {fileID: 11400000, guid: 7d2e85298d402154e99af7d6e59ef040, type: 2}
+    isOneTime: 0
     isUsed: 0
 --- !u!1 &8633647874610762907
 GameObject:
@@ -978,19 +984,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5e5ca966d42474387941a381cca17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarketManager
-  TraderPriceMultiplicator: 3
+  TraderPriceMultiplicator: 1
   _buyItemPrefab: {fileID: 3357118547038453230, guid: f51578f4e7000704593580a542b3b94b, type: 3}
   _buyItemsPanel: {fileID: 0}
   _items:
-  - {fileID: 11400000, guid: db5a73d4ac5325e49b20329004f11fe5, type: 2}
-  - {fileID: 11400000, guid: d920a53c5e2638e43aeffffb1ea48147, type: 2}
-  - {fileID: 11400000, guid: e177735a2f0ea3b4ebc77b4d9bea36c3, type: 2}
-  - {fileID: 11400000, guid: 26bc59ea14f6601468bb335c5bbc3870, type: 2}
-  - {fileID: 11400000, guid: 7aa741ac039b44649b6eccf73a42f4c8, type: 2}
-  - {fileID: 11400000, guid: 19da7f6450a7c0d43943b0cdba72eb01, type: 2}
-  - {fileID: 11400000, guid: 4dd583ba2ac874944ad2e384dd9d0d29, type: 2}
-  - {fileID: 11400000, guid: 63b7b07663c742c499132e19f0fa4eb1, type: 2}
+  - item: {fileID: 11400000, guid: e177735a2f0ea3b4ebc77b4d9bea36c3, type: 2}
+    isSingle: 0
+  - item: {fileID: 11400000, guid: db5a73d4ac5325e49b20329004f11fe5, type: 2}
+    isSingle: 0
+  - item: {fileID: 11400000, guid: 26bc59ea14f6601468bb335c5bbc3870, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 8739ba2ca0bf1aa4ab4532beb42913c5, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: da84372da73b8a043abc65f0c57bd527, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 9aac6298b0b04e141bd79a5795ed1d0c, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 7aa741ac039b44649b6eccf73a42f4c8, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 2924f0ca927ef724baf760ed58d95bc4, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 4dd583ba2ac874944ad2e384dd9d0d29, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 63b7b07663c742c499132e19f0fa4eb1, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: 19da7f6450a7c0d43943b0cdba72eb01, type: 2}
+    isSingle: 1
+  - item: {fileID: 11400000, guid: a6bca6b13e9c32b44919b4987e3fba27, type: 2}
+    isSingle: 1
   TradePanel: {fileID: 0}
+--- !u!1 &8807878085273354236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8126434127262689061}
+  - component: {fileID: 5941980546906322942}
+  m_Layer: 0
+  m_Name: HeroRemarks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8126434127262689061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807878085273354236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6432747801383293844}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5941980546906322942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807878085273354236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e727a010166fa840a115d471e75743c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterRemarks
+  _cGroup: {fileID: 0}
+  _remarkText: {fileID: 0}
+  _remarks:
+  - remark: "\u041F\u043E\u043A\u0430 \u0445\u0432\u0430\u0442\u0438\u0442, \u0430
+      \u0442\u043E \u0441\u0435\u0442\u043A\u0430 \u0442\u0440\u0435\u0441\u043D\u0435\u0442"
+    isMultiRemark: 0
+    remarkAnyTime: 
+    chance: 100
+    showTime: 3
+    type: 3
+    hasBeen: 0
+  - remark: "\u0412\u043E\u0442 \u0435\u0441\u043B\u0438 \u0431\u044B \u0443 \u043C\u0435\u043D\u044F
+      \u0431\u044B\u043B\u0430 \u043E\u0442\u0432\u0435\u0440\u0442\u043A\u0430 \u0432\u043C\u0435\u0441\u0442\u043E
+      \u043F\u0430\u043B\u044C\u0446\u0430... \u0417\u0430\u0447\u0435\u043C \u043D\u0443\u0436\u0435\u043D
+      \u0431\u0435\u0437\u044B\u043C\u044F\u043D\u043D\u044B\u0439?"
+    isMultiRemark: 1
+    remarkAnyTime: "\u0411\u0435\u0437 \u043E\u0442\u0432\u0451\u0440\u0442\u043A\u0438
+      \u044D\u0442\u043E \u043D\u0435 \u0440\u0430\u0437\u043E\u0431\u0440\u0430\u0442\u044C"
+    chance: 100
+    showTime: 3
+    type: 0
+    hasBeen: 0
+  - remark: "\u0418\u0448\u0430 \u043A\u0440\u0443\u0448\u0438\u0442\u044C! \u041D\u0435\u0442,
+      \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E, \u044F \u043D\u0435 \u0441\u043F\u0440\u0430\u0432\u043B\u044E\u0441\u044C
+      \u0433\u043E\u043B\u044B\u043C\u0438 \u0440\u0443\u043A\u0430\u043C\u0438"
+    isMultiRemark: 1
+    remarkAnyTime: "\u041C\u043D\u0435 \u043D\u0443\u0436\u0435\u043D \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442,
+      \u0447\u0442\u043E\u0431\u044B \u0440\u0430\u0441\u043F\u0438\u043B\u0438\u0442\u044C
+      \u044D\u0442\u043E"
+    chance: 100
+    showTime: 3
+    type: 2
+    hasBeen: 0
 --- !u!1 &9079963262266491372
 GameObject:
   m_ObjectHideFlags: 0

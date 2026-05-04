@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     [Inject] DataManager _data;
     [Inject] GameModeManager _gameMode;
     [Inject] GameManager _manager;
+    [Inject] DialogManager _dialog;
     private void Start()
     {
         Control.OnOpenInventory += () =>
@@ -37,10 +38,14 @@ public class Inventory : MonoBehaviour
         Control.OnFastSlotUse += UseFastSlot;
     }
     public int AddItem(ItemData item, int count)
-    {
-        _picedItems[_picCounter % _picedItems.Length].Show(item, count);
+    {        
         _picCounter++;
-        if (CheckTool(item)) return 0;
+        int startCount = count;
+        if (CheckTool(item))
+        {
+            _picedItems[_picCounter % _picedItems.Length].Show(item, count);
+            return 0;
+        }
         float weight = GetWeight();
         float cap = Capacity - weight;
         int res = 0;
@@ -70,7 +75,16 @@ public class Inventory : MonoBehaviour
                 if (count == 0) break;
             }
         }
-        return count>res?count:res;
+        res = count > res ? count : res;
+        if (res < startCount)
+        {
+            _picedItems[_picCounter % _picedItems.Length].Show(item, count);
+        }
+        else
+        {
+            _dialog.Remarks.StartRemark(RemarksType.inventoryFool);
+        }
+        return res;
     }
     public float GetWeight()
     {
@@ -106,8 +120,7 @@ public class Inventory : MonoBehaviour
         {
             _fastCells[num].SetItem(cell.Item, cell.Count);
         }
-        _weightText.text = GetWeight() + "/" + Capacity;
-        _inventoryWeightText.text = _weightText.text;
+        ChangeCargoValue(Capacity);
     }
     private void UseFastSlot(int number) => UseItem(_cells[number - 1]);
 
@@ -132,9 +145,20 @@ public class Inventory : MonoBehaviour
         {
             HaveTools.Add(ti.ToolType);
             _toolsImages[(int)ti.ToolType].sprite = item.Icon;
+            IUsebleItem use = item as IUsebleItem;
+
+            if (use!=null)
+                use.Use(_manager);
+
             return true;
         }
-        return false;
-        
+        return false;        
+    }
+    public void ChangeCargoValue(float value)
+    {
+        if (value < Capacity) return;
+        Capacity = value;
+        _weightText.text = GetWeight() + "/" + Capacity;
+        _inventoryWeightText.text = _weightText.text;
     }
 }

@@ -7,6 +7,7 @@ using static EnumData;
 
 public class DialogManager : MonoBehaviour
 {
+    [field: SerializeField] public CharacterRemarks Remarks { get; private set; }
     [SerializeField] private Text _questionText;
     [SerializeField] private Button[] _ansverButtons;
 

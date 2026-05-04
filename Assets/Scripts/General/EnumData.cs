@@ -30,9 +30,21 @@ public static class EnumData
         traderEveryTime
     }
     public enum RemarksType
-    {
+    {        
         noWrench,
         noGrowes,
-        noHacksaw
+        noHacksaw,
+        inventoryFool,
+    }
+    public enum FilterParts
+    {
+        shortTube,
+        longTube,
+        bascet,
+        teleTube,
+        support,
+        pump,
+        filter,
+        solarBat,
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static EnumData;
 using DG.Tweening;
+using NaughtyAttributes;
 
 public class CharacterRemarks : MonoBehaviour
 {
@@ -14,15 +15,26 @@ public class CharacterRemarks : MonoBehaviour
     [System.Serializable]
     public class RemarkData
     {
-        public string remark;
+        [TextArea] public string remark;
+        public bool isMultiRemark;
+        [ShowIf("isMultiRemark"), AllowNesting, TextArea] public string remarkAnyTime;
         public int chance;
         public float showTime = 3;
         public RemarksType type;
+        [HideInInspector] public bool hasBeen;
     }
     public void StartRemark(RemarksType remark)
     {
         var rem = _remarks.Where(i => i.type == remark).ToArray()[0];
-        _remarkText.text = rem.remark;
+        if (!rem.isMultiRemark)
+        {
+            _remarkText.text = rem.remark;
+        }
+        else
+        {
+            _remarkText.text = rem.hasBeen?rem.remarkAnyTime:rem.remark;
+        }
+        rem.hasBeen = true;
         _tween?.Kill();
         _tween = _cGroup.DOFade(1, 0.5f).OnComplete(() =>
          {

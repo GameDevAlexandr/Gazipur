@@ -1,11 +1,7 @@
 using UnityEngine;
 using static EnumData;
 
-public class ToolItem : ItemObject, IUsebleItem
+public class ToolItem : ItemObject
 {
     [field: SerializeField] public ToolsType ToolType;
-    public void Use(GameManager manager)
-    {
-        
-    }
 }

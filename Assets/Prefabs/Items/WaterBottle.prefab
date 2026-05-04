@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaterItem
   <Item>k__BackingField: {fileID: 11400000, guid: e177735a2f0ea3b4ebc77b4d9bea36c3, type: 2}
   <Count>k__BackingField: 2
-  _count: 30
+  _thirsRemoveCount: 50

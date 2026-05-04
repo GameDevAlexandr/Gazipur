@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eaf020038c2c441819580b90cbcc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GarbageObject
-  _holdTaime: 4
+  _holdTaime: 1
   _ItemsCount: {x: 12, y: 20}
   _dropChances:
   - item: {fileID: 11400000, guid: 26267e47a1a63724fb3307d1bef6eb05, type: 2}
