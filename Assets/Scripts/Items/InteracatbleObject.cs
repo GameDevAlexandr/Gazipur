@@ -5,7 +5,6 @@ using DG.Tweening;
 public abstract class InteractObject : MonoBehaviour
 {
     private Outline _outline;
-    [SerializeField] private Text _howUseToolTipe;
     [SerializeField] CanvasGroup _cGroup;
 
     private Tween _tween;

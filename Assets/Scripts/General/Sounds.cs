@@ -15,6 +15,7 @@ public class Sounds : MonoBehaviour
 
     [Inject] Sounds _sounds;
     private AudioSource _curBackground;
+    Tween _tween;
     [Inject]
     private void Init()
     {       
@@ -41,8 +42,8 @@ public class Sounds : MonoBehaviour
         {
             bg.Stop();
         }
-
-        Background[0].Play();
+        if(Background.Length>0)
+            Background[0].Play();
     }
 
     public void SetMusicVolume(float volume)
@@ -95,8 +96,9 @@ public class Sounds : MonoBehaviour
     {
         source.volume = 0;
         source.Play();
-        source.DOFade(1, 1);        
-        _curBackground.DOFade(0, 1).OnComplete(() =>
+        source.DOFade(1, 1);
+        _tween?.Kill();
+        _tween = _curBackground.DOFade(0, 1).OnComplete(() =>
         {
             _curBackground.Stop();
             _curBackground = source;

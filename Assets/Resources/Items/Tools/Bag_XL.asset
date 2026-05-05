@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bag_XL
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <Index>k__BackingField: 1
-  <Name>k__BackingField: n_bugXL
+  <Name>k__BackingField: n_bagXL
   <Icon>k__BackingField: {fileID: -1320720890, guid: 4b981a695afc33e4ea9a28c6cd9f4539, type: 3}
   <Price>k__BackingField: 2
   <MaxInInventoryCell>k__BackingField: 100
