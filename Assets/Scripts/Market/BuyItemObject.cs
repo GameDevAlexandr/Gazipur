@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using UnityEngine.EventSystems;
 
-public class BuyItemObject : MonoBehaviour
+public class BuyItemObject : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image _itemIcon;
     [SerializeField] private Button _buyButton;
@@ -13,6 +14,11 @@ public class BuyItemObject : MonoBehaviour
     private ItemData _item;
     private bool _isSingle;
     private int _price => (int)(_market.TraderPriceMultiplicator * _item.Price);
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _inventory.ItemInfoPanel.SetPurchasableItem(_item);
+    }
+
     public void SetItem(ItemData item, bool isSingle)
     {
         _isSingle = isSingle;
@@ -32,4 +38,5 @@ public class BuyItemObject : MonoBehaviour
         if (_isSingle) gameObject.SetActive(false);
         _data.ChangeMoney(-_price);
     }
+    
 }

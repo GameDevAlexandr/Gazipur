@@ -10,7 +10,7 @@ public class TraderObject : InteractObject
         {
             if (!_dialog.StartDialog(EnumData.DialogType.startTrader))
             {
-                _dialog.StartDialog(EnumData.DialogType.traderEveryTime);
+                _dialog.StartDialog(EnumData.DialogType.traderAfterBuy);
             }
         }
     }

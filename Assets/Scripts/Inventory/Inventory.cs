@@ -7,8 +7,9 @@ public class Inventory : MonoBehaviour
 {
     public HashSet<ToolsType> HaveTools { get; private set; }
     [field: SerializeField] public float Capacity { get; private set; }
+    [field: SerializeField] public ItemInfoPanel ItemInfoPanel { get; private set; }
     [SerializeField] private GameObject _inventoryPanel;
-    [SerializeField] private ItemInfoPanel _itemInfoPanel;
+    
     [SerializeField] private Text _weightText;         
     [SerializeField] private Text _inventoryWeightText;         
     [SerializeField] private InventoryCell[] _cells;
@@ -135,7 +136,7 @@ public class Inventory : MonoBehaviour
     }
     public void ShowInfoPanel(InventoryCell cell)
     {
-        _itemInfoPanel.SetItem(cell, _data.gameMode == GameMode.trade);
+        ItemInfoPanel.SetItem(cell, _data.gameMode == GameMode.trade);
     }
     public bool CheckTool(ItemData item)
     {

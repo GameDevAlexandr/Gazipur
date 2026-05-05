@@ -19,6 +19,7 @@ public class ItemInfoPanel : MonoBehaviour
 
     private InventoryCell _currentCell;
     [Inject] private Inventory _inventory;
+    [Inject] private DataManager _data;
 
     private void Start()
     {
@@ -51,12 +52,9 @@ public class ItemInfoPanel : MonoBehaviour
         _useButton.interactable = item.ItemPrefab is IUsebleItem;
         _dropButton.interactable = true;
         _sellButton.interactable = true;
-        _name.Text = item.Name;
-        _description.Text = item.Description;
-        _priceText.text = item.Price.ToString();
-        _weightText.text = item.Weight.ToString();
-        _icon.enabled = true;
-        _icon.sprite = item.Icon;
+
+        SetInfo(item);
+
         if (isSell)
         {
             _tradePanel.SetItem(cell);
@@ -66,6 +64,23 @@ public class ItemInfoPanel : MonoBehaviour
             _tradePanel.gameObject.SetActive(false);
         }
     } 
+    public void SetPurchasableItem(ItemData item)
+    {
+
+        _useButton.gameObject.SetActive(false);
+        _dropButton.gameObject.SetActive(false);
+        _sellButton.gameObject.SetActive(false);
+        SetInfo(item);
+    }
+    private void SetInfo(ItemData item)
+    {
+        _name.Text = item.Name;
+        _description.Text = item.Description;
+        _priceText.text = item.Price.ToString();
+        _weightText.text = item.Weight.ToString();
+        _icon.enabled = true;
+        _icon.sprite = item.Icon;
+    }
     private void Use()
     {
         _inventory.UseItem(_currentCell);

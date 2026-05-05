@@ -11,12 +11,12 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private Text _questionText;
     [SerializeField] private Button[] _ansverButtons;
 
-    [SerializeField, OnValueChanged("SetTypes")] private DialogData[] _dialogs;
+    [SerializeField] private DialogData[] _dialogs;
 
     [System.Serializable]
     public class DialogData
     {
-        [ReadOnly, AllowNesting] public DialogType dialogType;
+        public DialogType dialogType;
         public DialogStructure iteration;
         public bool isOneTime;
         [HideInInspector] public bool isUsed;
@@ -24,22 +24,9 @@ public class DialogManager : MonoBehaviour
     [Inject] GameManager _manager;
     [Inject] GameModeManager _modManager;
 
-    private void SetTypes()
-    {
-        int cnt = System.Enum.GetValues(typeof(DialogType)).Length;
-        int l = _dialogs.Length;
-        if (_dialogs.Length < cnt)
-        {
-            System.Array.Resize(ref _dialogs, cnt);
-            for (int i = Mathf.Max(0, l - 1); i < cnt; i++)
-            {
-                _dialogs[i].dialogType = (DialogType)i;
-            }
-        }
-    }
     private void Start()
     {
-        StartDialog(DialogType.matherStart);
+        StartDialog(DialogType.motherStart);
     }
 
     public bool StartDialog(DialogType dType)

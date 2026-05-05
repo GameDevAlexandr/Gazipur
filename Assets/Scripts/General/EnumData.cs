@@ -26,8 +26,10 @@ public static class EnumData
     {
         start,
         startTrader,
-        matherStart,
-        traderEveryTime
+        motherStart,
+        traderAfterBuy,
+        motherDisease,
+        motherMedecine
     }
     public enum RemarksType
     {        
