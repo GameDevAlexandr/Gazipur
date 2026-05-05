@@ -66,7 +66,7 @@ public class ItemInfoPanel : MonoBehaviour
     } 
     public void SetPurchasableItem(ItemData item)
     {
-
+        _tradePanel.gameObject.SetActive(false);
         _useButton.gameObject.SetActive(false);
         _dropButton.gameObject.SetActive(false);
         _sellButton.gameObject.SetActive(false);
