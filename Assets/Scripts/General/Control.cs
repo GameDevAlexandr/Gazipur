@@ -85,7 +85,7 @@ public class Control : MonoBehaviour
     // Само действие обрабатывается через OnHoldComplete из прогресс-бара
     private void OnHoldInteractPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Удержание Е выполнено (достигнута длительность)");
+        //Debug.Log("Control: Удержание Е выполнено (достигнута длительность)");
     }
 
     // Короткое нажатие игнорируется, если игрок в процессе удержания
@@ -93,13 +93,13 @@ public class Control : MonoBehaviour
     {
        // if (isHoldInProgress) return;
 
-        Debug.Log("Control: Вызвано короткое нажатие Е");
+        //Debug.Log("Control: Вызвано короткое нажатие Е");
         OnInteractObject?.Invoke();
     }
 
     private void OnInventoryButtonPressed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Вызвано открытие инвентаря");
+        //Debug.Log("Control: Вызвано открытие инвентаря");
         OnOpenInventory?.Invoke();
     }
 
@@ -107,31 +107,31 @@ public class Control : MonoBehaviour
 
     private void OnSlot1Performed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Выбран слот инвентаря 1");
+        //Debug.Log("Control: Выбран слот инвентаря 1");
         OnFastSlotUse?.Invoke(1);
     }
 
     private void OnSlot2Performed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Выбран слот инвентаря 2");
+        //Debug.Log("Control: Выбран слот инвентаря 2");
         OnFastSlotUse?.Invoke(2);
     }
 
     private void OnSlot3Performed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Выбран слот инвентаря 3");
+        //Debug.Log("Control: Выбран слот инвентаря 3");
         OnFastSlotUse?.Invoke(3);
     }
 
     private void OnSlot4Performed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Выбран слот инвентаря 4");
+        //Debug.Log("Control: Выбран слот инвентаря 4");
         OnFastSlotUse?.Invoke(4);
     }
 
     private void OnSlot5Performed(InputAction.CallbackContext context)
     {
-        Debug.Log("Control: Выбран слот инвентаря 5");
+        //Debug.Log("Control: Выбран слот инвентаря 5");
         OnFastSlotUse?.Invoke(5);
     }
 }

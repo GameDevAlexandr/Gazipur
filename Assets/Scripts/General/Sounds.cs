@@ -17,10 +17,21 @@ public class Sounds : MonoBehaviour
     private AudioSource _curBackground;
     [Inject]
     private void Init()
-    {       
-
+    {
         DontDestroyOnLoad(gameObject);        
     }
+    
+    private void Start()
+    {
+        foreach (var bg  in Background)
+        {
+            bg.Stop();
+        }
+
+        Debug.Log(Background[0]);
+        Background[0].Play();
+    }
+
     public void RandomPitch(AudioSource pitchedAudio, float spread)
     {
         float pitch = Random.Range(-spread, spread);
@@ -33,26 +44,18 @@ public class Sounds : MonoBehaviour
         {
             pitchedAudio.Play();
         }
-    }
-
-    private void Start()
-    {
-        foreach (var bg  in Background)
-        {
-            bg.Stop();
-        }
-
-        Background[0].Play();
-    }
+    }    
 
     public void SetMusicVolume(float volume)
     {
         mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume)*20);
     }
+
     public void SetSoundsVolume(float volume)
     {        
         mixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
     }
+
     public void Mute(bool mute)
     {
         if (mute)
@@ -64,6 +67,7 @@ public class Sounds : MonoBehaviour
             mixer.audioMixer.SetFloat("MasterVolume", 0);
         }
     }
+
     public void ButtonClick(int typeNumber)
     {
         switch(typeNumber)
@@ -72,6 +76,7 @@ public class Sounds : MonoBehaviour
                break;
         }
     }
+
     public void ChangeBackground(AudioSource source)
     {
         if (!_curBackground)
@@ -83,6 +88,7 @@ public class Sounds : MonoBehaviour
         if (_curBackground == source) return;
         FadeSound(source);
     }
+
     public void OverlapBackground(AudioSource source)
     {
         float tr = _curBackground.time;
@@ -91,6 +97,7 @@ public class Sounds : MonoBehaviour
         _curBackground.time = tr;
         _curBackground.Play();
     }
+
     private void FadeSound(AudioSource source)
     {
         source.volume = 0;
