@@ -9,9 +9,12 @@ public class Inventory : MonoBehaviour
     [field: SerializeField] public float Capacity { get; private set; }
     [field: SerializeField] public ItemInfoPanel ItemInfoPanel { get; private set; }
     [SerializeField] private GameObject _inventoryPanel;
-    
+
+    [SerializeField] private FilterBlueprint _filterBlueprint;
     [SerializeField] private Text _weightText;         
     [SerializeField] private Text _inventoryWeightText;         
+    [SerializeField] private Text _cargoPriceText;         
+    [SerializeField] private Text _inventoryCargoPriceText;         
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
     [SerializeField] private PickedItemUI[] _picedItems;
@@ -19,12 +22,14 @@ public class Inventory : MonoBehaviour
 
     private bool _isOpen;
     private int _picCounter;
+    private int _cargoPrice;
     [Inject] DataManager _data;
     [Inject] GameModeManager _gameMode;
     [Inject] GameManager _manager;
     [Inject] DialogManager _dialog;
     private void Start()
     {
+        HaveTools = new HashSet<ToolsType>();
         Control.OnOpenInventory += () =>
         {
             if(_data.gameMode == GameMode.outdors && !_isOpen)
@@ -42,11 +47,19 @@ public class Inventory : MonoBehaviour
     {        
         _picCounter++;
         int startCount = count;
+
         if (CheckTool(item))
         {
             _picedItems[_picCounter % _picedItems.Length].Show(item, count);
             return 0;
         }
+
+        if (CheckFilterBlueprint(item))
+        {
+            _picedItems[_picCounter % _picedItems.Length].Show(item, count);
+            return 0;
+        }
+
         float weight = GetWeight();
         float cap = Capacity - weight;
         int res = 0;
@@ -90,11 +103,13 @@ public class Inventory : MonoBehaviour
     public float GetWeight()
     {
         float res = 0;
+        _cargoPrice = 0;
         foreach (var c in _cells)
         {
             if (c.Item)
             {
                 res += c.Item.Weight * c.Count;
+                _cargoPrice += c.Item.Price * c.Count;
             }
         }        
         return res;
@@ -140,7 +155,6 @@ public class Inventory : MonoBehaviour
     }
     public bool CheckTool(ItemData item)
     {
-        HaveTools ??= new HashSet<ToolsType>();
         ToolItem ti = item.ItemPrefab as ToolItem;
         if (ti)
         {
@@ -155,11 +169,23 @@ public class Inventory : MonoBehaviour
         }
         return false;        
     }
+    public bool CheckFilterBlueprint(ItemData item)
+    {
+        FilterPart fp = item.ItemPrefab as FilterPart;
+        if (fp)
+        {
+            _filterBlueprint.AddPart(fp.Part);
+            return true;
+        }
+        return false;
+    }
     public void ChangeCargoValue(float value)
     {
         if (value < Capacity) return;
         Capacity = value;
         _weightText.text = GetWeight() + "/" + Capacity;
         _inventoryWeightText.text = _weightText.text;
+        _cargoPriceText.text = _cargoPrice.ToString();
+       _inventoryCargoPriceText.text = _cargoPrice.ToString();
     }
 }

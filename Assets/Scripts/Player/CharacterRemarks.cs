@@ -21,11 +21,20 @@ public class CharacterRemarks : MonoBehaviour
         public int chance;
         public float showTime = 3;
         public RemarksType type;
+        public bool isOneTime;
         [HideInInspector] public bool hasBeen;
     }
     public void StartRemark(RemarksType remark)
     {
         var rem = _remarks.Where(i => i.type == remark).ToArray()[0];
+        int rnd = Random.Range(0, 100);
+
+        if (rem.chance < rnd)
+            return;
+
+        if (rem.isOneTime)
+            rem.chance = 0;        
+
         if (!rem.isMultiRemark)
         {
             _remarkText.text = rem.remark;

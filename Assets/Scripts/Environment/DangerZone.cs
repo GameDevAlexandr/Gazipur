@@ -7,20 +7,24 @@ public class DangerZone : MonoBehaviour
 {
     [Inject] private PlayerState _player;
     [Inject] private Inventory _inventory;
+    [Inject] private DialogManager _dialog;
     [SerializeField] private int _damagePerSecond;
 
     private bool _inZone;
-    private void Start()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (!_inventory.HaveTools.Contains(EnumData.ToolsType.mask) &&
-            other.GetComponent<PlayerMovement>())
+        if (!other.GetComponent<PlayerMovement>())
+            return;
+
+        if (!_inventory.HaveTools.Contains(EnumData.ToolsType.mask))
         {
+            _dialog.Remarks.StartRemark(EnumData.RemarksType.noMask);
             _inZone = true;
             StartCoroutine(Tic());
+        }
+        else
+        {
+            _dialog.Remarks.StartRemark(EnumData.RemarksType.maskReady);
         }
     }
     private void OnTriggerExit(Collider other)

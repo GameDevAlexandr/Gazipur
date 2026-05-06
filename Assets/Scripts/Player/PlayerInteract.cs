@@ -5,6 +5,7 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private float _interactableDistance;
     private InteractObject _selectObject;
+    private bool _isSelect;
     private void Start()
     {
         Control.OnSelectObject += SelectObject;
@@ -12,7 +13,10 @@ public class PlayerInteract : MonoBehaviour
     }
     private void SelectObject(InteractObject obj)
     {
-        if (_selectObject != null && _selectObject == obj) return;
+        if (_selectObject != obj)
+            _isSelect = false;
+
+        if (_selectObject != null && _isSelect) return;
 
         if (_selectObject != null)
             _selectObject.Select(false);
@@ -21,10 +25,8 @@ public class PlayerInteract : MonoBehaviour
 
         if (obj && Mathf.Abs(Vector3.Distance(transform.position, obj.transform.position)) <= _interactableDistance)
         {
-           
-
-            if (_selectObject != null)
-                _selectObject.Select(true);
+            _isSelect = true;
+            _selectObject.Select(true);
         }
     }
     private void InteractObject(bool isDown)

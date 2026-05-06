@@ -49,6 +49,8 @@ MonoBehaviour:
   _inventoryPanel: {fileID: 0}
   _weightText: {fileID: 0}
   _inventoryWeightText: {fileID: 0}
+  _cargoPriceText: {fileID: 0}
+  _inventoryCargoPriceText: {fileID: 0}
   _cells:
   - {fileID: 0}
   - {fileID: 0}
@@ -77,6 +79,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _toolsImages:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -761,6 +764,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnInventory:
     m_PersistentCalls:
       m_Calls:
@@ -924,21 +939,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _dialogs:
-  - dialogType: 0
-    iteration: {fileID: 0}
-    isOneTime: 0
-    isUsed: 0
   - dialogType: 1
-    iteration: {fileID: 11400000, guid: dbc8ccb72d54839449b1f2d77f397125, type: 2}
+    iteration: {fileID: 11400000, guid: de57ceef25e334a4ab060da58e53f314, type: 2}
     isOneTime: 1
     isUsed: 0
   - dialogType: 2
-    iteration: {fileID: 11400000, guid: 8809295ccfc96f14593bf58eb342295f, type: 2}
+    iteration: {fileID: 11400000, guid: d88dec312c30aa94cbc5e2f26171dc60, type: 2}
     isOneTime: 1
     isUsed: 0
   - dialogType: 3
-    iteration: {fileID: 11400000, guid: 7d2e85298d402154e99af7d6e59ef040, type: 2}
-    isOneTime: 0
+    iteration: {fileID: 11400000, guid: caf6035d65a7dea4eb9a1f80decc631f, type: 2}
+    isOneTime: 1
+    isUsed: 0
+  - dialogType: 4
+    iteration: {fileID: 11400000, guid: e547c709d310d904491fc44480c93ca0, type: 2}
+    isOneTime: 1
+    isUsed: 0
+  - dialogType: 5
+    iteration: {fileID: 11400000, guid: 70e2a932be06ec34bad985999a9d36d9, type: 2}
+    isOneTime: 1
     isUsed: 0
 --- !u!1 &8633647874610762907
 GameObject:
@@ -1160,6 +1179,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2962537972588476959, guid: b14fd8ae38d131d479b10fc8777a153c, type: 3}
       propertyPath: <BackGround>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962537972588476959, guid: b14fd8ae38d131d479b10fc8777a153c, type: 3}
+      propertyPath: <Background>k__BackingField.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3903627951884139472, guid: b14fd8ae38d131d479b10fc8777a153c, type: 3}

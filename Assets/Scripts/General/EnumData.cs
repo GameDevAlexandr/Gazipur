@@ -20,7 +20,8 @@ public static class EnumData
         hacksaw,
         mask,
         crowbar,
-        glowes
+        glowes, 
+        key
     }
     public enum DialogType
     {
@@ -37,6 +38,12 @@ public static class EnumData
         noGrowes,
         noHacksaw,
         inventoryFool,
+        noCutters,
+        noKey,
+        noMask,
+        maskReady,
+        tooEarly,
+        relaxMom
     }
     public enum FilterParts
     {
