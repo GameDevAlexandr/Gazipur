@@ -7,6 +7,10 @@ public class LocationChanger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _sounds.ChangeBackground(other.GetComponent<AudioSource>());
+        try
+        {
+            _sounds.ChangeBackground(other.GetComponent<AudioSource>());
+        }
+        catch { }
     }
 }
