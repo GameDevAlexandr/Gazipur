@@ -24,13 +24,13 @@ public class CharacterRemarks : MonoBehaviour
         public bool isOneTime;
         [HideInInspector] public bool hasBeen;
     }
-    public void StartRemark(RemarksType remark)
+    public bool StartRemark(RemarksType remark)
     {
         var rem = _remarks.Where(i => i.type == remark).ToArray()[0];
         int rnd = Random.Range(0, 100);
 
         if (rem.chance < rnd)
-            return;
+            return false;
 
         if (rem.isOneTime)
             rem.chance = 0;        
@@ -49,5 +49,6 @@ public class CharacterRemarks : MonoBehaviour
          {
              _tween = _cGroup.DOFade(0, 0.5f).SetDelay(rem.showTime);
          });
+        return true;
     }
 }

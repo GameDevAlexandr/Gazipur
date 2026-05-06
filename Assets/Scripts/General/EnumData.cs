@@ -43,7 +43,10 @@ public static class EnumData
         noMask,
         maskReady,
         tooEarly,
-        relaxMom
+        relaxMom,
+        filterNeed,
+        fewParts,
+        foolParts
     }
     public enum FilterParts
     {

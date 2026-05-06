@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 using static EnumData;
 
 public class FilterBlueprint : MonoBehaviour
@@ -12,19 +13,22 @@ public class FilterBlueprint : MonoBehaviour
         public Image partImage;
         public Toggle checkBox;
     }
+    [Inject] DialogManager _dialog;
     public void AddPart(FilterParts part)
     {
         var prt = System.Array.Find(_parts, i => i.part == part);
         prt.partImage.enabled = true;
         prt.checkBox.isOn = true;
-        CheckComplete();
+        if (CheckComplete())
+            _dialog.Remarks.StartRemark(RemarksType.foolParts);
     }
-    private void CheckComplete()
+    public bool CheckComplete()
     {
         foreach (var p in _parts)
         {
             if (!p.checkBox.isOn)
-                return;
+                return false;
         }
+        return true;
     }
 }

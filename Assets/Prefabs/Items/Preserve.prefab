@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a9e05d0c3e25e4494943749317e30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodItem
+  _cGroup: {fileID: 0}
   <Item>k__BackingField: {fileID: 11400000, guid: db5a73d4ac5325e49b20329004f11fe5, type: 2}
-  <Count>k__BackingField: 2
+  <Count>k__BackingField: 1
   _count: 30
