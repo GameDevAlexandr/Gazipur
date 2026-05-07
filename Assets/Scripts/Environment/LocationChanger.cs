@@ -7,10 +7,16 @@ public class LocationChanger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        try
+        var tag = other.tag;
+        switch (tag)
         {
-            _sounds.ChangeBackground(other.GetComponent<AudioSource>());
+            case "AreaVillage": _sounds.ChangeBackground(_sounds.Background[0]);
+                break;
+            case "AreaRich": _sounds.ChangeBackground(_sounds.Background[1]);
+                break;
+            case "AreaDanger": _sounds.ChangeBackground(_sounds.Background[2]);
+                break;
+
         }
-        catch { }
     }
 }

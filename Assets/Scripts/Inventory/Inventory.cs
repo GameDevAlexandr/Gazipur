@@ -5,11 +5,11 @@ using Zenject;
 using static EnumData;
 public class Inventory : MonoBehaviour
 {
+    public System.Action<ItemData> onTakeItem;
     public HashSet<ToolsType> HaveTools { get; private set; }
     [field: SerializeField] public float Capacity { get; private set; }
     [field: SerializeField] public ItemInfoPanel ItemInfoPanel { get; private set; }
     [SerializeField] private GameObject _inventoryPanel;
-
     [SerializeField] private FilterBlueprint _filterBlueprint;
     [SerializeField] private Text _weightText;         
     [SerializeField] private Text _inventoryWeightText;         
@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
     {        
         _picCounter++;
         int startCount = count;
-
+        onTakeItem?.Invoke(item);
         if (CheckTool(item))
         {
             _picedItems[_picCounter % _picedItems.Length].Show(item, count);

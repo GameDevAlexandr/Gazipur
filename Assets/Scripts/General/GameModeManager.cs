@@ -14,6 +14,7 @@ public class GameModeManager : MonoBehaviour
     public UnityEvent<bool> OnDialog = new UnityEvent<bool>();
     public UnityEvent<bool> OnMenu = new UnityEvent<bool>();
     public UnityEvent<bool> OnDie = new UnityEvent<bool>();
+    public UnityEvent<bool> OnOtherPanels = new UnityEvent<bool>();
     public System.Action<GameMode> onChangeMode;
 
     private Dictionary<GameMode, UnityEvent<bool>> _mods;
@@ -31,11 +32,19 @@ public class GameModeManager : MonoBehaviour
             [GameMode.storage] = OnStorage,
             [GameMode.dialog] = OnDialog,
             [GameMode.menu] = OnMenu,
-            [GameMode.die] = OnDie
+            [GameMode.die] = OnDie,
+            [GameMode.otherPanels] = OnOtherPanels
         };
         Control.OnEsc += () =>
         {
-            if (_data.gameMode != GameMode.die) ChangeMode(GameMode.outdors);
+            if (_data.gameMode == GameMode.outdors)
+            {
+                ChangeMode(GameMode.menu);
+                Time.timeScale = 0;
+                return;
+            }
+            Time.timeScale = 1;
+            if (_data.gameMode != GameMode.die) OutDors();            
         };
     }
     public void ChangeMode(GameMode mode)
@@ -45,4 +54,6 @@ public class GameModeManager : MonoBehaviour
         onChangeMode?.Invoke(mode);
         _mods[mode]?.Invoke(true);
     }
+    public void OutDors() => ChangeMode(GameMode.outdors);
+
 }

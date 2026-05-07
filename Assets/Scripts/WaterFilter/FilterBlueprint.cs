@@ -17,7 +17,10 @@ public class FilterBlueprint : MonoBehaviour
     public void AddPart(FilterParts part)
     {
         var prt = System.Array.Find(_parts, i => i.part == part);
-        prt.partImage.enabled = true;
+        
+        if(prt.partImage)
+            prt.partImage.enabled = true;
+
         prt.checkBox.isOn = true;
         if (CheckComplete())
             _dialog.Remarks.StartRemark(RemarksType.foolParts);

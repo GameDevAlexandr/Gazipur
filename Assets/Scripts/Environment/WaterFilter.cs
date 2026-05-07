@@ -14,14 +14,7 @@ public class WaterFilter : InteractObject
     {
         if (!_blueprint.CheckComplete())
         {
-            if (_dialog.Remarks.StartRemark(EnumData.RemarksType.filterNeed))
-            {
-
-            }
-            else
-            {
                 _dialog.Remarks.StartRemark(EnumData.RemarksType.fewParts);
-            }
         }
         else
         {

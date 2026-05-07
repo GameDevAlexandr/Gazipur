@@ -26,7 +26,10 @@ public class CharacterRemarks : MonoBehaviour
     }
     public bool StartRemark(RemarksType remark)
     {
-        var rem = _remarks.Where(i => i.type == remark).ToArray()[0];
+        var rem = System.Array.Find(_remarks,i => i.type == remark);
+
+        if (rem == null) return false;
+
         int rnd = Random.Range(0, 100);
 
         if (rem.chance < rnd)

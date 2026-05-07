@@ -7,9 +7,16 @@ public class MotherCollider : MonoBehaviour
 {
     [Inject] Inventory _inventory;
     [Inject] DialogManager _dialog;
+    private bool _isWork;
+    private void Start()
+    {
+        _inventory.onTakeItem += itm => _isWork = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!_isWork) return;
+
         if (other.GetComponent<PlayerMovement>())
         {
             if (!_inventory.HaveTools.Contains(EnumData.ToolsType.wrench))

@@ -11,7 +11,8 @@ public static class EnumData
         craft,
         storage,
         menu, 
-        die
+        die, 
+        otherPanels
     }
     public enum ToolsType
     {
@@ -46,7 +47,11 @@ public static class EnumData
         relaxMom,
         filterNeed,
         fewParts,
-        foolParts
+        foolParts,
+        foundBlueprint,
+        closeBlueprint,
+        foundPart
+
     }
     public enum FilterParts
     {
