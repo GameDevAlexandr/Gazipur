@@ -23,13 +23,17 @@ public class MarketManager : MonoBehaviour
     {
         for (int i = 0; i < _items.Length; i++)
         {
-           var obj = _container.InstantiatePrefabForComponent<BuyItemObject>(_buyItemPrefab, _buyItemsPanel);
-            obj.SetItem(_items[i].item,_items[i].isSingle);
+            AddItem(_items[i].item, _items[i].isSingle);
         }
     }
     public void StartTrade(bool isStart)
     {
         TradePanel.gameObject.SetActive(isStart);
         _inventory.ShowPanel(isStart);
+    }
+    public void AddItem(ItemData item, bool isSingle)
+    {
+        var obj = _container.InstantiatePrefabForComponent<BuyItemObject>(_buyItemPrefab, _buyItemsPanel);
+        obj.SetItem(item, isSingle);
     }
 }

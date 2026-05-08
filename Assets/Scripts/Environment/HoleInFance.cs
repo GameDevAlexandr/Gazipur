@@ -12,7 +12,7 @@ public class HoleInFance : InteractObject
     [Inject] DialogManager _dialog;
     public override void Intearct(bool isDowwn)
     {
-        if(_inventory.HaveTools.Contains(_tool))
+        if (_inventory.HaveTools.Contains(_tool))
         {
             _fance.enabled = false;
             GetComponent<BoxCollider>().isTrigger = true;

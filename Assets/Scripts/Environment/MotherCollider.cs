@@ -7,6 +7,7 @@ public class MotherCollider : MonoBehaviour
 {
     [Inject] Inventory _inventory;
     [Inject] DialogManager _dialog;
+    [Inject] QuestManager _quest;
     private bool _isWork;
     private void Start()
     {
@@ -19,7 +20,7 @@ public class MotherCollider : MonoBehaviour
 
         if (other.GetComponent<PlayerMovement>())
         {
-            if (!_inventory.HaveTools.Contains(EnumData.ToolsType.wrench))
+            if (!_inventory.HaveTools.Contains(EnumData.ToolsType.crowbar))
             {
                 _dialog.Remarks.StartRemark(EnumData.RemarksType.tooEarly);
             }
@@ -29,6 +30,13 @@ public class MotherCollider : MonoBehaviour
                 {
                     _dialog.Remarks.StartRemark(EnumData.RemarksType.relaxMom);
                 }
+            }
+            var medCell = _inventory.CheckMedeicine();
+            if (medCell != null)
+            {
+                _dialog.StartDialog(EnumData.DialogType.motherMedecine);
+                medCell.RemoveItem();
+                _quest.HealMother(true);
             }
         }
     }

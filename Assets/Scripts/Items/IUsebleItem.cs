@@ -1,4 +1,4 @@
 public interface IUsebleItem 
 {
-    public void Use(GameManager manager);
+    public bool Use(GameManager manager);
 }

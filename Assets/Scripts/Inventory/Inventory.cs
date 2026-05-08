@@ -145,8 +145,8 @@ public class Inventory : MonoBehaviour
         IUsebleItem item = cell.Item.ItemPrefab as IUsebleItem;
         if (item != null)
         {
-            item.Use(_manager);
-            cell.RemoveItem(1);
+            if(item.Use(_manager))
+                cell.RemoveItem(1);
         }
     }
     public void ShowInfoPanel(InventoryCell cell)
@@ -187,5 +187,16 @@ public class Inventory : MonoBehaviour
         _inventoryWeightText.text = _weightText.text;
         _cargoPriceText.text = _cargoPrice.ToString();
        _inventoryCargoPriceText.text = _cargoPrice.ToString();
+    }
+    public InventoryCell CheckMedeicine()
+    {
+        foreach (var c in _cells)
+        {
+            if(c.Item!= null && c.Item.ItemPrefab is MedecineItem)
+            {
+                return c;
+            }
+        }
+        return null;
     }
 }

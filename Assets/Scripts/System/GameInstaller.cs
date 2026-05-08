@@ -17,6 +17,7 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private PlayerMovement _player;
     [SerializeField] private Sounds _sounds;
     [SerializeField] private DialogManager _dialogManager;
+    [SerializeField] private QuestManager _quest;
     public override void InstallBindings()
     {
         Container.Bind<Control>().FromInstance(_controll).AsSingle();
@@ -32,6 +33,6 @@ public class GameInstaller : MonoInstaller
         Container.Bind<PlayerMovement>().FromInstance(_player).AsSingle();
         Container.Bind<Sounds>().FromInstance(_sounds).AsSingle();
         Container.Bind<DialogManager>().FromInstance(_dialogManager).AsSingle();
-
+        Container.Bind<QuestManager>().FromInstance(_quest).AsSingle();
     }
 }

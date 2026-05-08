@@ -6,6 +6,7 @@ public abstract class InteractObject : MonoBehaviour
 {
     private Outline _outline;
     [SerializeField] CanvasGroup _cGroup;
+    [SerializeField] bool _fixTooltipe;
 
     private Tween _tween;
     public virtual void Select(bool isSelect)
@@ -14,7 +15,9 @@ public abstract class InteractObject : MonoBehaviour
         _outline.enabled = isSelect;
         if (_cGroup)
         {
-            _cGroup.transform.LookAt(Camera.main.transform);
+            if(!_fixTooltipe)
+                _cGroup.transform.LookAt(Camera.main.transform);
+
             _tween?.Kill();
             _tween = _cGroup.DOFade(isSelect?1:0, 0.3f);
         }

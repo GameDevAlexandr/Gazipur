@@ -3,8 +3,14 @@ using UnityEngine;
 public class MedecineItem : ItemObject, IUsebleItem
 {
     [SerializeField] private int _count;
-    public void Use(GameManager manager)
+    public bool Use(GameManager manager)
     {
-        manager.PState.Heal(_count);
+        //if(manager.Data.gameMode != EnumData.GameMode.dialog && manager.Dialog.Dialog != EnumData.DialogType.motherMedecine)
+        //{
+        //    return false;
+        //}
+        //manager.PState.Heal(_count);
+        //return true;
+        return false;
     }
 }

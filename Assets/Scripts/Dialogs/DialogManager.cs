@@ -7,6 +7,7 @@ using static EnumData;
 
 public class DialogManager : MonoBehaviour
 {
+    public DialogType Dialog { get; private set; }
     [field: SerializeField] public CharacterRemarks Remarks { get; private set; }
     [SerializeField] private Text _questionText;
     [SerializeField] private Button[] _ansverButtons;
@@ -35,8 +36,8 @@ public class DialogManager : MonoBehaviour
 
         if (dialog.isUsed) return false;
 
+        Dialog = dialog.dialogType;
         dialog.isUsed = dialog.isOneTime;
-        Debug.Log("dialog = " + dialog.isUsed);
         SetIteration(dialog.iteration);
         _modManager.ChangeMode(GameMode.dialog);
         return true;

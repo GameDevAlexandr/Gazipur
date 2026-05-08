@@ -50,7 +50,7 @@ public class ItemInfoPanel : MonoBehaviour
         }
 
         _useButton.interactable = item.ItemPrefab is IUsebleItem;
-        _dropButton.interactable = true;
+        _dropButton.interactable = !item.isState;
         _sellButton.interactable = true;
 
         SetInfo(item);

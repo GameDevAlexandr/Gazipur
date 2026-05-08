@@ -50,7 +50,9 @@ public static class EnumData
         foolParts,
         foundBlueprint,
         closeBlueprint,
-        foundPart
+        foundPart,
+        hungry,
+        thirst
 
     }
     public enum FilterParts

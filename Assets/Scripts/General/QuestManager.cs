@@ -6,6 +6,7 @@ using static EnumData;
 public class QuestManager : MonoBehaviour
 {
     public bool BluePrintIsFound { get; private set; }
+    public bool MedecineIsPurchased { get; private set; }
 
     [SerializeField] private GameObject _filterPanel;
     [SerializeField] private GameObject _blueprintPanel;
@@ -42,6 +43,13 @@ public class QuestManager : MonoBehaviour
         _dialog.Remarks.StartRemark(RemarksType.closeBlueprint);
         _filterPanel.SetActive(false); 
         _mode.ChangeMode(GameMode.outdors);
+    }
+    public void HealMother(bool isHeal)
+    {
+        if (!isHeal)
+            _medecineCheckBox.gameObject.SetActive(true);
+        else
+            _medecineCheckBox.isOn = true;
     }
 
 }
