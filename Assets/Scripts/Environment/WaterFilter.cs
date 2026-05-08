@@ -4,14 +4,14 @@ using Zenject;
 public class WaterFilter : InteractObject
 {
     [SerializeField] private float _makeTime;
-    [Inject] private Inventory _inventory;
     [Inject] private DialogManager _dialog;
     [Inject] HoldProgressBar _holdBar;
     [Inject] GameModeManager _mode;
 
-    private FilterBlueprint _blueprint;
+    [SerializeField] private FilterBlueprint _blueprint;
     public override void Intearct(bool isDown)
     {
+        Debug.Log("filterComplete " + _blueprint.CheckComplete());
         if (!_blueprint.CheckComplete())
         {
                 _dialog.Remarks.StartRemark(EnumData.RemarksType.fewParts);

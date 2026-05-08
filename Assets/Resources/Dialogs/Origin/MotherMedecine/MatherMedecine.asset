@@ -16,5 +16,5 @@ MonoBehaviour:
   <Answer>k__BackingField:
   - answer: "\u041C\u0430\u043C\u0430, \u0442\u0435\u0431\u0435 \u0441\u0440\u043E\u0447\u043D\u043E
       \u043D\u0443\u0436\u043D\u043E \u043F\u0440\u0438\u043D\u044F\u0442\u044C \u044D\u0442\u043E!"
-    newChain: {fileID: 0}
+    newChain: {fileID: 11400000, guid: 5df6bb19c03ed4e428c3ed2be0d7b7ad, type: 2}
     action: {fileID: 0}
