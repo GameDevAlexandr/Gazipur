@@ -10,6 +10,8 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField] private GameObject _filterPanel;
     [SerializeField] private GameObject _blueprintPanel;
+    [SerializeField] private GameObject _filterPlace;
+    [SerializeField] private GameObject _filterObject;
     [SerializeField] private Toggle _medecineCheckBox;
     [Inject] Inventory _inventory;
     [Inject] DialogManager _dialog;
@@ -18,7 +20,9 @@ public class QuestManager : MonoBehaviour
     private bool _isStartFind;
     private void Start()
     {
+        _filterObject.SetActive(false);
         _blueprintPanel.SetActive(false);
+        _filterPlace.SetActive(false);
         _medecineCheckBox.gameObject.SetActive(false);
         _mode.onChangeMode += m =>
         {
@@ -33,6 +37,7 @@ public class QuestManager : MonoBehaviour
                  _filterPanel.SetActive(true);
                  _blueprintPanel.SetActive(true);
                  _dialog.Remarks.StartRemark(RemarksType.foundBlueprint);
+                 _filterPlace.SetActive(true);
                  _mode.ChangeMode(GameMode.otherPanels);
              }
          };
@@ -50,6 +55,11 @@ public class QuestManager : MonoBehaviour
             _medecineCheckBox.gameObject.SetActive(true);
         else
             _medecineCheckBox.isOn = true;
+    }
+    public void CompleteFilter()
+    {
+        _blueprintPanel.SetActive(false);
+        _filterPlace.SetActive(true);
     }
 
 }

@@ -68,14 +68,28 @@ public class Inventory : MonoBehaviour
             res = count - (int)(cap / item.Weight);
             count = (int)(cap / item.Weight);
         }
-        foreach (var c in _cells)
-        {            
-            //if (!c.IsReady) continue;
+        if (item.ItemPrefab is IUsebleItem)
+        {
+            foreach (var c in _cells)
+            {
+                //if (!c.IsReady) continue;
 
-            if (c.Item == item)
-                count = c.AddItem(item, count);
+                if (c.Item == item)
+                    count = c.AddItem(item, count);
 
-            if (count == 0) break;
+                if (count == 0) break;
+            }
+        }
+        else
+        {
+            for (int i = _cells.Length-1; i >=0 ; i--)
+            {
+                var c = _cells[i];
+                if (c.Item == item)
+                    count = c.AddItem(item, count);
+
+                if (count == 0) break;
+            }
         }
 
         if (count != 0)
