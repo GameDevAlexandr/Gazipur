@@ -72,7 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087321cc24cf641478742846c0fbd734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BagItem
+  _tooltipeText: 
   <Item>k__BackingField: {fileID: 11400000, guid: 26bc59ea14f6601468bb335c5bbc3870, type: 2}
   <Count>k__BackingField: 1
   ToolType: 0
-  _cargoValue: 15
+  _cargoValue: 29

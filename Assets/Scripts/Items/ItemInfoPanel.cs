@@ -34,7 +34,7 @@ public class ItemInfoPanel : MonoBehaviour
 
         _useButton.gameObject.SetActive(!isSell);
         _dropButton.gameObject.SetActive(!isSell);
-        _sellButton.gameObject.SetActive(isSell);
+        _sellButton.gameObject.SetActive(isSell && cell.Item!=null && !cell.Item.isStatic);
 
         if (!item)
         {
@@ -50,7 +50,7 @@ public class ItemInfoPanel : MonoBehaviour
         }
 
         _useButton.interactable = item.ItemPrefab is IUsebleItem;
-        _dropButton.interactable = !item.isState;
+        _dropButton.interactable = !item.isStatic;
         _sellButton.interactable = true;
 
         SetInfo(item);

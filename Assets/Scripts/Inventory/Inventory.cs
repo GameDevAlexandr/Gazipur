@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private FilterBlueprint _filterBlueprint;
     [SerializeField] private Text _weightText;         
+    [SerializeField] private Image _weightBar;         
     [SerializeField] private Text _inventoryWeightText;         
     [SerializeField] private Text _cargoPriceText;         
     [SerializeField] private Text _inventoryCargoPriceText;         
@@ -44,7 +45,7 @@ public class Inventory : MonoBehaviour
         Control.OnFastSlotUse += UseFastSlot;
     }
     public int AddItem(ItemData item, int count)
-    {        
+    {
         _picCounter++;
         int startCount = count;
         onTakeItem?.Invoke(item);
@@ -68,45 +69,42 @@ public class Inventory : MonoBehaviour
             res = count - (int)(cap / item.Weight);
             count = (int)(cap / item.Weight);
         }
-        if (item.ItemPrefab is IUsebleItem)
+        foreach (var c in _cells)
         {
-            foreach (var c in _cells)
-            {
-                //if (!c.IsReady) continue;
+            if (c.Item == item)
+                count = c.AddItem(item, count);
 
-                if (c.Item == item)
-                    count = c.AddItem(item, count);
-
-                if (count == 0) break;
-            }
-        }
-        else
-        {
-            for (int i = _cells.Length-1; i >=0 ; i--)
-            {
-                var c = _cells[i];
-                if (c.Item == item)
-                    count = c.AddItem(item, count);
-
-                if (count == 0) break;
-            }
+            if (count == 0) break;
         }
 
         if (count != 0)
         {
-            foreach (var c in _cells)
+            if (item.ItemPrefab is IUsebleItem)
             {
-                //if (!c.IsReady) continue;
+                foreach (var c in _cells)
+                {
+                    if (c.Item == null)
+                        count = c.AddItem(item, count);
 
-                if (c.Item == null)
-                    count = c.AddItem(item, count);
-                if (count == 0) break;
+                    if (count == 0) break;
+                }
+            }
+            else
+            {
+                for (int i = _cells.Length - 1; i >= 0; i--)
+                {
+                    var c = _cells[i];
+                    if (c.Item == null)
+                        count = c.AddItem(item, count);
+
+                    if (count == 0) break;
+                }
             }
         }
         res = count > res ? count : res;
         if (res < startCount)
         {
-            _picedItems[_picCounter % _picedItems.Length].Show(item, count);
+            _picedItems[_picCounter % _picedItems.Length].Show(item, startCount-res);
         }
         else
         {
@@ -174,7 +172,7 @@ public class Inventory : MonoBehaviour
         {
             HaveTools.Add(ti.ToolType);
             _toolsImages[(int)ti.ToolType].sprite = item.Icon;
-            IUsebleItem use = item as IUsebleItem;
+            IUsebleItem use = ti as IUsebleItem;
 
             if (use!=null)
                 use.Use(_manager);
@@ -197,7 +195,9 @@ public class Inventory : MonoBehaviour
     {
         if (value < Capacity) return;
         Capacity = value;
-        _weightText.text = GetWeight() + "/" + Capacity;
+        var wgt = GetWeight();
+        _weightText.text = wgt + "/" + Capacity;
+        _weightBar.fillAmount = wgt / Capacity;
         _inventoryWeightText.text = _weightText.text;
         _cargoPriceText.text = _cargoPrice.ToString();
        _inventoryCargoPriceText.text = _cargoPrice.ToString();

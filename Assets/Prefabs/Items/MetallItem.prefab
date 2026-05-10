@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6866110762675633620}
   - component: {fileID: 284852473571008229}
   m_Layer: 0
-  m_Name: Testitem
+  m_Name: MetallItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7317f9bf3bb4314ca07de93bddf8774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
-  _cGroup: {fileID: 0}
-  _fixTooltipe: 0
-  <Item>k__BackingField: {fileID: 11400000, guid: d920a53c5e2638e43aeffffb1ea48147, type: 2}
+  _tooltipeText: 
+  <Item>k__BackingField: {fileID: 11400000, guid: b12342f6a5affb64b9323420e7093a76, type: 2}
   <Count>k__BackingField: 1

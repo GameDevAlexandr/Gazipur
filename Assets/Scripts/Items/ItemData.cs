@@ -12,5 +12,5 @@ public class ItemData : ScriptableObject
     [field: SerializeField] public int MaxInInventoryCell { get; private set; }
     [field: SerializeField] public float Weight { get; private set; }
     [field: SerializeField] public ItemObject ItemPrefab { get; private set; }
-    [field: SerializeField] public bool isState { get; private set; }
+    [field: SerializeField] public bool isStatic { get; private set; }
 }

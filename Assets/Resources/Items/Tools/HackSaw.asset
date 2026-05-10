@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <Index>k__BackingField: 1
   <Name>k__BackingField: n_hacksaw
-  <Icon>k__BackingField: {fileID: -1933389532, guid: 4b981a695afc33e4ea9a28c6cd9f4539, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 4181602614218674bb7dc63ed82a71c7, type: 3}
   <Price>k__BackingField: 2
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.1
   <ItemPrefab>k__BackingField: {fileID: 7351919822486860406, guid: ba3cee3cd29c342409b2c8d90cc32150, type: 3}
+  <isState>k__BackingField: 0

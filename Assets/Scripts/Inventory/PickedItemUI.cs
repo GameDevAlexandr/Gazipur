@@ -12,7 +12,7 @@ public class PickedItemUI : MonoBehaviour
     private CanvasGroup _group;
     private Tween _tween;
     public void Show(ItemData item, int count)
-    {
+    {        
         _tween?.Kill();
         _group ??= GetComponent<CanvasGroup>();
         _itemCountText.text = count.ToString();

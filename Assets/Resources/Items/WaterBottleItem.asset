@@ -19,3 +19,4 @@ MonoBehaviour:
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.5
   <ItemPrefab>k__BackingField: {fileID: 390752615833050936, guid: 51e0fe5dc1506ba4581a516bd2656ec5, type: 3}
+  <isStatic>k__BackingField: 1
