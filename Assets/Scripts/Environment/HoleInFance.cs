@@ -14,13 +14,13 @@ public class HoleInFance : InteractObject
     {
         if (_inventory.HaveTools.Contains(_tool))
         {
-            _fance.enabled = false;
-            GetComponent<BoxCollider>().isTrigger = true;
+            _fance.enabled = false;            
             _fance.enabled = false;
             if (_holeFance)
             {
                 Instantiate(_holeFance, transform.position, Quaternion.identity);
             }
+            Destroy(gameObject);
         }
         else
         {
