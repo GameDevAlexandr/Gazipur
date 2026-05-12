@@ -43,7 +43,6 @@ public class Sounds : MonoBehaviour
             bg.Stop();
         }
 
-        Debug.Log(Background[0]);
         Background[0].Play();
     }
 
