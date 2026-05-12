@@ -66,4 +66,20 @@ public static class EnumData
         filter,
         solarBat,
     }
+    public enum PlayerSound
+    {
+        eat,
+        drink,
+        pickedTrash,
+        pickedMettal,
+        pickedTecno,
+        wireCut
+    }
+    public enum UISound
+    {
+        buy, 
+        sell,
+        questComplete,
+        buttonClick
+    }
 }

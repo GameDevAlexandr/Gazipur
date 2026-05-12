@@ -6,6 +6,7 @@ public class WaterItem : ItemObject, IUsebleItem
     public bool Use(GameManager manager)
     {
         manager.PState.Drink(_thirsRemoveCount);
+        manager.Sounds.PlayerPlay(EnumData.PlayerSound.drink, false);
         return true;
     }
 }

@@ -87,8 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1711cfff8268caa4184cba6bd3f41b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DangerGarbageObject
-  _cGroup: {fileID: 2556452449969766943}
+  _tooltipeText: 
   _holdTaime: 1
+  _pickSound: 3
   _ItemsCount: {x: 6, y: 6}
   _dropChances:
   - item: {fileID: 11400000, guid: b12342f6a5affb64b9323420e7093a76, type: 2}

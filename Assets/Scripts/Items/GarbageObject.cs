@@ -2,10 +2,12 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using static EnumData;
 
 public class GarbageObject : InteractObject
 {
     [SerializeField] private float _holdTaime = 1f;
+    [SerializeField] private PlayerSound _pickSound;
     [SerializeField] private Vector2Int _ItemsCount = new Vector2Int(6, 10);
     [SerializeField] private Chances[] _dropChances;
 
@@ -13,6 +15,7 @@ public class GarbageObject : InteractObject
     private int _count;
     [Inject] HoldProgressBar _holdBar;
     [Inject] Inventory _inventory;
+    [Inject] Sounds _sounds;
     [System.Serializable]
     public struct Chances
     {
@@ -47,15 +50,17 @@ public class GarbageObject : InteractObject
         {
             _holdBar.StartHold(_holdTaime);
             _holdBar.OnHoldComplete += PicItem;
+            _sounds.PlayerPlay(_pickSound, true);
         }
         else
         {
+            _sounds.PlayerStop();
             _holdBar.CancelHold();
             _holdBar.OnHoldComplete -= PicItem;
         }
     }
     protected virtual void PicItem()
-    {        
+    {
         int rnd = Random.Range(0, _items.Count);
         if (_inventory.AddItem(_items[rnd], 1) > 0)
             return;

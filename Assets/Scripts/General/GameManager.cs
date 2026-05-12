@@ -10,4 +10,5 @@ public class GameManager : MonoBehaviour
     [Inject] public MarketManager Market { get; private set; }
     [Inject] public DialogManager Dialog { get; private set; }
     [Inject] public QuestManager Quest { get; private set; }
+    [Inject] public Sounds Sounds { get; private set; }
 }

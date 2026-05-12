@@ -66,8 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eaf020038c2c441819580b90cbcc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GarbageObject
-  _cGroup: {fileID: 2333931080477605794}
+  _tooltipeText: 
   _holdTaime: 1
+  _pickSound: 2
   _ItemsCount: {x: 6, y: 6}
   _dropChances:
   - item: {fileID: 11400000, guid: b25fb9918e8f7114f90043decec8e4f1, type: 2}
@@ -190,11 +191,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf70c7336df67054584b33392948afb7, type: 3}
---- !u!225 &2333931080477605794 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 9044058215717640967, guid: cf70c7336df67054584b33392948afb7, type: 3}
-  m_PrefabInstance: {fileID: 6764752935702357157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8621565471355954622 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3045786751657312539, guid: cf70c7336df67054584b33392948afb7, type: 3}

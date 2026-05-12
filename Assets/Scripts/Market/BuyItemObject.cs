@@ -11,6 +11,7 @@ public class BuyItemObject : MonoBehaviour, IPointerClickHandler
     [Inject] private MarketManager _market;
     [Inject] private Inventory _inventory;
     [Inject] private DataManager _data;
+    [Inject] private Sounds _sound;
     private ItemData _item;
     private bool _isSingle;
     private int _price => (int)(_market.TraderPriceMultiplicator * _item.Price);
@@ -37,6 +38,7 @@ public class BuyItemObject : MonoBehaviour, IPointerClickHandler
         }
         if (_isSingle) gameObject.SetActive(false);
         _data.ChangeMoney(-_price);
+        _sound.UIPlay(EnumData.UISound.buy);
     }
     
 }

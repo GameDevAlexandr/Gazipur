@@ -16,6 +16,7 @@ public class TradePanel : MonoBehaviour
     private InventoryCell _cell;
     [Inject] private DataManager _data;
     [Inject] private GameModeManager _gameMode;
+    [Inject] private Sounds _sounds;
     private void Start()
     {
         _slider.onValueChanged.AddListener(ChangeCount);
@@ -47,6 +48,7 @@ public class TradePanel : MonoBehaviour
     {
         _data.ChangeMoney(_sellCount * _price);
         _cell.RemoveItem(_sellCount);
+        _sounds.UIPlay(EnumData.UISound.sell);
         SetItem(_cell);
     }
     private void SetUI()

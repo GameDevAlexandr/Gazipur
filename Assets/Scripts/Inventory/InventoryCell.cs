@@ -15,6 +15,11 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     [Inject] private MarketManager _market;
     [Inject] private Inventory _inventory;
     public void SetReady(bool ready) => IsReady = ready;
+    private Rect _rect;
+    private void Start()
+    {
+        _rect = _itemIcon.rectTransform.rect;
+    }
     public int AddItem(ItemData item, int count)
     {
         Item = item;
@@ -49,6 +54,7 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     {
         if (!Item) return;        
         _itemIcon.transform.SetParent(transform.parent);
+        _itemIcon.transform.position = transform.position;
         _itemIcon.transform.position = eventData.position;
     }
     public void OnDrag(PointerEventData eventData)
@@ -95,7 +101,8 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!Item) return;
         _itemIcon.transform.parent = transform;
-        _itemIcon.transform.position = transform.position;        
+        _itemIcon.transform.position = transform.position;
     }
 }

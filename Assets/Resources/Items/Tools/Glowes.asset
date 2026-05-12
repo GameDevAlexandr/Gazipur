@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <Index>k__BackingField: 1
   <Name>k__BackingField: n_glowes
-  <Icon>k__BackingField: {fileID: 75519428, guid: 4b981a695afc33e4ea9a28c6cd9f4539, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 0f1d5d131dc44db48882b0b5bdee4aa3, type: 3}
   <Price>k__BackingField: 2
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.1
   <ItemPrefab>k__BackingField: {fileID: 7351919822486860406, guid: 9977367fec4ac1243bad93faa6c36b04, type: 3}
+  <isStatic>k__BackingField: 0
