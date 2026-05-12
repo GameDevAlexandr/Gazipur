@@ -116,8 +116,8 @@ public class Sounds : MonoBehaviour
     {
         source.volume = 0;
         source.Play();
-        source.DOFade(1, 1);        
-        _curBackground.DOFade(0, 1).OnComplete(() =>
+        source.DOFade(1, 3);        
+        _curBackground.DOFade(0, 3).OnComplete(() =>
         {
             _curBackground.Stop();
             _curBackground = source;

@@ -19,8 +19,6 @@ public class GarbageTruck : MonoBehaviour {
         if (!_isGarbagePlayed && other.name.Equals("PLAYER"))
         {
             audioSource.Play();
-            Debug.Log("Garbage is played");
-            Debug.Log(audioSource.isPlaying);
             _isGarbagePlayed = true;
         }
     }

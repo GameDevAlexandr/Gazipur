@@ -303,12 +303,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf46c1fa87c17334d909d141dd8fbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Footsteps
-  footstepsIndoor: {fileID: 8300000, guid: 1e8cf478b9a4e7444a0d970ff1d5d4f0, type: 3}
-  stepDurationIndoor: 0.3527
-  totalStepsIndoor: 11
-  footstepsGround: {fileID: 8300000, guid: 2b58735b71a1fe14388312ee3519c0bf, type: 3}
-  stepDurationGround: 0.3788
-  totalStepsGround: 13
+  footstepsLitter: {fileID: 0}
+  stepDurationLitter: 0.4
+  totalStepsLitter: 20
+  footstepsDirt: {fileID: 0}
+  stepDurationDirt: 0.4
+  totalStepsDirt: 20
+  footstepsWater: {fileID: 0}
+  stepDurationWater: 0.4
+  totalStepsWater: 20
+  footstepsOld: {fileID: 0}
+  stepDurationOld: 0.4
+  totalStepsOld: 20
   minStepInterval: 0.3
   maxStepInterval: 0.8
   minSpeedForSteps: 0.1
@@ -374,7 +380,6 @@ GameObject:
   - component: {fileID: 7221630474262317011}
   - component: {fileID: 644943038837459032}
   - component: {fileID: 9029406010089099400}
-  - component: {fileID: 3936349719262458354}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -445,15 +450,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3936349719262458354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4668181685234610224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b358eacb1f2c942b56204df63c9bb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
