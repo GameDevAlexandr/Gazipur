@@ -15,8 +15,8 @@ MonoBehaviour:
   <Index>k__BackingField: 1
   <Name>k__BackingField: n_cutters
   <Icon>k__BackingField: {fileID: 21300000, guid: 3a798457caf7c0c478695bd22de2f9b0, type: 3}
-  <Price>k__BackingField: 2
+  <Price>k__BackingField: 200
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.1
   <ItemPrefab>k__BackingField: {fileID: 7351919822486860406, guid: 8f3970dc37af6d84d98627ce25f1ba37, type: 3}
-  <isState>k__BackingField: 0
+  <isStatic>k__BackingField: 0

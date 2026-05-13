@@ -15,7 +15,7 @@ MonoBehaviour:
   <Index>k__BackingField: 1
   <Name>k__BackingField: n_med
   <Icon>k__BackingField: {fileID: 21300000, guid: 553eddbfc9c5e1b4f9bc5fa7c7420a68, type: 3}
-  <Price>k__BackingField: 2
+  <Price>k__BackingField: 40000
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.1
   <ItemPrefab>k__BackingField: {fileID: -166007761876653365, guid: fac4290a482b0b74cab26e35fc37438d, type: 3}

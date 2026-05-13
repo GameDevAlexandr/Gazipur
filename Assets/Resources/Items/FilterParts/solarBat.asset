@@ -15,7 +15,7 @@ MonoBehaviour:
   <Index>k__BackingField: 1
   <Name>k__BackingField: n_solarBat
   <Icon>k__BackingField: {fileID: 21300000, guid: 281c6df66ab5beb469efa214a2ae2f4b, type: 3}
-  <Price>k__BackingField: 2
+  <Price>k__BackingField: 30000
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.1
   <ItemPrefab>k__BackingField: {fileID: 4157063891234254250, guid: ae6ac12fe7667fa4588883d7335e97ca, type: 3}
