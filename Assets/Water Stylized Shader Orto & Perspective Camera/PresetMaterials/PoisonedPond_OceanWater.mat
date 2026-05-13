@@ -21,17 +21,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PoisonedPond_OceanWater
-  m_Shader: {fileID: -6465566751694194690, guid: 8eef88ae773ef5f4dbe4da56da89303b, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d17a14960bf347545ad50aa79b9012e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _PERSPECTIVE
   - _WORLD_SPACE_UV
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -106,7 +105,7 @@ Material:
     - _FresnelPower: 1
     - _GradientRefractionScale: 10
     - _HorizonDistance: 200
-    - _Hue: 1.9
+    - _Hue: 0.54
     - _IntersectionFoamBlend: 1.09
     - _IntersectionFoamCutoff: 1
     - _IntersectionFoamDepth: 2.43
@@ -120,7 +119,7 @@ Material:
     - _NormalSpeed: 0.16
     - _NormalStrength: 1.71
     - _OrthographicCamSize: 0
-    - _PERSPECTIVE: 1
+    - _PERSPECTIVE: 0
     - _PosterizeSteps: 0
     - _QueueControl: 1
     - _QueueOffset: -49
@@ -131,7 +130,7 @@ Material:
     - _RefractionSpeed: 0.01
     - _RefractionStrength: 0
     - _RippleStrength: 83.62
-    - _Saturation: 1
+    - _Saturation: 3
     - _SecondaryFoamBlend: 0.06
     - _Show: 0
     - _SkyboxForce: 2.5
@@ -141,11 +140,11 @@ Material:
     - _SurfaceFoamSpeed: 0
     - _SurfaceFoamTiling: 0.53
     - _TileSize: 200
-    - _Value: 0.39
+    - _Value: 0.41
     - _WORLD_SPACE_UV: 1
     - _WaterAlpha: 1
     - _WaterMetallic: 0.559
-    - _WaterSmoothness: 0.581
+    - _WaterSmoothness: 0.5
     - _WaveLength: 1
     - _WaveRiverLength: 0.73
     - _WaveRiverWidth: 0.16

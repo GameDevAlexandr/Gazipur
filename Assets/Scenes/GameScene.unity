@@ -17787,7 +17787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe20f20907de694690aeb7f05aac153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenGate
-  _tooltipeText: "\u041D\u0430\u0436\u043C\u0438 \"\u0415\" \u043F\u0436"
+  _tooltipeText: "\u041D\u0430\u0436\u043C\u0438 \"\u0415\""
   _tool: 6
   _remark: 5
   _effect: {fileID: 1767183224}
@@ -33200,12 +33200,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851995947}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 461.47, y: 2.69, z: 377.62}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383276782}
+  m_Father: {fileID: 269145958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &851995949
 MonoBehaviour:
@@ -33238,8 +33238,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.1426086, y: 2.7082586, z: 9.526245}
-  m_Center: {x: -0.5405426, y: 0.8541293, z: 0.6354065}
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &852420353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46330,6 +46330,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 186522985}
+  - {fileID: 1995959184}
   m_Father: {fileID: 1929861591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.398}
 --- !u!1 &1291002270
@@ -48961,7 +48962,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: -7326023354272825011, guid: 4fa0d3ac2a8786b439cf20c2fecb231d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49409,9 +49410,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 851995948}
-  - {fileID: 1995959184}
+  m_Children: []
   m_Father: {fileID: 2040819778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1383653939 stripped
@@ -49556,7 +49555,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7c50e32b6ea99554da6115f3a687a0fe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd86261b1c0141249b4abd1c0fe1a49d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 851995948}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bd86261b1c0141249b4abd1c0fe1a49d, type: 3}
       insertIndex: -1
@@ -60108,6 +60110,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.227
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e96705da511818f4ab035a84fa1adcc5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 821d63cf8fd8b4f4398faec7872348e9, type: 2}
     - target: {fileID: 919132149155446097, guid: e96705da511818f4ab035a84fa1adcc5, type: 3}
       propertyPath: m_Name
       value: Bike
@@ -66560,12 +66566,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995959183}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 469.83, y: 3.01, z: 388.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.012197015, w: 0.9999257}
+  m_LocalPosition: {x: 2.8028207, y: 0.90190136, z: -7.7499924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383276782}
+  m_Father: {fileID: 1284243319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1995959185
 MonoBehaviour:
@@ -66599,7 +66605,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.1426086, y: 2.7082586, z: 1.1872559}
+  m_Size: {x: 4, y: 2.7082586, z: 1.1872559}
   m_Center: {x: -0.5405426, y: 0.8541293, z: 4.804901}
 --- !u!1 &1997144079
 GameObject:
