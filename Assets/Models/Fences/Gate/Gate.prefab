@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caddab065a24bcc488fc12bb49567ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoleInFance
-  _cGroup: {fileID: 2641872147170622537}
+  _tooltipeText: 
   _holeFance: {fileID: 0}
   _fance: {fileID: 2176190482345247155}
   _tool: 6
@@ -339,11 +339,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf70c7336df67054584b33392948afb7, type: 3}
---- !u!225 &2641872147170622537 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 9044058215717640967, guid: cf70c7336df67054584b33392948afb7, type: 3}
-  m_PrefabInstance: {fileID: 6425268600408893262}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8318127991271450197 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3045786751657312539, guid: cf70c7336df67054584b33392948afb7, type: 3}
