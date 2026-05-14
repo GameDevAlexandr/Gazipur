@@ -105,7 +105,7 @@ Material:
     - _FresnelPower: 1
     - _GradientRefractionScale: 10
     - _HorizonDistance: 200
-    - _Hue: 0.23
+    - _Hue: 0.89
     - _IntersectionFoamBlend: 1.09
     - _IntersectionFoamCutoff: 1
     - _IntersectionFoamDepth: 2.43
