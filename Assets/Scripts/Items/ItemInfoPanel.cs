@@ -38,10 +38,10 @@ public class ItemInfoPanel : MonoBehaviour
 
         if (!item)
         {
-            _name.Text = "...";
-            _description.Text = "....";
-            _priceText.text = "0";
-            _weightText.text = "0";
+            _name.Text = "";
+            _description.Text = "";
+            _priceText.text = "";
+            _weightText.text = "";
             _useButton.interactable = false;
             _dropButton.interactable = false;
             _sellButton.interactable = false;

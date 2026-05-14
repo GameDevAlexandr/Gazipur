@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d806d6e82e98cb409219b576fed1aec, type: 3}
-  m_Name: BreadItem
+  m_Name: WaterBottleItem
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <Index>k__BackingField: 1
-  <Name>k__BackingField: n_preserves
-  <Icon>k__BackingField: {fileID: 21300000, guid: 3c7d644e7500e0c4a9987bf7a39f6262, type: 3}
-  <Price>k__BackingField: 70
+  <Name>k__BackingField: n_waterBottle
+  <Icon>k__BackingField: {fileID: 21300000, guid: f5433447558d8484180258de760f7760, type: 3}
+  <Price>k__BackingField: 15
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.5
-  <ItemPrefab>k__BackingField: {fileID: 5593514717490060262, guid: 8ec5dc7d22906ff449b34e3ac7cfdfe5, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: 390752615833050936, guid: 51e0fe5dc1506ba4581a516bd2656ec5, type: 3}
   <isStatic>k__BackingField: 1

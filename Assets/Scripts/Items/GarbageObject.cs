@@ -13,9 +13,10 @@ public class GarbageObject : InteractObject
 
     private List<ItemData> _items = new List<ItemData>();
     private int _count;
-    [Inject] HoldProgressBar _holdBar;
-    [Inject] Inventory _inventory;
-    [Inject] Sounds _sounds;
+    [Inject] private HoldProgressBar _holdBar;
+    [Inject] private Inventory _inventory;
+    [Inject] private Sounds _sounds;
+
     [System.Serializable]
     public struct Chances
     {

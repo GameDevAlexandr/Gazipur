@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -5,8 +6,7 @@ using static EnumData;
 
 public class QuestManager : MonoBehaviour
 {
-    public bool BluePrintIsFound { get; private set; }
-    public bool MedecineIsPurchased { get; private set; }
+    public Dictionary<Quests,int> QuestsState { get; private set; } 
 
     [SerializeField] private GameObject _filterPanel;
     [SerializeField] private GameObject _blueprintPanel;
@@ -20,6 +20,11 @@ public class QuestManager : MonoBehaviour
     private bool _isStartFind;
     private void Start()
     {
+        QuestsState = new Dictionary<Quests, int>()
+        { 
+            [Quests.filter] = 0,
+            [Quests.healMother] = 0
+        };
         _filterObject.SetActive(false);
         _blueprintPanel.SetActive(false);
         _filterPlace.SetActive(false);
@@ -31,9 +36,9 @@ public class QuestManager : MonoBehaviour
         };
         _inventory.onTakeItem += i =>
          {
-             if (_isStartFind && !BluePrintIsFound && _data.gameMode == GameMode.outdors)
+             if (_isStartFind && QuestsState[Quests.filter] ==0 && _data.gameMode == GameMode.outdors)
              {
-                 BluePrintIsFound = true;
+                 QuestsState[Quests.filter] = 1;
                  _filterPanel.SetActive(true);
                  _blueprintPanel.SetActive(true);
                  _dialog.Remarks.StartRemark(RemarksType.foundBlueprint);
@@ -52,14 +57,21 @@ public class QuestManager : MonoBehaviour
     public void HealMother(bool isHeal)
     {
         if (!isHeal)
+        {
             _medecineCheckBox.gameObject.SetActive(true);
+            QuestsState[Quests.healMother] = 1;
+        }
         else
+        {
+            QuestsState[Quests.healMother] = 2;
             _medecineCheckBox.isOn = true;
+        }
     }
     public void CompleteFilter()
     {
         _blueprintPanel.SetActive(false);
         _filterPlace.SetActive(true);
+        QuestsState[Quests.filter] = 2;
     }
 
 }

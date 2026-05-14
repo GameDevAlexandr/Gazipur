@@ -12,7 +12,6 @@ public abstract class InteractObject : MonoBehaviour
     [Inject] private Tooltipe _tooltipe;
     public virtual void Select(bool isSelect)
     {
-        _outline ??= GetComponent<Outline>();
         _outline.enabled = isSelect;
         if (_tooltipeText!="")
         {
@@ -24,7 +23,8 @@ public abstract class InteractObject : MonoBehaviour
     }
     private void OnEnable()
     {
-        Select(false);
+        _outline ??= GetComponent<Outline>();
+        _outline.enabled = false;
     }
     private void OnDestroy()
     {

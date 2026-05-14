@@ -29,7 +29,6 @@ public class OpenGate : InteractObject
             _effect.enabled = false;
             _boxCollider.enabled = false;
         }
-
         else
         {
             _dialog.Remarks.StartRemark(_remark);

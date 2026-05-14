@@ -82,4 +82,9 @@ public static class EnumData
         questComplete,
         buttonClick
     }
+    public enum Quests
+    {
+        healMother,
+        filter
+    }
 }

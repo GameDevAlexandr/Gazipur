@@ -130,16 +130,6 @@ public class Inventory : MonoBehaviour
     {
         _isOpen = isShow;
         _inventoryPanel.SetActive(isShow);
-        Cursor.lockState = isShow ? CursorLockMode.None : CursorLockMode.Locked;
-        for (int i = 0; i < _cells.Length; i++)
-        {
-            if (_cells[i].Item)
-            {
-                ShowInfoPanel(_cells[i]);
-            }
-            return;
-        }
-        ShowInfoPanel(_cells[0]);
     }
     public void ChangeCellState(InventoryCell cell)
     {
@@ -212,5 +202,17 @@ public class Inventory : MonoBehaviour
             }
         }
         return null;
+    }
+    public void OnEnable()
+    {
+        for (int i = 0; i < _cells.Length; i++)
+        {
+            if (_cells[i].Item)
+            {
+                ShowInfoPanel(_cells[i]);
+            }
+            return;
+        }
+        ShowInfoPanel(_cells[0]);
     }
 }

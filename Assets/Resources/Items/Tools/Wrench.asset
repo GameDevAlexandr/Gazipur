@@ -15,7 +15,7 @@ MonoBehaviour:
   <Index>k__BackingField: 1
   <Name>k__BackingField: n_skrewdriver
   <Icon>k__BackingField: {fileID: 21300000, guid: 737cd3303834fce40813fa8c9ab16edc, type: 3}
-  <Price>k__BackingField: 800
+  <Price>k__BackingField: 80
   <MaxInInventoryCell>k__BackingField: 100
   <Weight>k__BackingField: 0.1
   <ItemPrefab>k__BackingField: {fileID: 7351919822486860406, guid: a208ec56868550540b989af3ca81b14e, type: 3}

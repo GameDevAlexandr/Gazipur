@@ -42,8 +42,7 @@ public class GameModeManager : MonoBehaviour
                 ChangeMode(GameMode.menu);
                 Time.timeScale = 0;
                 return;
-            }
-            Time.timeScale = 1;
+            }            
             if (_data.gameMode != GameMode.die) OutDors();            
         };
     }
@@ -54,6 +53,10 @@ public class GameModeManager : MonoBehaviour
         onChangeMode?.Invoke(mode);
         _mods[mode]?.Invoke(true);
     }
-    public void OutDors() => ChangeMode(GameMode.outdors);
+    public void OutDors()
+    {
+        Time.timeScale = 1;
+        ChangeMode(GameMode.outdors);
+    }
 
 }

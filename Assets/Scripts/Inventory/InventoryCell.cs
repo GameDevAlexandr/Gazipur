@@ -65,35 +65,29 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        InventoryCell target;
+        if (target = eventData.pointerDrag.GetComponent<InventoryCell>())
         {
-            _itemsManager.DropItem(Item, Count, Camera.main.ScreenToWorldPoint(eventData.position));
-            RemoveItem();
-        }
-        else
-        {
-            InventoryCell target;
-            if (target = eventData.pointerDrag.GetComponent<InventoryCell>())
-            {
-                int cnt = target.Count;
-                var itm = target.Item;
-                int rem;
-                if (Item == itm || !Item)
-                {
-                    rem = AddItem(target.Item, target.Count);
-                    target.RemoveItem(cnt - rem);
-                }
-                else
-                {
-                    target.RemoveItem();
-                    target.AddItem(Item, Count);
-                    RemoveItem();
-                    AddItem(itm, cnt);
-                }
-            }
-        }        
-    }
+            if (target.Item == null) 
+                return;
 
+            int cnt = target.Count;
+            var itm = target.Item;
+            int rem;
+            if (Item == itm || !Item)
+            {
+                rem = AddItem(target.Item, target.Count);
+                target.RemoveItem(cnt - rem);
+            }
+            else
+            {
+                target.RemoveItem();
+                target.AddItem(Item, Count);
+                RemoveItem();
+                AddItem(itm, cnt);
+            }
+        }
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         _inventory.ShowInfoPanel(this);
@@ -101,7 +95,6 @@ public class InventoryCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!Item) return;
         _itemIcon.transform.parent = transform;
         _itemIcon.transform.position = transform.position;
     }
