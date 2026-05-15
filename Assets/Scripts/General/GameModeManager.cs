@@ -23,6 +23,7 @@ public class GameModeManager : MonoBehaviour
     [Inject]
     private void InitMods()
     {
+        Time.timeScale = 1;
         _mods = new Dictionary<GameMode, UnityEvent<bool>> 
         { 
             [GameMode.outdors] = OnOutdors, 

@@ -4,7 +4,6 @@ using Zenject;
 
 public class TradePanel : MonoBehaviour
 {
-    [SerializeField] private Button _exitButton;
     [SerializeField] private Text _curCountText;
     [SerializeField] private Text _sellCountText;
     [SerializeField] private Text _priceText;
@@ -20,7 +19,6 @@ public class TradePanel : MonoBehaviour
     private void Start()
     {
         _slider.onValueChanged.AddListener(ChangeCount);
-        _exitButton.onClick.AddListener(()=>_gameMode.ChangeMode(EnumData.GameMode.outdors));
     }
     public void SetItem(InventoryCell cell)
     {

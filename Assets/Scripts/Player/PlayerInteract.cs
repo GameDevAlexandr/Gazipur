@@ -36,4 +36,9 @@ public class PlayerInteract : MonoBehaviour
             _selectObject.Intearct(isDown);
         }
     }
+    private void OnDestroy()
+    {
+        Control.OnSelectObject -= SelectObject;
+        Control.OnHoldInteract -= InteractObject;
+    }
 }

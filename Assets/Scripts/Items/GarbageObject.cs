@@ -23,7 +23,7 @@ public class GarbageObject : InteractObject
         public ItemData item;
         public int chance;
     }
-
+    
     private void Start()
     {
         _count = Random.Range(_ItemsCount.x, _ItemsCount.y + 1);
@@ -60,7 +60,6 @@ public class GarbageObject : InteractObject
             _holdBar.OnHoldComplete -= PicItem;
         }
     }
-
     protected virtual void PicItem()
     {
         int rnd = Random.Range(0, _items.Count);
@@ -74,30 +73,6 @@ public class GarbageObject : InteractObject
             _holdBar.CancelHold();
             Intearct(false);
             Destroy(gameObject);
-        }
-
-        // Уменьшение тумана после подбора каждого предмета
-        ReduceFogDensity();
-    }
-
-    private void ReduceFogDensity()
-    {
-        // Находим активные настройки тумана в текущей сцене
-        if (RenderSettings.fog)
-        {
-            float reductionStep = 0.2f / 40f; // ~0.0051282 за одну кучку
-            float newDensity = RenderSettings.fogDensity - reductionStep;
-
-            RenderSettings.fogDensity -= 0.2f / 39f;
-            if (RenderSettings.fogDensity < 0f)
-                RenderSettings.fogDensity = 0f;
-
-            // Опционально: лог для отладки
-            Debug.Log($"Fog density reduced to: {RenderSettings.fogDensity}, Items left: {_count}");
-        }
-        else
-        {
-            Debug.LogWarning("Fog is not enabled in RenderSettings!");
-        }
+        }        
     }
 }
