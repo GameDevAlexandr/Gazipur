@@ -42,7 +42,7 @@ public class HoleInFance : InteractObject
         _sounds.PlayerStop();
         _holdBar.CancelHold();
         _holdBar.OnHoldComplete -= Open;
-        _fance.enabled = false;
+        //_fance.enabled = false;
         if (_holeFance)
         {
             Instantiate(_holeFance, transform.position, Quaternion.identity);

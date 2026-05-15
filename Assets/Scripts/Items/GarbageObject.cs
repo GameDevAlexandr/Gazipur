@@ -72,7 +72,16 @@ public class GarbageObject : InteractObject
         {
             _holdBar.CancelHold();
             Intearct(false);
+            DecreaseFog();
             Destroy(gameObject);
         }        
+    }
+
+    private void DecreaseFog()
+    {
+        RenderSettings.fogDensity -= 0.005f;
+        if (RenderSettings.fogDensity < 0f) RenderSettings.fogDensity = 0f;
+        Debug.Log("--");
+        Debug.Log(RenderSettings.fogDensity);
     }
 }
