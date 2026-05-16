@@ -8,6 +8,7 @@ using static EnumData;
 
 public class Sounds : MonoBehaviour
 {
+    public AudioSource PlayerSource => _playerSource;
     [SerializeField] private AudioMixerGroup mixer;
 
     [SerializeField] private AudioSource _playerSource;    
