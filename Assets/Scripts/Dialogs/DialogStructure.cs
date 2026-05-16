@@ -4,11 +4,13 @@ using UnityEngine;
 public class DialogStructure : ScriptableObject
 {
     [field: SerializeField, TextArea] public string Question { get; private set; }
+    [field: SerializeField, TextArea] public AudioClip QuestionVoice { get; private set; }
     [field: SerializeField] public AnswerData[] Answer { get; private set; }
     [System.Serializable]
     public struct AnswerData
     {
         [TextArea] public string answer;
+        public AudioClip answerVoice;
         public DialogStructure newChain;
         public DialogAction action;
     }
