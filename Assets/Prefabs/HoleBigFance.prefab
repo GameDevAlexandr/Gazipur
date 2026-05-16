@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 3317129425556107707}
   - component: {fileID: 3524603206878392979}
   - component: {fileID: 2354777743788060134}
-  - component: {fileID: 4634770915928655332}
-  - component: {fileID: 5013042616894711418}
   m_Layer: 0
   m_Name: HoleBigFance
   m_TagString: Untagged
@@ -115,40 +113,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.88247, y: 50, z: 0.037891112}
   m_Center: {x: 0.000015258789, y: 24.5, z: 0.000030517578}
---- !u!114 &4634770915928655332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9215048931576321452}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &5013042616894711418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9215048931576321452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caddab065a24bcc488fc12bb49567ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoleInFance
-  _tooltipeText: "\u041D\u0430\u0436\u043C\u0438 \"\u0415\""
-  _holeFance: {fileID: 0}
-  _fance: {fileID: 3524603206878392979}
-  _holdTaime: 0
-  _openSound: 0
-  _tool: 4
-  _remark: 4
