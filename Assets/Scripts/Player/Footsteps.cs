@@ -27,10 +27,10 @@ public class Footsteps : MonoBehaviour
     public int totalStepsOld = 20;
 
     [Header("Настройки скорости")]
-    public float minStepInterval = 0.3f;
-    public float maxStepInterval = 0.8f;
+    public float minStepInterval = 0.2f;
+    public float maxStepInterval = 0.6f;
     public float minSpeedForSteps = 0.1f;
-    public float walkSpeed = 5f;
+    public float walkSpeed = 4f;
     public float runSpeed = 8f;
 
     [Header("Определение поверхности")]
