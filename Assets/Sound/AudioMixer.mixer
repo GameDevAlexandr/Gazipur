@@ -52,9 +52,9 @@ AudioMixerController:
   - guid: fd92a0146a7cf9c44b10652452fd2726
     name: MasterVolume
   - guid: f17253916578bac4c9ed6c981569a194
-    name: SoundsVolume
+    name: Music
   - guid: 469b7d2986e43b14580beb942dac4dcf
-    name: MusicVolume
+    name: Sound
   m_AudioMixerGroupViews:
   - guids:
     - e7a5b37e2c3da604da8d734a060356fa
@@ -73,8 +73,8 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: e7a5b37e2c3da604da8d734a060356fa
   m_Children:
-  - {fileID: 2634617217559612055}
   - {fileID: -6981114787889475117}
+  - {fileID: 2634617217559612055}
   m_Volume: fd92a0146a7cf9c44b10652452fd2726
   m_Pitch: fff1c8080e339bb46931345c316300d9
   m_Send: 00000000000000000000000000000000

@@ -39,6 +39,14 @@ public class Sounds : MonoBehaviour
     
     private void Start()
     {
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        float soundsVolume = PlayerPrefs.GetFloat("SoundsVolume", 0.75f);
+        bool musicMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1;
+        bool soundsMuted = PlayerPrefs.GetInt("SoundsMuted", 0) == 1;
+
+        SetMusicVolume(musicMuted ? 0f : musicVolume);
+        SetSoundsVolume(soundsMuted ? 0f : soundsVolume);
+
         foreach (var bg  in Background)
         {
             bg.Stop();
@@ -59,16 +67,18 @@ public class Sounds : MonoBehaviour
         {
             pitchedAudio.Play();
         }
-    }    
+    }
 
     public void SetMusicVolume(float volume)
     {
-        mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume)*20);
+        Debug.Log($"SetMusicVolume called with volume: {volume}");
+        mixer.audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
     }
 
     public void SetSoundsVolume(float volume)
-    {        
-        mixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+    {
+        Debug.Log($"SetSoundsVolume called with volume: {volume}");
+        mixer.audioMixer.SetFloat("Sound", Mathf.Log10(volume) * 20);
     }
 
     public void Mute(bool mute)
