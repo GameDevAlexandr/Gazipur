@@ -19,7 +19,7 @@ public class Footsteps : MonoBehaviour
     [Header("Звук по воде")]
     public AudioClip footstepsWater;
     public float stepDurationWater = 0.4f;
-    public int totalStepsWater = 20;
+    public int totalStepsWater = 8;
 
     [Header("Изначальные настройки ")]
     public AudioClip footstepsOld;
@@ -67,6 +67,7 @@ public class Footsteps : MonoBehaviour
     {
         Indoor,
         Ground,
+        Wet,
         Unknown
     }
 
@@ -156,12 +157,16 @@ public class Footsteps : MonoBehaviour
             return SurfaceType.Indoor;
         if (collider.CompareTag("Ground"))
             return SurfaceType.Ground;
+        if (collider.CompareTag("Wet"))
+            return SurfaceType.Wet;
 
         string layerName = LayerMask.LayerToName(collider.gameObject.layer);
         if (layerName == "Indoor")
             return SurfaceType.Indoor;
         if (layerName == "Ground")
             return SurfaceType.Ground;
+        if (layerName == "Wet")
+            return SurfaceType.Wet;
 
         return SurfaceType.Unknown;
     }
@@ -178,6 +183,12 @@ public class Footsteps : MonoBehaviour
 
             case SurfaceType.Ground:
                 currentClip = footstepsDirt;
+                currentStepDuration = stepDurationDirt;
+                currentTotalSteps = totalStepsDirt;
+                break;
+
+            case SurfaceType.Wet:
+                currentClip = footstepsWater;
                 currentStepDuration = stepDurationDirt;
                 currentTotalSteps = totalStepsDirt;
                 break;
