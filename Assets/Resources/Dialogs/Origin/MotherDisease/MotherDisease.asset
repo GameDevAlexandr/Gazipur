@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: MotherDisease
   m_EditorClassIdentifier: Assembly-CSharp::DialogStructure
   <Question>k__BackingField: "(\u043A\u0430\u0448\u043B\u044F\u0435\u0442)"
+  <QuestionVoice>k__BackingField: {fileID: 8300000, guid: fa7e0cbf8a0bf9342b7af1941e90e0a7, type: 3}
   <Answer>k__BackingField:
   - answer: "\u041C\u0430\u043C? \u041C\u0430\u043C\u0430 \u0443 \u0442\u0435\u0431\u044F
       \u0432\u0441\u0435 \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435?"
+    answerVoice: {fileID: 8300000, guid: 67f9b38ce089ddc4a91259a60f5d79e9, type: 3}
     newChain: {fileID: 11400000, guid: 9d5d8db9c762887479d622fdfec6f1ad, type: 2}
     action: {fileID: 0}

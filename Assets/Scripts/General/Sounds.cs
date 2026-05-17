@@ -61,28 +61,6 @@ public class Sounds : MonoBehaviour
         }
     }
 
-    public void SetMusicVolume(float volume)
-    {
-        mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume) * 20);
-    }
-
-    public void SetSoundsVolume(float volume)
-    {
-        mixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
-    }
-
-    public void Mute(bool mute)
-    {
-        if (mute)
-        {
-            mixer.audioMixer.SetFloat("MasterVolume", -80);
-        }
-        else
-        {
-            mixer.audioMixer.SetFloat("MasterVolume", 0);
-        }
-    }
-
     public void ButtonClick(int typeNumber)
     {
         switch (typeNumber)

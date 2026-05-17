@@ -22,4 +22,4 @@ MonoBehaviour:
   - answer: ...
     answerVoice: {fileID: 0}
     newChain: {fileID: 0}
-    action: {fileID: -6045706840889599881, guid: ec25e3ce4e4d7ea48bc4cd59b74188e7, type: 3}
+    action: {fileID: -5043479411329150791, guid: d2b5d292a6c3ec545a64b2e108e41170, type: 3}

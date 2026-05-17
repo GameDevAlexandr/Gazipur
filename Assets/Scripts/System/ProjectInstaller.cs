@@ -3,9 +3,9 @@ using Zenject;
 
 public class ProjectInstaller : MonoInstaller
 {
-    [SerializeField] private Sounds _soundManager;
+    [SerializeField] private SoundControl _soundControl;
     public override void InstallBindings()
     {
-        Container.Bind<Sounds>().FromInstance(_soundManager).AsSingle();
+        Container.Bind<SoundControl>().FromInstance(_soundControl).AsSingle();
     }
 }
