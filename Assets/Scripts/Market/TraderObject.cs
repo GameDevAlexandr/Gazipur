@@ -21,6 +21,7 @@ public class TraderObject : InteractObject
         {
             if (!_dialog.StartDialog(EnumData.DialogType.startTrader))
             {
+                _dialog.Remarks.StartRemark(EnumData.RemarksType.rohulSelBuy);
                 _gameMode.ChangeMode(EnumData.GameMode.trade);
             }
         }

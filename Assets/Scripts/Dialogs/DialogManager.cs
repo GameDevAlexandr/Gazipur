@@ -25,9 +25,8 @@ public class DialogManager : MonoBehaviour
     [Inject] GameManager _manager;
     [Inject] GameModeManager _modManager;
     [Inject] Sounds _sounds;
-    private AudioSource _speaker => _sounds.PlayerSource;
+    private AudioSource _speaker => _sounds.DialogSource;
 
-    private bool _isDialog;
     private void Start()
     {
         StartDialog(DialogType.motherStart);
@@ -44,24 +43,20 @@ public class DialogManager : MonoBehaviour
         _modManager.ChangeMode(GameMode.dialog);
         return true;
     }
-    private void SetIteration(DialogStructure iteraton, float delay)
-    {
-        Invoke("SetIteration", delay);
-    }
     private void SetIteration(DialogStructure iteraton)
-    {
-        if (!_isDialog) return;        
-
+    {    
         if (iteraton.QuestionVoice)
         {
             if (_speaker.isPlaying)
             {
-                DOTween.To(() => _speaker.time, x => _speaker.time = x, _speaker.clip.length, _speaker.clip.length)
-            .OnComplete(() =>
-            {
-                _speaker.clip = iteraton.QuestionVoice;
-                _speaker.Play();
-            });
+                Sequence sequence = DOTween.Sequence();
+                float remainingTime = _speaker.clip.length - _speaker.time;
+                sequence.AppendInterval(remainingTime);
+                sequence.OnComplete(() =>
+                {
+                    _speaker.clip = iteraton.QuestionVoice;
+                    _speaker.Play();
+                });
             }
             else
             {
@@ -87,10 +82,10 @@ public class DialogManager : MonoBehaviour
             if (iteraton.Answer[i].newChain != null)
             {
                 _ansverButtons[i].onClick.AddListener(() =>
-                {                    
+                {
+                    _speaker.Stop();
                     if (iteraton.Answer[idx].answerVoice)
-                    {
-                        _speaker.Stop();
+                    {                        
                         _speaker.clip = iteraton.Answer[idx].answerVoice;
                         _speaker.Play();
                     }
@@ -101,11 +96,11 @@ public class DialogManager : MonoBehaviour
             else
             {
                 _ansverButtons[i].onClick.AddListener(() =>
-                {
+                {                    
                     _modManager.ChangeMode(GameMode.outdors);
+                    _speaker.Stop();
                     if (iteraton.Answer[idx].answerVoice)
                     {
-                        _speaker.Stop();
                         _speaker.clip = iteraton.Answer[idx].answerVoice;
                         _speaker.Play();
                     }
@@ -117,9 +112,5 @@ public class DialogManager : MonoBehaviour
                 _ansverButtons[i].onClick.AddListener(() => iteraton.Answer[idx].action.Action(_manager));
             }
         }
-    }
-    public void StopDialog(bool isStop)
-    {
-        
     }
 }

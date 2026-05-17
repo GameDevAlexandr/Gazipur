@@ -8,38 +8,38 @@ using static EnumData;
 
 public class Sounds : MonoBehaviour
 {
-    public AudioSource PlayerSource => _playerSource;
+    [field: SerializeField] public AudioSource DialogSource { get; private set;}
     [SerializeField] private AudioMixerGroup mixer;
 
-    [SerializeField] private AudioSource _playerSource;    
+    [SerializeField] private AudioSource _playerSource;
     [SerializeField] private PlayerSoundData[] _playerSounds;
     [SerializeField] private AudioSource _uiSource;
     [SerializeField] private UISoundData[] _uiSound;
-    [field:SerializeField] public AudioSource[] Background { get; private set; }
+    [field: SerializeField] public AudioSource[] Background { get; private set; }
 
     private AudioSource _curBackground;
     [Inject]
     private void Init()
     {
-        DontDestroyOnLoad(gameObject);        
+        DontDestroyOnLoad(gameObject);
     }
 
     [System.Serializable]
     public struct PlayerSoundData
     {
-       public PlayerSound sound;
-       public AudioClip clip;
-    } 
+        public PlayerSound sound;
+        public AudioClip clip;
+    }
     [System.Serializable]
     public struct UISoundData
     {
-       public UISound sound;
-       public AudioClip clip;
+        public UISound sound;
+        public AudioClip clip;
     }
-    
+
     private void Start()
     {
-        foreach (var bg  in Background)
+        foreach (var bg in Background)
         {
             bg.Stop();
         }
@@ -55,19 +55,19 @@ public class Sounds : MonoBehaviour
         {
             pitchedAudio.Play();
         }
-        else if(pitchedAudio.time>0.1f)
+        else if (pitchedAudio.time > 0.1f)
         {
             pitchedAudio.Play();
         }
-    }    
+    }
 
     public void SetMusicVolume(float volume)
     {
-        mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume)*20);
+        mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetSoundsVolume(float volume)
-    {        
+    {
         mixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
     }
 
@@ -85,10 +85,10 @@ public class Sounds : MonoBehaviour
 
     public void ButtonClick(int typeNumber)
     {
-        switch(typeNumber)
+        switch (typeNumber)
         {
             case 0: UIPlay(UISound.buttonClick);
-               break;
+                break;
         }
     }
 
@@ -117,12 +117,12 @@ public class Sounds : MonoBehaviour
     {
         source.volume = 0;
         source.Play();
-        source.DOFade(1, 3);        
+        source.DOFade(1, 3);
         _curBackground.DOFade(0, 3).OnComplete(() =>
         {
             _curBackground.Stop();
             _curBackground = source;
-        });        
+        });
     }
     public void PlayerPlay(PlayerSound sound, bool isLoop)
     {
@@ -131,7 +131,11 @@ public class Sounds : MonoBehaviour
         _playerSource.loop = isLoop;
         _playerSource.Play();
     }
-    public void PlayerStop() => _playerSource.Stop();
+    public void PlayerStop()
+    {
+        _playerSource.loop = false;
+        _playerSource.Stop();
+    }
     public void UIPlay(UISound sound)
     {
         var clip = System.Array.Find(_uiSound, s => s.sound == sound).clip;

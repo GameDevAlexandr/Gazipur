@@ -52,8 +52,11 @@ public static class EnumData
         closeBlueprint,
         foundPart,
         hungry,
-        thirst
-
+        thirst,
+        iAdult,
+        rohulSelBuy,
+        rohulHelp,
+        lie
     }
     public enum FilterParts
     {

@@ -45,6 +45,10 @@ public class QuestManager : MonoBehaviour
                  _filterPlace.SetActive(true);
                  _mode.ChangeMode(GameMode.otherPanels);
              }
+             if(QuestsState[Quests.filter] == 1 && _inventory.CheckFilterBlueprint(i))
+             {
+                 _dialog.Remarks.StartRemark(RemarksType.foundPart);
+             }
          };
     }
    

@@ -23,7 +23,9 @@ MonoBehaviour:
     \u041D\u043E \u0420\u0430\u0445\u0443\u043B \u043D\u0435 \u043E\u0431\u0438\u0434\u0447\u0438\u0432\u044B\u0439,
     \u0420\u0430\u0445\u0443\u043B \u0431\u0443\u0434\u0435\u0442 \u0441 \u0442\u043E\u0431\u043E\u0439
     \u0442\u043E\u0440\u0433\u043E\u0432\u0430\u0442\u044C."
+  <QuestionVoice>k__BackingField: {fileID: 8300000, guid: f64925bdba40e1849a040656fdfcd73b, type: 3}
   <Answer>k__BackingField:
   - answer: ...
+    answerVoice: {fileID: 0}
     newChain: {fileID: 0}
     action: {fileID: -6045706840889599881, guid: ec25e3ce4e4d7ea48bc4cd59b74188e7, type: 3}

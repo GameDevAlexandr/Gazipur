@@ -19,6 +19,7 @@ public class GameModeManager : MonoBehaviour
 
     private Dictionary<GameMode, UnityEvent<bool>> _mods;
     [Inject] DataManager _data;
+    [Inject] DialogManager _dialog;
 
     [Inject]
     private void InitMods()
@@ -49,6 +50,9 @@ public class GameModeManager : MonoBehaviour
     }
     public void ChangeMode(GameMode mode)
     {
+        if (_data.gameMode == GameMode.trade && mode == GameMode.outdors)
+            _dialog.Remarks.StartRemark(RemarksType.rohulHelp);
+
         _mods[_data.gameMode]?.Invoke(false);
         _data.gameMode = mode;
         onChangeMode?.Invoke(mode);

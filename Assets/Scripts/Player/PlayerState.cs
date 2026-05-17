@@ -54,10 +54,10 @@ public class PlayerState : MonoBehaviour
     {
         if (_info.health <= 0) _modeManager.ChangeMode(EnumData.GameMode.die);
 
-        if (_info.hunger <= 30 && _info.hunger % 5 == 0)
+        if (_info.hunger <= 30 && (int)(_info.hunger) % 5 == 0)
             _dialog.Remarks.StartRemark(EnumData.RemarksType.hungry);
 
-        if (_info.thirst <= 30 && _info.hunger % 5 == 0)
+        if (_info.thirst <= 30 && (int)(_info.hunger) % 5 == 0)
             _dialog.Remarks.StartRemark(EnumData.RemarksType.thirst);
 
         _info.health = Mathf.Clamp(_info.health, 0, 100);

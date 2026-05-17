@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogStructure
   <Question>k__BackingField: "\u0418\u0448\u0430! \u0418\u0448\u0430, \u0442\u044B
     \u043D\u0430 \u0440\u0430\u0431\u043E\u0442\u0443?"
+  <QuestionVoice>k__BackingField: {fileID: 8300000, guid: 407b9b5a5b0852f42bbdd3b5949165cc, type: 3}
   <Answer>k__BackingField:
   - answer: "\u0414\u0430, \u043C\u0430\u043C."
+    answerVoice: {fileID: 8300000, guid: 63667d1ec41f1194fb1576b06187296d, type: 3}
     newChain: {fileID: 11400000, guid: 685dd4ed353a37b43b7c46b81db2e8c8, type: 2}
     action: {fileID: 0}

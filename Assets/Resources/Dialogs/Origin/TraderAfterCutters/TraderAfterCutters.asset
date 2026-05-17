@@ -18,7 +18,9 @@ MonoBehaviour:
     \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E, \u0442\u0435\u0431\u0435
     \u0441\u0435\u0439\u0447\u0430\u0441 \u043D\u0443\u0436\u043D\u043E \u0431\u043E\u043B\u044C\u0448\u0435
     \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C!"
+  <QuestionVoice>k__BackingField: {fileID: 8300000, guid: f810f430f028bb64086f754def8a6690, type: 3}
   <Answer>k__BackingField:
   - answer: "\u0422\u044B \u043E \u0447\u0435\u043C?"
+    answerVoice: {fileID: 8300000, guid: 2c2874291d4e30c4aa4a125c28604549, type: 3}
     newChain: {fileID: 11400000, guid: 5d4a9383e5dd1204faf79400c463fdc6, type: 2}
     action: {fileID: 0}
