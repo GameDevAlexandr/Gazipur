@@ -120,4 +120,8 @@ public class Sounds : MonoBehaviour
         _uiSource.clip = clip;
         _uiSource.Play();
     }
+    public void OpenMenu()
+    {
+        UIPlay(UISound.openPanel);
+    }
 }

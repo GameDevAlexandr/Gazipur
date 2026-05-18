@@ -25,6 +25,8 @@ public class PlayerState : MonoBehaviour
     [Inject] private GameModeManager _modeManager;
     [Inject] private DialogManager _dialog;
     private DataManager.HeroInfo _info;
+    private int _hungerForRemark;
+    private int _thirstForRemark;
     private void Start()
     {
         _data.SetDeffoultHeroState();
@@ -54,11 +56,19 @@ public class PlayerState : MonoBehaviour
     {
         if (_info.health <= 0) _modeManager.ChangeMode(EnumData.GameMode.die);
 
-        if (_info.hunger <= 30 && (int)(_info.hunger) % 5 == 0)
+        if (_info.hunger <= 30 && (int)(_info.hunger) % 5 == 0
+            && (int)_info.hunger != _hungerForRemark)
+        {
             _dialog.Remarks.StartRemark(EnumData.RemarksType.hungry);
+            _hungerForRemark = (int)_info.hunger;
+        }
 
-        if (_info.thirst <= 30 && (int)(_info.hunger) % 5 == 0)
+        if (_info.thirst <= 30 && (int)(_info.thirst) % 5 == 0 
+            && (int)_info.thirst != _thirstForRemark)
+        {
             _dialog.Remarks.StartRemark(EnumData.RemarksType.thirst);
+            _thirstForRemark = (int)_info.thirst;
+        }
 
         _info.health = Mathf.Clamp(_info.health, 0, 100);
         _info.hunger = Mathf.Clamp(_info.hunger, 0, 100);

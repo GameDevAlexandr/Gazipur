@@ -1,24 +1,26 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using Zenject;
 
 public class SoundControl : MonoBehaviour
 {
      [ SerializeField] private AudioMixerGroup mixer;
-    public void Start()
-    {
-        //mixer = Resources.Load<AudioMixerGroup>("AudioMixer");
-    }
+    public float MusicVolume { get; private set; }
+    public float SoundVolume { get; private set; }
+    public bool IsMute { get; private set; }
     public void ChangeMusicVolume(float value)
     {
-        Debug.Log("ChangeMusicValue " + value);
-        mixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        MusicVolume = value;
+        mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(value) * 20);    
     }
     public void ChangeSoundVolume(float value)
     {
-        mixer.audioMixer.SetFloat("SoundVolume", Mathf.Log10(value) * 20);
+        SoundVolume = value;
+        mixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
     }
     public void Mute(bool isMute)
     {
+        IsMute = isMute;
         if (isMute)
         {
             mixer.audioMixer.SetFloat("MasterVolume", -80);

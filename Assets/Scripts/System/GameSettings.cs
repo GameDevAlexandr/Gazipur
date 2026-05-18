@@ -12,6 +12,9 @@ public class GameSettings : MonoBehaviour
     [Inject] SoundControl _sounds;
     public void Start()
     {
+        _musicVoloumeSlider.value = _sounds.MusicVolume == 0? 1: _sounds.MusicVolume;
+        _soundVoloumeSlider.value = _sounds.SoundVolume == 0? 1 : _sounds.SoundVolume;
+        _muteToggle.isOn = _sounds.IsMute;
         _musicVoloumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
         _soundVoloumeSlider.onValueChanged.AddListener(ChangeSoundVolume);
         _muteToggle.onValueChanged.AddListener(Mute);

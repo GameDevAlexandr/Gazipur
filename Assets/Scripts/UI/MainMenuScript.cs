@@ -10,23 +10,8 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] private Button startButton, settingsButton, authorsButton, backSettingsButton, backAuthorsButton, exitButton;
     [SerializeField] private GameObject settingsPanel, authorsPanel, buttonPanel;
 
-    private Sounds _sounds;
-
-    [Inject]
-    private void Construct(Sounds sounds)
-    {
-        _sounds = sounds;
-    }
-
     void Start()
     {
-        startButton.onClick.AddListener(() => OnButtonClick(0));
-        settingsButton.onClick.AddListener(() => OnButtonClick(0));
-        authorsButton.onClick.AddListener(() => OnButtonClick(0));
-        backSettingsButton.onClick.AddListener(() => OnButtonClick(0));
-        backAuthorsButton.onClick.AddListener(() => OnButtonClick(0));
-        exitButton.onClick.AddListener(() => OnButtonClick(0));
-
         startButton.onClick.AddListener(OnStartGame);
         settingsButton.onClick.AddListener(OnOpenSettings);
         authorsButton.onClick.AddListener(OnOpenAuthors);
@@ -39,11 +24,6 @@ public class MainMenuScript : MonoBehaviour
         authorsPanel.SetActive(false);
     }
 
-    private void OnButtonClick(int soundType)
-    {
-        if (_sounds != null)
-            _sounds.ButtonClick(soundType);
-    }
 
     private void OnStartGame() { SceneManager.LoadSceneAsync(1); }
     private void OnOpenSettings() { buttonPanel.SetActive(false); settingsPanel.SetActive(true); authorsPanel.SetActive(false); }

@@ -36,7 +36,8 @@ public class QuestManager : MonoBehaviour
         };
         _inventory.onTakeItem += i =>
          {
-             if (_isStartFind && QuestsState[Quests.filter] ==0 && _data.gameMode == GameMode.outdors)
+             if (_isStartFind && QuestsState[Quests.filter] ==0 
+             && _data.gameMode == GameMode.outdors && !(i.ItemPrefab is FilterPart))
              {
                  QuestsState[Quests.filter] = 1;
                  _filterPanel.SetActive(true);

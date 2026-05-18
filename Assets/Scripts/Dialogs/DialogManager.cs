@@ -26,10 +26,18 @@ public class DialogManager : MonoBehaviour
     [Inject] GameModeManager _modManager;
     [Inject] Sounds _sounds;
     private AudioSource _speaker => _sounds.DialogSource;
-
+    private AudioClip _curQuestClip;
     private void Start()
     {
         StartDialog(DialogType.motherStart);
+        _modManager.onChangeMode += m =>
+        {
+            if (m == GameMode.outdors)
+            {
+                _curQuestClip = null;
+                _speaker.Stop();
+            }
+        };
     }
 
     public bool StartDialog(DialogType dType)
@@ -54,8 +62,11 @@ public class DialogManager : MonoBehaviour
                 sequence.AppendInterval(remainingTime);
                 sequence.OnComplete(() =>
                 {
-                    _speaker.clip = iteraton.QuestionVoice;
-                    _speaker.Play();
+                    if (_curQuestClip != _speaker.clip)
+                    {
+                        _speaker.clip = iteraton.QuestionVoice;
+                        _speaker.Play();
+                    }
                 });
             }
             else
@@ -63,6 +74,7 @@ public class DialogManager : MonoBehaviour
                 _speaker.clip = iteraton.QuestionVoice;
                 _speaker.Play();
             }
+            _curQuestClip = iteraton.QuestionVoice;
         }
 
         _questionText.text = iteraton.Question;

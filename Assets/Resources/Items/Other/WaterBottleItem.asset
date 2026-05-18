@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaterBottleItem
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <Index>k__BackingField: 1
-  <Name>k__BackingField: n_waterBottle
+  <Name>k__BackingField: n_water
   <Icon>k__BackingField: {fileID: 21300000, guid: f5433447558d8484180258de760f7760, type: 3}
   <Price>k__BackingField: 15
   <MaxInInventoryCell>k__BackingField: 100

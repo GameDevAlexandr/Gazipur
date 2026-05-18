@@ -83,7 +83,8 @@ public static class EnumData
         buy, 
         sell,
         questComplete,
-        buttonClick
+        buttonClick,
+        openPanel
     }
     public enum Quests
     {
