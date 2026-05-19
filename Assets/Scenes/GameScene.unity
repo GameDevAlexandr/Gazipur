@@ -40893,6 +40893,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1056966477}
     - target: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: _startItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
       propertyPath: '_fastCells.Array.data[0]'
       value: 
       objectReference: {fileID: 3709045609308216644}
@@ -40936,6 +40940,14 @@ PrefabInstance:
       propertyPath: '_picedItems.Array.data[3]'
       value: 
       objectReference: {fileID: 61833682}
+    - target: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: '_startItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e177735a2f0ea3b4ebc77b4d9bea36c3, type: 2}
+    - target: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
+      propertyPath: '_startItems.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: db5a73d4ac5325e49b20329004f11fe5, type: 2}
     - target: {fileID: 8817640122396092476, guid: ac309359e8a6a654b9602de6b7bbb0e0, type: 3}
       propertyPath: '_toolsImages.Array.data[0]'
       value: 
