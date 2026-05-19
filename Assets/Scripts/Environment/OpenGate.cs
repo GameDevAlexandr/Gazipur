@@ -14,11 +14,13 @@ public class OpenGate : InteractObject
 
     Animator _animator;
     BoxCollider _boxCollider;
+    AudioSource _audioSource;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _boxCollider = GetComponent<BoxCollider>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public override void Intearct(bool isDowwn)
@@ -28,6 +30,7 @@ public class OpenGate : InteractObject
             _animator.enabled = true;
             _effect.enabled = false;
             _boxCollider.enabled = false;
+            _audioSource.Play();
         }
         else
         {

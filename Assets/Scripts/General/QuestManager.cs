@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private GameObject _blueprintPanel;
     [SerializeField] private GameObject _filterPlace;
     [SerializeField] private GameObject _filterObject;
+    [SerializeField] private GameObject winPanel;
     [SerializeField] private Toggle _medecineCheckBox;
     [Inject] Inventory _inventory;
     [Inject] DialogManager _dialog;
@@ -74,9 +75,9 @@ public class QuestManager : MonoBehaviour
     }
     public void CompleteFilter()
     {
+        winPanel.SetActive(true);
         _blueprintPanel.SetActive(false);
         _filterPlace.SetActive(true);
         QuestsState[Quests.filter] = 2;
     }
-
 }
