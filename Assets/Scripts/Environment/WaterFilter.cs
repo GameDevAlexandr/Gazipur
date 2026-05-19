@@ -7,7 +7,6 @@ public class WaterFilter : InteractObject
     [Inject] private DialogManager _dialog;
     [Inject] private QuestManager _quest;
     [Inject] HoldProgressBar _holdBar;
-    [Inject] GameModeManager _mode;
 
     [SerializeField] private FilterBlueprint _blueprint;
     public override void Intearct(bool isDown)
@@ -37,6 +36,6 @@ public class WaterFilter : InteractObject
     }
     private void Finish()
     {
-        //_mode.ChangeMode(EnumData.GameMode.die);
+        _quest.CompleteFilter();
     }
 }

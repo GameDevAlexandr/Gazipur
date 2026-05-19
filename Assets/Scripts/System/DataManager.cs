@@ -6,6 +6,7 @@ public class DataManager: MonoBehaviour
 {
     [SerializeField] private Text _moneyCount;
     [SerializeField] private Text _moneyToInventoryText;
+    [SerializeField] private int _startMoney;
 
     public System.Action onChangeMoney;
     public int Money { get; private set; }
@@ -27,6 +28,10 @@ public class DataManager: MonoBehaviour
     {
         public int index =-1;
         public int count = 0;
+    }
+    private void Start()
+    {
+        ChangeMoney(_startMoney);
     }
     public void UpdateInventoryCell(int cellIndex, int itemIndex ,int count)
     {
