@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _crouchSpeed = 2.5f;
     [SerializeField] private float _jumpHeight = 2f;
     [SerializeField] private float _gravity = 20f;
+    [SerializeField] private AudioSource _jumpSource;    
 
     [Header("Crouch Settings")]
     [SerializeField] private float _crouchHeight = 0.5f;
@@ -252,6 +253,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _velocity.y = Mathf.Sqrt(_jumpHeight * 2f * _gravity);
             _hasJumped = true;
+            _jumpSource.Play();
         }
 
         if (CheckIfGrounded() && _velocity.y <= 0)
