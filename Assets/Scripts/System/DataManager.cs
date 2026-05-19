@@ -60,6 +60,6 @@ public class DataManager: MonoBehaviour
     }
     public void SetDeffoultHeroState()
     {
-        Hero = new HeroInfo() { health = 100, hunger = 100, thirst = 100 };
+        Hero = new HeroInfo() { health = 100, hunger = 50, thirst = 50 };
     }
 }

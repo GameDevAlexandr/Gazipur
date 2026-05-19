@@ -15,7 +15,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Image _weightBar;         
     [SerializeField] private Text _inventoryWeightText;         
     [SerializeField] private Text _cargoPriceText;         
-    [SerializeField] private Text _inventoryCargoPriceText;         
+    [SerializeField] private Text _inventoryCargoPriceText;
+    [SerializeField] private ItemData[] _startItems;
     [SerializeField] private InventoryCell[] _cells;
     [SerializeField] private FastCell[] _fastCells;
     [SerializeField] private PickedItemUI[] _picedItems;
@@ -44,6 +45,10 @@ public class Inventory : MonoBehaviour
             }                 
         };
         _control.OnFastSlotUse += UseFastSlot;
+        foreach (var item in _startItems)
+        {
+            AddItem(item, 1);
+        }
     }
     public int AddItem(ItemData item, int count)
     {
