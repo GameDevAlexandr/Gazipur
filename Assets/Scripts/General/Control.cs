@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Control : MonoBehaviour
 {
-    public static Action<Vector2> OnMouseDownInObject;
-    public static Action<InteractObject> OnSelectObject;
-    public static Action OnInteractObject;        // Короткое нажатие E (Tap)
-    public static Action<bool> OnHoldInteract;   // Длинное нажатие E (Hold)
-    public static Action OnOpenInventory;
-    public static Action OnEsc;
-    public static Action<int> OnFastSlotUse;
+    public Action<Vector2> OnMouseDownInObject;
+    public Action<InteractObject> OnSelectObject;
+    public Action OnInteractObject;        // Короткое нажатие E (Tap)
+    public Action<bool> OnHoldInteract;   // Длинное нажатие E (Hold)
+    public Action OnOpenInventory;
+    public Action OnEsc;
+    public Action<int> OnFastSlotUse;
 
     private PlayerInputActions inputActions;
     private bool isHoldInProgress = false;
@@ -26,9 +26,8 @@ public class Control : MonoBehaviour
         inputActions.Enable();
 
         inputActions.Player.Interact.performed += OnInteractPerformed;
-        inputActions.Player.HoldInteract.started +=cnt => OnHoldInteract(true); 
-        inputActions.Player.HoldInteract.canceled += cnt => OnHoldInteract(false);
-        inputActions.Player.HoldInteract.performed += OnHoldInteractPerformed;
+        inputActions.Player.HoldInteract.started += cnt => OnHoldInteract?.Invoke(true); 
+        inputActions.Player.HoldInteract.canceled += cnt => OnHoldInteract?.Invoke(false);
 
         inputActions.Player.Inventory.performed += OnInventoryButtonPressed;
         inputActions.Player.Escape.performed += OnEscape;
@@ -40,22 +39,22 @@ public class Control : MonoBehaviour
         inputActions.Player.Slot5.performed += OnSlot5Performed;
     }
 
-    private void OnDisable()
-    {
-        inputActions.Player.Interact.performed -= OnInteractPerformed;
-        inputActions.Player.HoldInteract.performed -= OnHoldInteractPerformed;
+    //private void OnDisable()
+    //{
+    //    inputActions.Player.Interact.performed -= OnInteractPerformed;
+    //    inputActions.Player.HoldInteract.performed -= OnHoldInteractPerformed;
 
-        inputActions.Player.Inventory.performed -= OnInventoryButtonPressed;
-        inputActions.Player.Escape.performed -= OnEscape;
+    //    inputActions.Player.Inventory.performed -= OnInventoryButtonPressed;
+    //    inputActions.Player.Escape.performed -= OnEscape;
 
-        inputActions.Player.Slot1.performed -= OnSlot1Performed;
-        inputActions.Player.Slot2.performed -= OnSlot2Performed;
-        inputActions.Player.Slot3.performed -= OnSlot3Performed;
-        inputActions.Player.Slot4.performed -= OnSlot4Performed;
-        inputActions.Player.Slot5.performed -= OnSlot5Performed;
+    //    inputActions.Player.Slot1.performed -= OnSlot1Performed;
+    //    inputActions.Player.Slot2.performed -= OnSlot2Performed;
+    //    inputActions.Player.Slot3.performed -= OnSlot3Performed;
+    //    inputActions.Player.Slot4.performed -= OnSlot4Performed;
+    //    inputActions.Player.Slot5.performed -= OnSlot5Performed;
 
-        inputActions.Disable();
-    }
+    //    inputActions.Disable();
+    //}
 
     private void Update()
     {
@@ -79,14 +78,12 @@ public class Control : MonoBehaviour
 
         return null;
     }
-   
 
-    // Срабатывает, когда кнопка удержана достаточно долго (по настройкам Input System)
-    // Само действие обрабатывается через OnHoldComplete из прогресс-бара
-    private void OnHoldInteractPerformed(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Control: Удержание Е выполнено (достигнута длительность)");
-    }
+
+    private void OnHoldInteractStart(InputAction.CallbackContext context) => OnHoldInteract(true);
+
+    private void OnHoldInteractCancel(InputAction.CallbackContext context) => OnHoldInteract(false);
+
 
     // Короткое нажатие игнорируется, если игрок в процессе удержания
     private void OnInteractPerformed(InputAction.CallbackContext context)

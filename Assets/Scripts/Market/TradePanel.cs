@@ -14,7 +14,7 @@ public class TradePanel : MonoBehaviour
     private int _sellCount;
     private InventoryCell _cell;
     [Inject] private DataManager _data;
-    [Inject] private GameModeManager _gameMode;
+    [Inject] private DialogManager _dialog;
     [Inject] private Sounds _sounds;
     private void Start()
     {
@@ -55,6 +55,10 @@ public class TradePanel : MonoBehaviour
         _priceText.text = (_sellCount * _price).ToString();
         _sellCountText.text = _sellCount.ToString();
         _curCountText.text = (_count - _sellCount).ToString();
+    }
+    private void OnDisable()
+    {
+        _dialog.Remarks.StartRemark(EnumData.RemarksType.rohulHelp);
     }
 }
 

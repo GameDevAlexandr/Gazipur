@@ -14,7 +14,7 @@ public class GarbageObject : InteractObject
     private List<ItemData> _items = new List<ItemData>();
     private int _count;
     [Inject] private HoldProgressBar _holdBar;
-    [Inject] private Inventory _inventory;
+    [Inject] protected Inventory _inventory;
     [Inject] private Sounds _sounds;
 
     [System.Serializable]

@@ -8,7 +8,6 @@ public class DangerGarbageObject : GarbageObject
     [SerializeField] private int _damageChance = 100;
     [SerializeField] private int _damage = 10;
     [Inject] private PlayerState _player;
-    [Inject] private Inventory _inventory;
     [Inject] private DialogManager _dialog;
     protected override void PicItem()
     {

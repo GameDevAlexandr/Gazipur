@@ -6,10 +6,11 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float _interactableDistance;
     private InteractObject _selectObject;
     private bool _isSelect;
+    [Inject] Control _control;
     private void Start()
     {
-        Control.OnSelectObject += SelectObject;
-        Control.OnHoldInteract += InteractObject;
+        _control.OnSelectObject += SelectObject;
+        _control.OnHoldInteract += InteractObject;
     }
     private void SelectObject(InteractObject obj)
     {
@@ -38,7 +39,7 @@ public class PlayerInteract : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Control.OnSelectObject -= SelectObject;
-        Control.OnHoldInteract -= InteractObject;
+        _control.OnSelectObject -= SelectObject;
+        _control.OnHoldInteract -= InteractObject;
     }
 }

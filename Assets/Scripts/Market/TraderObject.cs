@@ -11,7 +11,8 @@ public class TraderObject : InteractObject
     {
         _inventory.onTakeItem += itm =>
         {
-           if(itm.ItemPrefab is ToolItem)
+            ToolItem tIt = itm.ItemPrefab as ToolItem;
+           if(tIt!=null && tIt.ToolType == EnumData.ToolsType.crowbar)
                 _dialog.StartDialog(EnumData.DialogType.traderAfterBuy);
         };
     }

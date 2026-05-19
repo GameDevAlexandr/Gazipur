@@ -56,7 +56,8 @@ public static class EnumData
         iAdult,
         rohulSelBuy,
         rohulHelp,
-        lie
+        lie,
+        firstMother
     }
     public enum FilterParts
     {

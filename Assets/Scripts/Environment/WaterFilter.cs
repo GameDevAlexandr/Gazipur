@@ -5,6 +5,7 @@ public class WaterFilter : InteractObject
 {
     [SerializeField] private float _makeTime;
     [Inject] private DialogManager _dialog;
+    [Inject] private QuestManager _quest;
     [Inject] HoldProgressBar _holdBar;
     [Inject] GameModeManager _mode;
 
@@ -16,7 +17,7 @@ public class WaterFilter : InteractObject
         {
                 _dialog.Remarks.StartRemark(EnumData.RemarksType.fewParts);
         }
-        else
+        else if(_quest.QuestsState[EnumData.Quests.healMother] == 2)
         {
             if (isDown)
             {
@@ -29,9 +30,13 @@ public class WaterFilter : InteractObject
                 _holdBar.OnHoldComplete -= Finish;
             }
         }
+        else
+        {
+            _dialog.Remarks.StartRemark(EnumData.RemarksType.firstMother);
+        }
     }
     private void Finish()
     {
-        _mode.ChangeMode(EnumData.GameMode.die);
+        //_mode.ChangeMode(EnumData.GameMode.die);
     }
 }

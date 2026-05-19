@@ -28,10 +28,11 @@ public class Inventory : MonoBehaviour
     [Inject] GameModeManager _gameMode;
     [Inject] GameManager _manager;
     [Inject] DialogManager _dialog;
+    [Inject] Control _control;
     private void Start()
     {
         HaveTools = new HashSet<ToolsType>();
-        Control.OnOpenInventory += () =>
+        _control.OnOpenInventory += () =>
         {
             if(_data.gameMode == GameMode.outdors && !_isOpen)
             {
@@ -42,7 +43,7 @@ public class Inventory : MonoBehaviour
                 _gameMode.ChangeMode(GameMode.outdors);
             }                 
         };
-        Control.OnFastSlotUse += UseFastSlot;
+        _control.OnFastSlotUse += UseFastSlot;
     }
     public int AddItem(ItemData item, int count)
     {
@@ -144,6 +145,8 @@ public class Inventory : MonoBehaviour
 
     public void UseItem(InventoryCell cell)
     {
+        if (cell.Item == null) return;
+
         IUsebleItem item = cell.Item.ItemPrefab as IUsebleItem;
         if (item != null)
         {
