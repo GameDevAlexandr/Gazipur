@@ -39,6 +39,10 @@ public class PlayerState : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
+
+            if (_data.gameMode != EnumData.GameMode.outdors)
+                continue;
+
             _info.hunger -= _hungerPerSecond;
             _info.thirst -= _thirstPerSecond;
             if(_info.hunger <= 0 || _info.thirst <= 0)

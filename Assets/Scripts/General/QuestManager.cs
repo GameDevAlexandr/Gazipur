@@ -75,6 +75,7 @@ public class QuestManager : MonoBehaviour
     }
     public void CompleteFilter()
     {
+        _mode.ChangeMode(GameMode.otherPanels);
         winPanel.SetActive(true);
         _blueprintPanel.SetActive(false);
         _filterPlace.SetActive(true);
