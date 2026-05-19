@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
   outlineMode: 0
-  outlineColor: {r: 0.101326115, g: 0.9339623, b: 0.46416143, a: 1}
-  outlineWidth: 4
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -105,8 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eaf020038c2c441819580b90cbcc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GarbageObject
-  _tooltipeText: "\u0423\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0439 \"\u0415\""
+  _tooltipeText: "\"\u0415\" \u0438\u043B\u0438 \"\u041B\u041A\u041C\""
   _holdTaime: 1
+  _pickSound: 0
   _ItemsCount: {x: 6, y: 10}
   _dropChances:
   - item: {fileID: 11400000, guid: b25fb9918e8f7114f90043decec8e4f1, type: 2}
