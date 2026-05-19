@@ -19,7 +19,7 @@ public class LocationChanger : MonoBehaviour
             {
                 case "AreaVillage":
                     _sounds.ChangeBackground(_sounds.Background[0]);
-                    _locationText.text = "Деревня";
+                    _locationText.text = "Сурьятал";
                     break;
 
                 case "AreaRich":
